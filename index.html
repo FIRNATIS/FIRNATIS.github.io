@@ -6,19 +6,21 @@
 
 <title>FIRNATIS — Intelligence économique et analyse stratégique</title>
 
-<meta name="description" content="FIRNATIS organise et met en perspective les informations utiles à la compréhension des entreprises et de leur environnement pour éclairer la décision stratégique.">
+<meta name="description" content="FIRNATIS organise et met en perspective les informations essentielles sur les entreprises et leur environnement pour éclairer l'analyse et la décision stratégique.">
 
 <style>
 :root{
-  --bg:#03111c;
-  --bg2:#061827;
-  --card:rgba(10,32,48,.72);
-  --line:rgba(113,232,236,.13);
-  --line2:rgba(113,232,236,.28);
-  --text:#f5f8fb;
-  --muted:#9aafbd;
-  --cyan:#41e0e4;
-  --cyan2:#9bffff;
+  --bg:#020c15;
+  --bg2:#061725;
+  --panel:rgba(8,29,44,.72);
+  --border:rgba(104,225,232,.12);
+  --border2:rgba(104,225,232,.26);
+  --text:#f4f8fb;
+  --muted:#94aab7;
+  --cyan:#3edce3;
+  --cyan2:#9cffff;
+  --blue:#48aef0;
+  --france:#ffd66b;
   --max:1200px;
 }
 
@@ -31,8 +33,7 @@ body{
   overflow-x:hidden;
   color:var(--text);
   background:
-    radial-gradient(circle at 75% 4%,rgba(23,132,156,.15),transparent 28%),
-    radial-gradient(circle at 18% 35%,rgba(24,106,130,.07),transparent 30%),
+    radial-gradient(circle at 78% 5%,rgba(31,139,170,.13),transparent 28%),
     linear-gradient(180deg,#04131f 0%,#020b13 100%);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.6;
@@ -48,24 +49,24 @@ a{
   margin:auto;
 }
 
-/* NAV */
+/* NAVIGATION */
 
 header{
   position:fixed;
-  z-index:1000;
   top:0;
   left:0;
   width:100%;
-  background:rgba(3,17,28,.72);
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  background:rgba(2,12,21,.78);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.045);
 }
 
 nav{
   height:72px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
@@ -74,44 +75,38 @@ nav{
   font-size:.95rem;
 }
 
-.logo b{color:var(--cyan)}
+.logo span{color:var(--cyan)}
 
 .navlinks{
   display:flex;
-  gap:28px;
   align-items:center;
-  color:#a7bac5;
+  gap:28px;
+  color:#9fb2be;
   font-size:.82rem;
 }
 
-.navlinks a:hover{color:white}
+.navlinks a:hover{color:#fff}
 
-.navbutton{
-  padding:9px 15px;
-  border:1px solid rgba(65,224,228,.38);
+.navcta{
+  border:1px solid rgba(62,220,227,.4);
+  padding:9px 16px;
   border-radius:7px;
-  color:#e8ffff!important;
+  color:#efffff!important;
 }
 
 /* HERO */
 
 .hero{
-  position:relative;
-  min-height:820px;
+  min-height:850px;
+  padding-top:105px;
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:.92fr 1.08fr;
   align-items:center;
-  gap:35px;
-  padding-top:100px;
+  gap:15px;
 }
 
-.hero-copy{
-  position:relative;
-  z-index:20;
-}
-
-.kicker,
-.section-kicker{
+.eyebrow,
+.section-label{
   color:var(--cyan);
   text-transform:uppercase;
   letter-spacing:.19em;
@@ -121,487 +116,167 @@ nav{
 
 .hero h1{
   margin:18px 0 0;
-  font-size:clamp(4.6rem,7vw,7.2rem);
+  font-size:clamp(4.6rem,7vw,7rem);
   letter-spacing:-.07em;
   line-height:.86;
 }
 
 .hero h2{
-  margin:31px 0 0;
-  max-width:660px;
-  font-size:clamp(1.75rem,3vw,3rem);
-  letter-spacing:-.045em;
+  margin:30px 0 0;
+  max-width:610px;
+  font-size:clamp(1.8rem,3vw,3rem);
   line-height:1.08;
-  font-weight:520;
+  letter-spacing:-.045em;
+  font-weight:500;
 }
 
 .hero h2 span{color:var(--cyan)}
 
-.hero p{
-  max-width:610px;
-  margin:27px 0 32px;
+.hero-copy{
+  max-width:600px;
+  margin:27px 0 33px;
   color:var(--muted);
   font-size:1rem;
 }
 
-.buttons{
+.actions{
   display:flex;
-  gap:12px;
   flex-wrap:wrap;
+  gap:12px;
 }
 
-.btn{
+.button{
   min-height:49px;
   padding:0 21px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  border-radius:7px;
   border:1px solid rgba(255,255,255,.12);
+  border-radius:7px;
   font-size:.86rem;
   font-weight:750;
-  transition:.25s;
+  transition:.25s ease;
 }
 
-.btn:hover{
+.button:hover{
   transform:translateY(-2px);
 }
 
 .primary{
   background:var(--cyan);
-  color:#021418;
+  color:#021317;
   border-color:var(--cyan);
-  box-shadow:0 10px 40px rgba(65,224,228,.14);
+  box-shadow:0 10px 35px rgba(62,220,227,.14);
 }
 
 .secondary{
   background:rgba(255,255,255,.025);
 }
 
-.microproof{
-  margin-top:43px;
+.proofs{
   display:flex;
-  gap:25px;
   flex-wrap:wrap;
-  color:#90a6b3;
+  gap:24px;
+  margin-top:42px;
+  color:#91a8b4;
   font-size:.72rem;
 }
 
-.microproof span:before{
+.proofs span::before{
   content:"●";
   margin-right:8px;
   color:var(--cyan);
-  font-size:.55rem;
+  font-size:.5rem;
 }
 
-/* ==================================================
-   ANIMATED 3D GLOBE
-   ================================================== */
+/* =========================================================
+   REAL ANIMATED EARTH — CANVAS
+   ========================================================= */
 
-.globe-stage{
+.earth-stage{
   position:relative;
-  height:650px;
+  width:100%;
+  height:670px;
   display:flex;
   align-items:center;
   justify-content:center;
-  perspective:1000px;
+  overflow:visible;
 }
 
-.globe-light{
-  position:absolute;
-  width:580px;
-  height:580px;
-  border-radius:50%;
-  background:radial-gradient(circle,
-    rgba(42,210,225,.15),
-    rgba(15,106,150,.06) 45%,
-    transparent 70%);
-  filter:blur(30px);
-  animation:breathe 5s ease-in-out infinite;
-}
-
-.globe-wrap{
-  width:440px;
-  height:440px;
-  position:relative;
-  transform-style:preserve-3d;
-}
-
-.globe{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  border-radius:50%;
-  border:1px solid rgba(104,240,244,.48);
-  background:
-    radial-gradient(circle at 32% 25%,
-      rgba(111,250,250,.16),
-      rgba(15,88,115,.15) 30%,
-      rgba(4,26,41,.88) 68%,
-      #020b12 100%);
-  box-shadow:
-    inset -65px -25px 90px rgba(0,0,0,.75),
-    inset 30px 10px 55px rgba(75,236,240,.08),
-    0 0 80px rgba(50,210,225,.14);
-}
-
-.globe-shine{
-  position:absolute;
-  inset:0;
-  z-index:20;
-  border-radius:50%;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 30% 22%,
-      rgba(255,255,255,.10),
-      transparent 22%),
-    linear-gradient(90deg,
-      rgba(3,14,23,.2),
-      transparent 45%,
-      rgba(0,0,0,.35));
-}
-
-/* moving longitude field */
-
-.meridians{
-  position:absolute;
-  inset:-10%;
-  animation:rotateField 22s linear infinite;
-}
-
-.meridian{
-  position:absolute;
-  top:5%;
-  left:50%;
-  width:72%;
-  height:90%;
-  border:1px solid rgba(78,226,234,.13);
-  border-radius:50%;
-  transform:translateX(-50%);
-}
-
-.m1{transform:translateX(-50%) scaleX(.18)}
-.m2{transform:translateX(-50%) scaleX(.38)}
-.m3{transform:translateX(-50%) scaleX(.62)}
-.m4{transform:translateX(-50%) scaleX(.84)}
-.m5{transform:translateX(-50%) scaleX(1.08)}
-
-/* latitudes */
-
-.latitude{
-  position:absolute;
-  left:8%;
-  width:84%;
-  border:1px solid rgba(77,225,232,.12);
-  border-radius:50%;
-}
-
-.lat1{top:18%;height:19%}
-.lat2{top:32%;height:25%}
-.lat3{top:45%;height:12%}
-.lat4{top:55%;height:25%}
-.lat5{top:69%;height:18%}
-
-/* abstract continents */
-
-.land{
-  position:absolute;
-  z-index:5;
-  background:
-    linear-gradient(135deg,
-      rgba(62,218,222,.33),
-      rgba(24,126,154,.14));
-  filter:drop-shadow(0 0 9px rgba(65,224,228,.18));
-  animation:landMove 18s ease-in-out infinite alternate;
-}
-
-.europe{
-  width:90px;
-  height:85px;
-  left:46%;
-  top:25%;
-  clip-path:polygon(
-    4% 25%,18% 8%,35% 12%,43% 0%,55% 15%,73% 10%,
-    89% 29%,78% 42%,100% 53%,79% 66%,67% 89%,
-    48% 75%,34% 100%,25% 73%,7% 66%,17% 46%,0 38%
-  );
-}
-
-.africa{
-  width:120px;
-  height:155px;
-  left:39%;
-  top:41%;
-  clip-path:polygon(
-    14% 5%,51% 0,83% 14%,100% 35%,85% 56%,
-    71% 78%,52% 100%,35% 87%,25% 67%,5% 48%,0 25%
-  );
-}
-
-.asia{
-  width:155px;
-  height:115px;
-  left:57%;
-  top:27%;
-  opacity:.8;
-  clip-path:polygon(
-    0 25%,19% 8%,43% 0,61% 11%,82% 4%,100% 24%,
-    91% 45%,100% 62%,78% 68%,68% 89%,48% 75%,
-    33% 100%,23% 68%,8% 57%
-  );
-}
-
-/* data nodes */
-
-.node{
-  position:absolute;
-  z-index:15;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:#d8ffff;
-  box-shadow:
-    0 0 6px var(--cyan),
-    0 0 18px var(--cyan);
-}
-
-.node:after{
+.earth-stage::before{
   content:"";
   position:absolute;
-  inset:-7px;
-  border-radius:50%;
-  border:1px solid rgba(65,224,228,.45);
-  animation:pulse 2.7s ease-out infinite;
-}
-
-.n1{left:44%;top:28%}
-.n2{left:59%;top:34%}
-.n3{left:67%;top:46%}
-.n4{left:51%;top:52%}
-.n5{left:38%;top:44%}
-.n6{left:46%;top:65%}
-.n7{left:62%;top:68%}
-.n8{left:29%;top:54%}
-.n9{left:73%;top:59%}
-.n10{left:53%;top:21%}
-
-/* animated connection arcs */
-
-.arc{
-  position:absolute;
-  z-index:10;
-  border-top:1px solid rgba(110,246,247,.52);
-  border-radius:50%;
-  filter:drop-shadow(0 0 4px rgba(65,224,228,.4));
-  opacity:.7;
-}
-
-.arc:after{
-  content:"";
-  position:absolute;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:white;
-  box-shadow:0 0 10px var(--cyan);
-  animation:arcPoint 3.8s linear infinite;
-}
-
-.a1{
-  width:135px;
-  height:55px;
-  left:38%;
-  top:29%;
-  transform:rotate(18deg);
-}
-
-.a2{
-  width:160px;
-  height:80px;
-  left:31%;
-  top:45%;
-  transform:rotate(-18deg);
-}
-
-.a3{
-  width:120px;
-  height:50px;
-  left:48%;
-  top:56%;
-  transform:rotate(20deg);
-}
-
-/* outer orbital rings */
-
-.orbit{
-  position:absolute;
-  left:50%;
-  top:50%;
-  border:1px solid rgba(76,224,232,.20);
-  border-radius:50%;
-  pointer-events:none;
-}
-
-.orbit1{
   width:570px;
-  height:205px;
-  margin:-102px 0 0 -285px;
-  animation:orbit1 18s linear infinite;
-}
-
-.orbit2{
-  width:540px;
-  height:245px;
-  margin:-122px 0 0 -270px;
-  animation:orbit2 23s linear infinite reverse;
-}
-
-.orbit3{
-  width:500px;
-  height:290px;
-  margin:-145px 0 0 -250px;
-  animation:orbit3 28s linear infinite;
-  opacity:.55;
-}
-
-.satellite{
-  position:absolute;
-  left:50%;
-  top:-4px;
-  width:7px;
-  height:7px;
+  height:570px;
   border-radius:50%;
-  background:#e5ffff;
-  box-shadow:
-    0 0 8px var(--cyan),
-    0 0 22px var(--cyan);
-}
-
-/* floating particles */
-
-.particle{
-  position:absolute;
-  width:3px;
-  height:3px;
-  border-radius:50%;
-  background:rgba(125,247,248,.8);
-  box-shadow:0 0 7px var(--cyan);
-  animation:particle 7s ease-in-out infinite;
-}
-
-.p1{left:8%;top:21%}
-.p2{left:89%;top:29%;animation-delay:-2s}
-.p3{left:84%;top:72%;animation-delay:-5s}
-.p4{left:15%;top:73%;animation-delay:-3s}
-.p5{left:28%;top:10%;animation-delay:-1s}
-.p6{left:73%;top:12%;animation-delay:-4s}
-
-/* holographic base */
-
-.holo-base{
-  position:absolute;
-  width:470px;
-  height:110px;
-  left:50%;
-  bottom:36px;
-  transform:translateX(-50%) perspective(400px) rotateX(69deg);
-  border:1px solid rgba(65,224,228,.17);
-  border-radius:50%;
-  box-shadow:
-    0 0 45px rgba(65,224,228,.07),
-    inset 0 0 35px rgba(65,224,228,.06);
-}
-
-.holo-base:before,
-.holo-base:after{
-  content:"";
-  position:absolute;
-  border-radius:50%;
-  border:1px solid rgba(65,224,228,.14);
-}
-
-.holo-base:before{inset:18px 50px}
-.holo-base:after{inset:36px 110px}
-
-.scan{
-  position:absolute;
-  z-index:30;
-  left:4%;
-  width:92%;
-  height:1px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(105,246,246,.75),
-    transparent
+  background:radial-gradient(
+    circle,
+    rgba(40,197,220,.13),
+    rgba(22,96,145,.05) 48%,
+    transparent 72%
   );
-  box-shadow:0 0 12px rgba(65,224,228,.5);
-  animation:scan 5s ease-in-out infinite;
+  filter:blur(25px);
+  animation:glow 5s ease-in-out infinite;
 }
 
-/* animations */
-
-@keyframes breathe{
-  0%,100%{transform:scale(.94);opacity:.55}
-  50%{transform:scale(1.05);opacity:1}
+#earthCanvas{
+  width:650px;
+  height:650px;
+  max-width:100%;
+  position:relative;
+  z-index:5;
+  filter:drop-shadow(0 0 28px rgba(43,193,220,.14));
 }
 
-@keyframes rotateField{
-  from{transform:translateX(-22px)}
-  to{transform:translateX(22px)}
+.france-label{
+  position:absolute;
+  z-index:20;
+  left:16%;
+  top:58%;
+  width:175px;
+  padding:11px 13px;
+  border:1px solid rgba(255,214,107,.4);
+  border-radius:7px;
+  background:rgba(3,16,27,.88);
+  box-shadow:0 10px 35px rgba(0,0,0,.3);
+  opacity:0;
+  transform:translateY(8px);
+  transition:.6s ease;
+  pointer-events:none;
 }
 
-@keyframes landMove{
-  from{transform:translateX(-8px)}
-  to{transform:translateX(9px)}
+.france-label.visible{
+  opacity:1;
+  transform:none;
 }
 
-@keyframes pulse{
-  0%{transform:scale(.35);opacity:.9}
-  100%{transform:scale(2.3);opacity:0}
+.france-label strong{
+  display:block;
+  color:var(--france);
+  font-size:.7rem;
+  letter-spacing:.12em;
+  margin-bottom:3px;
 }
 
-@keyframes arcPoint{
-  0%{left:0;top:-2px;opacity:0}
-  15%{opacity:1}
-  85%{opacity:1}
-  100%{left:100%;top:-2px;opacity:0}
+.france-label span{
+  display:block;
+  color:#b5c6cf;
+  font-size:.68rem;
+  line-height:1.4;
 }
 
-@keyframes orbit1{
-  from{transform:rotate(8deg)}
-  to{transform:rotate(368deg)}
-}
-
-@keyframes orbit2{
-  from{transform:rotate(-27deg)}
-  to{transform:rotate(333deg)}
-}
-
-@keyframes orbit3{
-  from{transform:rotate(62deg)}
-  to{transform:rotate(422deg)}
-}
-
-@keyframes particle{
-  0%,100%{transform:translate(0,0);opacity:.2}
-  50%{transform:translate(12px,-25px);opacity:1}
-}
-
-@keyframes scan{
-  0%,100%{top:15%;opacity:0}
-  15%{opacity:.7}
-  50%{top:78%;opacity:.8}
-  85%{opacity:.4}
+@keyframes glow{
+  0%,100%{transform:scale(.96);opacity:.65}
+  50%{transform:scale(1.04);opacity:1}
 }
 
 /* SECTIONS */
 
 section{
-  padding:115px 0;
+  padding:112px 0;
 }
 
-.section-kicker{
+.section-label{
   margin-bottom:14px;
 }
 
@@ -614,27 +289,12 @@ section{
 }
 
 .section-intro{
-  max-width:730px;
+  max-width:740px;
   margin:0 0 55px;
   color:var(--muted);
 }
 
-/* CAPABILITIES */
-
-.capabilities{
-  position:relative;
-}
-
-.capabilities:before{
-  content:"";
-  position:absolute;
-  width:600px;
-  height:600px;
-  right:-350px;
-  top:0;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(65,224,228,.045),transparent 65%);
-}
+/* CARDS */
 
 .cards{
   display:grid;
@@ -644,29 +304,28 @@ section{
 
 .card{
   position:relative;
-  min-height:240px;
-  padding:30px;
   overflow:hidden;
+  min-height:235px;
+  padding:30px;
   border:1px solid rgba(255,255,255,.075);
   border-radius:15px;
   background:
-    linear-gradient(145deg,rgba(13,39,56,.75),rgba(5,21,33,.55));
+    linear-gradient(145deg,rgba(13,39,56,.72),rgba(5,21,33,.55));
   transition:.3s ease;
 }
 
-.card:before{
+.card::before{
   content:"";
   position:absolute;
-  width:170px;
-  height:170px;
-  right:-100px;
+  width:160px;
+  height:160px;
   top:-100px;
+  right:-90px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(65,224,228,.10),transparent 68%);
-  transition:.35s;
+  background:radial-gradient(circle,rgba(62,220,227,.10),transparent 68%);
 }
 
-.card:after{
+.card::after{
   content:"";
   position:absolute;
   left:0;
@@ -678,88 +337,84 @@ section{
 }
 
 .card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(65,224,228,.25);
-  box-shadow:0 22px 60px rgba(0,0,0,.16);
+  transform:translateY(-6px);
+  border-color:rgba(62,220,227,.25);
 }
 
-.card:hover:after{width:100%}
+.card:hover::after{width:100%}
 
-.number{
+.card-number{
   display:block;
-  margin-bottom:42px;
+  margin-bottom:39px;
   color:var(--cyan);
-  font-size:.7rem;
+  font-size:.68rem;
   font-weight:800;
 }
 
 .card h3{
-  margin:0 0 12px;
+  margin:0 0 11px;
   font-size:1rem;
   text-transform:uppercase;
-  letter-spacing:.025em;
 }
 
 .card p{
   margin:0;
   color:var(--muted);
-  font-size:.91rem;
+  font-size:.9rem;
 }
 
-/* FLOW */
+/* PROCESS */
 
-.flow-section{
+.process{
   border-top:1px solid rgba(255,255,255,.055);
   border-bottom:1px solid rgba(255,255,255,.055);
   background:rgba(255,255,255,.012);
 }
 
-.flow{
+.steps{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:0;
   margin-top:55px;
 }
 
-.flow-item{
+.step{
   position:relative;
-  padding:26px 28px 10px 0;
+  padding:25px 27px 15px 0;
 }
 
-.flow-item:not(:last-child):after{
+.step:not(:last-child)::after{
   content:"";
   position:absolute;
   right:16px;
-  top:38px;
+  top:37px;
   width:38px;
   height:1px;
-  background:linear-gradient(90deg,rgba(65,224,228,.15),var(--cyan));
+  background:linear-gradient(90deg,rgba(62,220,227,.15),var(--cyan));
 }
 
-.flow-dot{
-  width:23px;
-  height:23px;
+.step-number{
+  width:24px;
+  height:24px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border:1px solid rgba(65,224,228,.5);
-  border-radius:50%;
   margin-bottom:22px;
+  border:1px solid rgba(62,220,227,.5);
+  border-radius:50%;
   color:var(--cyan);
-  font-size:.6rem;
-  box-shadow:0 0 18px rgba(65,224,228,.07);
+  font-size:.61rem;
 }
 
-.flow-item h3{
-  font-size:.91rem;
-  letter-spacing:.06em;
+.step h3{
   margin:0 0 9px;
+  font-size:.91rem;
+  letter-spacing:.055em;
 }
 
-.flow-item p{
+.step p{
+  margin:0;
   color:var(--muted);
   font-size:.86rem;
-  margin:0;
 }
 
 /* ANALYSIS */
@@ -771,45 +426,44 @@ section{
 }
 
 .feature{
-  border-top:1px solid rgba(255,255,255,.10);
+  border-top:1px solid rgba(255,255,255,.1);
   padding-top:23px;
 }
 
 .feature h3{
   margin:0 0 10px;
-  font-size:1rem;
 }
 
 .feature p{
-  color:var(--muted);
   margin:0;
+  color:var(--muted);
 }
 
 /* SIGNAL */
 
 .signal-box{
+  padding:72px;
   position:relative;
   overflow:hidden;
-  padding:75px;
+  border:1px solid rgba(62,220,227,.2);
   border-radius:20px;
-  border:1px solid rgba(65,224,228,.20);
   background:
-    radial-gradient(circle at 92% 5%,rgba(65,224,228,.08),transparent 28%),
-    linear-gradient(135deg,rgba(13,45,61,.74),rgba(5,20,31,.78));
+    radial-gradient(circle at 94% 4%,rgba(62,220,227,.08),transparent 27%),
+    linear-gradient(135deg,rgba(13,45,61,.72),rgba(5,20,31,.78));
 }
 
 .signal-box h2{
-  max-width:760px;
-  font-size:clamp(2.3rem,4vw,4.2rem);
-  letter-spacing:-.055em;
-  line-height:1;
+  max-width:750px;
   margin:0 0 22px;
+  font-size:clamp(2.3rem,4vw,4.1rem);
+  line-height:1;
+  letter-spacing:-.055em;
 }
 
 .signal-box>p{
   max-width:720px;
+  margin-bottom:46px;
   color:var(--muted);
-  margin-bottom:48px;
 }
 
 .signal-grid{
@@ -818,17 +472,17 @@ section{
   gap:32px;
 }
 
-.signal-item{
+.signal{
   border-top:1px solid rgba(255,255,255,.11);
-  padding-top:20px;
+  padding-top:19px;
 }
 
-.signal-item strong{
+.signal strong{
   display:block;
   margin-bottom:8px;
 }
 
-.signal-item span{
+.signal span{
   color:var(--muted);
   font-size:.87rem;
 }
@@ -842,21 +496,19 @@ section{
 }
 
 .use{
-  padding:34px;
+  padding:33px;
   border:1px solid transparent;
   border-bottom-color:rgba(255,255,255,.08);
   transition:.3s;
 }
 
 .use:hover{
-  border-color:rgba(65,224,228,.16);
+  border-color:rgba(62,220,227,.16);
   border-radius:12px;
   background:rgba(255,255,255,.018);
 }
 
-.use h3{
-  margin:0 0 8px;
-}
+.use h3{margin:0 0 8px}
 
 .use p{
   margin:0;
@@ -866,9 +518,9 @@ section{
 /* INTERNATIONAL */
 
 .international{
-  text-align:center;
   max-width:850px;
   margin:auto;
+  text-align:center;
 }
 
 .international .section-title,
@@ -877,41 +529,41 @@ section{
   margin-right:auto;
 }
 
-.network-line{
-  height:110px;
+.network{
   position:relative;
-  margin-top:40px;
+  height:120px;
+  margin-top:35px;
 }
 
-.network-line:before{
+.network::before{
   content:"";
   position:absolute;
   left:5%;
   right:5%;
-  top:54px;
+  top:59px;
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(65,224,228,.4),transparent);
+  background:linear-gradient(90deg,transparent,rgba(62,220,227,.45),transparent);
 }
 
-.network-point{
+.net-dot{
   position:absolute;
-  top:51px;
+  top:56px;
   width:7px;
   height:7px;
   border-radius:50%;
   background:var(--cyan);
-  box-shadow:0 0 15px var(--cyan);
+  box-shadow:0 0 14px var(--cyan);
 }
 
-.x1{left:12%}
-.x2{left:31%}
-.x3{left:50%}
-.x4{left:69%}
-.x5{left:87%}
+.nd1{left:12%}
+.nd2{left:31%}
+.nd3{left:50%}
+.nd4{left:69%}
+.nd5{left:87%}
 
-.moving-light{
+.net-light{
   position:absolute;
-  top:53px;
+  top:58px;
   width:100px;
   height:2px;
   left:-110px;
@@ -934,16 +586,14 @@ section{
 }
 
 .trust h2{
-  margin:0 auto 22px;
   max-width:900px;
-  font-size:clamp(2.7rem,5vw,5.3rem);
+  margin:0 auto 22px;
+  font-size:clamp(2.7rem,5vw,5rem);
   line-height:.98;
   letter-spacing:-.06em;
 }
 
-.trust h2 span{
-  color:var(--cyan);
-}
+.trust h2 span{color:var(--cyan)}
 
 .trust p{
   max-width:720px;
@@ -951,17 +601,17 @@ section{
   color:var(--muted);
 }
 
-/* CTA */
+/* FINAL */
 
 .final{
+  padding:135px 0;
   text-align:center;
-  padding:140px 0;
 }
 
 .final h2{
-  max-width:920px;
+  max-width:900px;
   margin:0 auto 24px;
-  font-size:clamp(2.7rem,5vw,5.1rem);
+  font-size:clamp(2.7rem,5vw,5rem);
   line-height:.98;
   letter-spacing:-.06em;
 }
@@ -972,11 +622,9 @@ section{
   color:var(--muted);
 }
 
-/* FOOTER */
-
 footer{
-  border-top:1px solid rgba(255,255,255,.06);
   padding:32px 0;
+  border-top:1px solid rgba(255,255,255,.06);
   color:#748995;
   font-size:.76rem;
 }
@@ -986,12 +634,12 @@ footer{
   justify-content:space-between;
 }
 
-/* REVEAL */
+/* SCROLL REVEAL */
 
 .reveal{
   opacity:0;
-  transform:translateY(24px);
-  transition:opacity .8s ease,transform .8s ease;
+  transform:translateY(22px);
+  transition:opacity .75s ease,transform .75s ease;
 }
 
 .reveal.visible{
@@ -1001,76 +649,47 @@ footer{
 
 /* RESPONSIVE */
 
-@media(max-width:950px){
-
+@media(max-width:960px){
   .hero{
     grid-template-columns:1fr;
     padding-top:145px;
   }
 
-  .globe-stage{
-    height:580px;
+  .earth-stage{
+    height:620px;
   }
 
-  .cards{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .flow{
-    grid-template-columns:1fr;
-  }
-
-  .flow-item:not(:last-child):after{
-    display:none;
-  }
-
-  .three,
-  .signal-grid{
-    grid-template-columns:1fr;
-  }
+  .cards{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .step:not(:last-child)::after{display:none}
+  .three,.signal-grid{grid-template-columns:1fr}
 }
 
 @media(max-width:650px){
-
   .container{
     width:min(calc(100% - 30px),var(--max));
   }
 
-  .navlinks{
-    display:none;
+  .navlinks{display:none}
+
+  .hero h1{font-size:4rem}
+  .hero h2{font-size:1.8rem}
+
+  .earth-stage{
+    height:430px;
+    margin:0 -30px;
   }
 
-  .hero{
-    min-height:auto;
-    padding-top:125px;
+  .france-label{
+    left:6%;
+    top:62%;
   }
 
-  .hero h1{
-    font-size:4rem;
-  }
+  section{padding:80px 0}
 
-  .hero h2{
-    font-size:1.85rem;
-  }
+  .cards,.use-grid{grid-template-columns:1fr}
 
-  .globe-stage{
-    height:440px;
-    margin:0 -70px;
-    transform:scale(.72);
-  }
-
-  section{
-    padding:82px 0;
-  }
-
-  .cards,
-  .use-grid{
-    grid-template-columns:1fr;
-  }
-
-  .signal-box{
-    padding:40px 25px;
-  }
+  .signal-box{padding:39px 25px}
 
   .footer{
     flex-direction:column;
@@ -1080,14 +699,7 @@ footer{
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-
-  *,
-  *:before,
-  *:after{
-    animation-duration:.001ms!important;
-    animation-iteration-count:1!important;
-    transition:none!important;
-  }
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -1097,30 +709,26 @@ footer{
 <header>
 <div class="container">
 <nav>
-  <a href="#top" class="logo">FIRNATIS<b>.</b></a>
+<a class="logo" href="#top">FIRNATIS<span>.</span></a>
 
-  <div class="navlinks">
-    <a href="#capacites">Capacités</a>
-    <a href="#approche">Approche</a>
-    <a href="#usages">Usages</a>
-    <a href="#principes">Principes</a>
-    <a href="#capacites" class="navbutton">Découvrir FIRNATIS →</a>
-  </div>
+<div class="navlinks">
+<a href="#capacites">Capacités</a>
+<a href="#approche">Approche</a>
+<a href="#usages">Usages</a>
+<a href="#principes">Principes</a>
+<a class="navcta" href="#capacites">Découvrir FIRNATIS →</a>
+</div>
 </nav>
 </div>
 </header>
 
 <main id="top">
 
-<!-- HERO -->
-
 <div class="container">
-
 <div class="hero">
 
-<div class="hero-copy">
-
-<div class="kicker">
+<div>
+<div class="eyebrow">
 INTELLIGENCE ÉCONOMIQUE · ANALYSE STRATÉGIQUE
 </div>
 
@@ -1131,113 +739,45 @@ Comprendre aujourd'hui.<br>
 Éclairer les <span>décisions</span> de demain.
 </h2>
 
-<p>
+<p class="hero-copy">
 FIRNATIS organise et met en perspective les informations
 essentielles sur les entreprises et leur environnement
 pour transformer la complexité informationnelle en une
 lecture utile à la décision stratégique.
 </p>
 
-<div class="buttons">
-<a class="btn primary" href="#capacites">
-Découvrir FIRNATIS →
-</a>
-
-<a class="btn secondary" href="#approche">
-Explorer les capacités
-</a>
+<div class="actions">
+<a class="button primary" href="#capacites">Découvrir FIRNATIS →</a>
+<a class="button secondary" href="#approche">Explorer les capacités</a>
 </div>
 
-<div class="microproof">
+<div class="proofs">
 <span>Information traçable</span>
 <span>Analyse explicable</span>
 <span>Vision multidimensionnelle</span>
 </div>
-
 </div>
 
-<!-- ANIMATED GLOBE -->
+<!-- VRAIE TERRE DESSINÉE ET ANIMÉE EN CANVAS -->
 
-<div class="globe-stage" aria-hidden="true">
+<div class="earth-stage">
 
-<div class="globe-light"></div>
+<canvas id="earthCanvas" width="760" height="760" aria-label="Globe terrestre animé"></canvas>
 
-<div class="particle p1"></div>
-<div class="particle p2"></div>
-<div class="particle p3"></div>
-<div class="particle p4"></div>
-<div class="particle p5"></div>
-<div class="particle p6"></div>
-
-<div class="orbit orbit1">
-<div class="satellite"></div>
+<div class="france-label" id="franceLabel">
+<strong>FRANCE</strong>
+<span>Point de référence européen</span>
 </div>
-
-<div class="orbit orbit2">
-<div class="satellite"></div>
-</div>
-
-<div class="orbit orbit3">
-<div class="satellite"></div>
-</div>
-
-<div class="globe-wrap">
-
-<div class="globe">
-
-<div class="meridians">
-<div class="meridian m1"></div>
-<div class="meridian m2"></div>
-<div class="meridian m3"></div>
-<div class="meridian m4"></div>
-<div class="meridian m5"></div>
-</div>
-
-<div class="latitude lat1"></div>
-<div class="latitude lat2"></div>
-<div class="latitude lat3"></div>
-<div class="latitude lat4"></div>
-<div class="latitude lat5"></div>
-
-<div class="land europe"></div>
-<div class="land africa"></div>
-<div class="land asia"></div>
-
-<div class="node n1"></div>
-<div class="node n2"></div>
-<div class="node n3"></div>
-<div class="node n4"></div>
-<div class="node n5"></div>
-<div class="node n6"></div>
-<div class="node n7"></div>
-<div class="node n8"></div>
-<div class="node n9"></div>
-<div class="node n10"></div>
-
-<div class="arc a1"></div>
-<div class="arc a2"></div>
-<div class="arc a3"></div>
-
-<div class="scan"></div>
-<div class="globe-shine"></div>
-
-</div>
-</div>
-
-<div class="holo-base"></div>
 
 </div>
 
 </div>
 </div>
 
-<!-- CAPABILITIES -->
-
-<section class="capabilities" id="capacites">
-
+<section id="capacites">
 <div class="container reveal">
 
-<div class="section-kicker">
+<div class="section-label">
 UNE VISION MULTIDIMENSIONNELLE DE L'ENTREPRISE
 </div>
 
@@ -1254,225 +794,155 @@ de son environnement et de ses évolutions.
 <div class="cards">
 
 <article class="card">
-<span class="number">01</span>
+<span class="card-number">01</span>
 <h3>Capital & écosystème</h3>
-<p>
-Comprendre les structures d'entreprise et les relations
-qui façonnent leur environnement économique.
-</p>
+<p>Comprendre les structures d'entreprise et les relations qui façonnent leur environnement économique.</p>
 </article>
 
 <article class="card">
-<span class="number">02</span>
+<span class="card-number">02</span>
 <h3>Innovation & propriété intellectuelle</h3>
-<p>
-Observer les dynamiques d'innovation et les actifs
-technologiques visibles.
-</p>
+<p>Observer les dynamiques d'innovation et les actifs technologiques visibles.</p>
 </article>
 
 <article class="card">
-<span class="number">03</span>
+<span class="card-number">03</span>
 <h3>Projets & financements</h3>
-<p>
-Identifier les projets, collaborations et dynamiques
-de financement pertinentes.
-</p>
+<p>Identifier les projets, collaborations et dynamiques de financement pertinentes.</p>
 </article>
 
 <article class="card">
-<span class="number">04</span>
+<span class="card-number">04</span>
 <h3>Dynamique RH</h3>
-<p>
-Observer les signaux liés aux implantations,
-aux offres d'emploi observables, aux métiers recherchés
-et aux évolutions territoriales.
-</p>
+<p>Observer les signaux liés aux implantations, aux offres d'emploi observables, aux métiers recherchés et aux évolutions territoriales.</p>
 </article>
 
 <article class="card">
-<span class="number">05</span>
+<span class="card-number">05</span>
 <h3>Risques & conformité</h3>
-<p>
-Mettre en perspective les informations utiles à
-l'identification des facteurs de vigilance.
-</p>
+<p>Mettre en perspective les informations utiles à l'identification des facteurs de vigilance.</p>
 </article>
 
 <article class="card">
-<span class="number">06</span>
+<span class="card-number">06</span>
 <h3>Signaux stratégiques</h3>
-<p>
-Faire émerger les changements qui méritent
-l'attention de l'analyste.
-</p>
+<p>Faire émerger les changements qui méritent l'attention de l'analyste.</p>
 </article>
 
 </div>
 </div>
 </section>
 
-<!-- APPROACH -->
-
-<section class="flow-section" id="approche">
-
+<section class="process" id="approche">
 <div class="container reveal">
 
-<div class="section-kicker">
-DE L'INFORMATION À LA DÉCISION
-</div>
+<div class="section-label">DE L'INFORMATION À LA DÉCISION</div>
 
 <h2 class="section-title">
 Une lecture structurée pour faire ressortir l'essentiel.
 </h2>
 
-<div class="flow">
+<div class="steps">
 
-<div class="flow-item">
-<div class="flow-dot">1</div>
+<div class="step">
+<div class="step-number">1</div>
 <h3>OBSERVER</h3>
-<p>
-Rassembler les informations pertinentes autour
-d'une entreprise et de son environnement.
-</p>
+<p>Rassembler les informations pertinentes autour d'une entreprise et de son environnement.</p>
 </div>
 
-<div class="flow-item">
-<div class="flow-dot">2</div>
+<div class="step">
+<div class="step-number">2</div>
 <h3>RELIER</h3>
-<p>
-Mettre en perspective des informations dispersées
-pour restituer une vision cohérente.
-</p>
+<p>Mettre en perspective des informations dispersées pour restituer une vision cohérente.</p>
 </div>
 
-<div class="flow-item">
-<div class="flow-dot">3</div>
+<div class="step">
+<div class="step-number">3</div>
 <h3>COMPRENDRE</h3>
-<p>
-Identifier les évolutions technologiques,
-économiques, capitalistiques et humaines.
-</p>
+<p>Identifier les évolutions technologiques, économiques, capitalistiques et humaines.</p>
 </div>
 
-<div class="flow-item">
-<div class="flow-dot">4</div>
+<div class="step">
+<div class="step-number">4</div>
 <h3>DÉTECTER</h3>
-<p>
-Faire émerger les changements et signaux
-qui méritent l'attention.
-</p>
+<p>Faire émerger les changements et signaux qui méritent l'attention.</p>
 </div>
 
-<div class="flow-item">
-<div class="flow-dot">5</div>
+<div class="step">
+<div class="step-number">5</div>
 <h3>DÉCIDER</h3>
-<p>
-Transformer l'information disponible en éléments
-mobilisables pour l'analyse stratégique.
-</p>
+<p>Transformer l'information disponible en éléments mobilisables pour l'analyse stratégique.</p>
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- ANALYSIS -->
-
 <section>
-
 <div class="container reveal">
 
-<div class="section-kicker">
-PENSÉ POUR L'ANALYSE STRATÉGIQUE
-</div>
+<div class="section-label">PENSÉ POUR L'ANALYSE STRATÉGIQUE</div>
 
 <h2 class="section-title">
 Une plateforme conçue pour éclairer, pas pour ajouter du bruit.
 </h2>
 
 <p class="section-intro">
-L'enjeu n'est plus seulement d'accéder à davantage
-d'informations. Il est d'identifier celles qui contribuent
-réellement à la compréhension d'une situation.
+L'enjeu n'est plus seulement d'accéder à davantage d'informations.
+Il est d'identifier celles qui contribuent réellement à la compréhension d'une situation.
 </p>
 
 <div class="three">
 
 <div class="feature">
 <h3>Vision consolidée</h3>
-<p>
-Réunir dans un même environnement différentes dimensions
-utiles à la compréhension d'une entreprise.
-</p>
+<p>Réunir dans un même environnement différentes dimensions utiles à la compréhension d'une entreprise.</p>
 </div>
 
 <div class="feature">
 <h3>Lecture dynamique</h3>
-<p>
-Ne pas seulement observer une situation : suivre
-les évolutions et changements significatifs dans le temps.
-</p>
+<p>Ne pas seulement observer une situation : suivre les évolutions et changements significatifs dans le temps.</p>
 </div>
 
 <div class="feature">
 <h3>Analyse explicable</h3>
-<p>
-Conserver la distinction entre les informations observées,
-leur contexte et les éléments d'analyse qui en découlent.
-</p>
+<p>Conserver la distinction entre les informations observées, leur contexte et les éléments d'analyse qui en découlent.</p>
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- SIGNAL -->
-
 <section>
-
 <div class="container reveal">
 
 <div class="signal-box">
 
-<div class="section-kicker">
-DE L'INFORMATION AU SIGNAL
-</div>
+<div class="section-label">DE L'INFORMATION AU SIGNAL</div>
 
-<h2>
-Accéder à l'information ne suffit plus.
-</h2>
+<h2>Accéder à l'information ne suffit plus.</h2>
 
 <p>
 FIRNATIS est conçu pour réduire la dispersion informationnelle,
 contextualiser les informations disponibles et faciliter
-l'identification des évolutions qui méritent réellement
-l'attention.
+l'identification des évolutions qui méritent réellement l'attention.
 </p>
 
 <div class="signal-grid">
 
-<div class="signal-item">
+<div class="signal">
 <strong>Traçabilité</strong>
-<span>
-Préserver l'origine et le contexte des informations mobilisées.
-</span>
+<span>Préserver l'origine et le contexte des informations mobilisées.</span>
 </div>
 
-<div class="signal-item">
+<div class="signal">
 <strong>Explicabilité</strong>
-<span>
-Permettre de comprendre la portée des éléments présentés
-à l'analyste.
-</span>
+<span>Permettre de comprendre la portée des éléments présentés à l'analyste.</span>
 </div>
 
-<div class="signal-item">
+<div class="signal">
 <strong>Prudence analytique</strong>
-<span>
-Distinguer les faits observés des rapprochements
-et des interprétations.
-</span>
+<span>Distinguer les faits observés des rapprochements et des interprétations.</span>
 </div>
 
 </div>
@@ -1480,15 +950,10 @@ et des interprétations.
 </div>
 </section>
 
-<!-- USE CASES -->
-
 <section id="usages">
-
 <div class="container reveal">
 
-<div class="section-kicker">
-DES CAS D'USAGE CONCRETS
-</div>
+<div class="section-label">DES CAS D'USAGE CONCRETS</div>
 
 <h2 class="section-title">
 Aller plus vite de l'information à la décision.
@@ -1498,47 +963,32 @@ Aller plus vite de l'information à la décision.
 
 <div class="use">
 <h3>Veille entreprise</h3>
-<p>
-Suivre les évolutions significatives autour d'une entreprise.
-</p>
+<p>Suivre les évolutions significatives autour d'une entreprise.</p>
 </div>
 
 <div class="use">
 <h3>Analyse concurrentielle</h3>
-<p>
-Comparer des acteurs et identifier leurs dynamiques respectives.
-</p>
+<p>Comparer des acteurs et identifier leurs dynamiques respectives.</p>
 </div>
 
 <div class="use">
 <h3>Cartographie d'écosystème</h3>
-<p>
-Comprendre les relations et interdépendances utiles
-à l'analyse d'un environnement économique.
-</p>
+<p>Comprendre les relations et interdépendances utiles à l'analyse d'un environnement économique.</p>
 </div>
 
 <div class="use">
 <h3>Anticipation stratégique</h3>
-<p>
-Identifier des signaux susceptibles d'éclairer une évolution,
-une opportunité ou un facteur de vigilance.
-</p>
+<p>Identifier des signaux susceptibles d'éclairer une évolution, une opportunité ou un facteur de vigilance.</p>
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- INTERNATIONAL -->
-
 <section>
-
 <div class="container international reveal">
 
-<div class="section-kicker">
-UNE LECTURE QUI DÉPASSE LES FRONTIÈRES
-</div>
+<div class="section-label">UNE LECTURE QUI DÉPASSE LES FRONTIÈRES</div>
 
 <h2 class="section-title">
 Comprendre l'entreprise dans son environnement international.
@@ -1551,22 +1001,19 @@ issues de différents environnements économiques et territoriaux,
 tout en conservant leur contexte et leur niveau de comparabilité.
 </p>
 
-<div class="network-line" aria-hidden="true">
-<div class="network-point x1"></div>
-<div class="network-point x2"></div>
-<div class="network-point x3"></div>
-<div class="network-point x4"></div>
-<div class="network-point x5"></div>
-<div class="moving-light"></div>
+<div class="network">
+<div class="net-dot nd1"></div>
+<div class="net-dot nd2"></div>
+<div class="net-dot nd3"></div>
+<div class="net-dot nd4"></div>
+<div class="net-dot nd5"></div>
+<div class="net-light"></div>
 </div>
 
 </div>
 </section>
 
-<!-- TRUST -->
-
 <section class="trust" id="principes">
-
 <div class="container reveal">
 
 <h2>
@@ -1576,21 +1023,18 @@ Une information traçable.<br>
 
 <p>
 FIRNATIS privilégie la traçabilité des informations,
-l'explicabilité des résultats et la distinction entre faits
-observés et éléments d'analyse afin de permettre une lecture
-rigoureuse de l'information présentée.
+l'explicabilité des résultats et la distinction entre faits observés
+et éléments d'analyse afin de permettre une lecture rigoureuse
+de l'information présentée.
 </p>
 
 </div>
 </section>
 
-<!-- FINAL -->
-
 <section class="final">
-
 <div class="container reveal">
 
-<div class="section-kicker">FIRNATIS</div>
+<div class="section-label">FIRNATIS</div>
 
 <h2>
 Voir plus clair dans un environnement informationnel complexe.
@@ -1601,9 +1045,7 @@ Une lecture structurée de l'entreprise et de son environnement
 pour soutenir la veille, l'analyse et la décision stratégique.
 </p>
 
-<a href="#top" class="btn primary">
-Découvrir FIRNATIS →
-</a>
+<a class="button primary" href="#top">Découvrir FIRNATIS →</a>
 
 </div>
 </section>
@@ -1618,52 +1060,671 @@ Découvrir FIRNATIS →
 </footer>
 
 <script>
-/* Apparition progressive des sections */
+/* ============================================================
+   FIRNATIS EARTH
+   Globe terrestre vectoriel Canvas.
+   Aucun fichier externe / aucune image / aucune bibliothèque.
+   ============================================================ */
 
-const revealObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+const canvas = document.getElementById("earthCanvas");
+const ctx = canvas.getContext("2d");
+const franceLabel = document.getElementById("franceLabel");
+
+const W = canvas.width;
+const H = canvas.height;
+
+const CX = W / 2;
+const CY = H / 2;
+const R = 260;
+
+/*
+  Continents simplifiés mais géographiquement reconnaissables.
+  Chaque polygone contient [longitude, latitude].
+*/
+
+const continents = [
+
+/* NORTH AMERICA */
+[
+[-168,72],[-150,70],[-135,58],[-128,52],[-124,42],[-117,32],
+[-108,25],[-98,20],[-90,20],[-83,25],[-80,32],[-75,40],
+[-66,46],[-60,53],[-68,60],[-82,64],[-95,72],[-120,75],
+[-145,73],[-168,72]
+],
+
+/* SOUTH AMERICA */
+[
+[-81,12],[-72,10],[-62,5],[-52,2],[-44,-8],[-38,-17],
+[-43,-25],[-50,-32],[-55,-42],[-64,-55],[-71,-52],
+[-75,-38],[-72,-25],[-77,-10],[-81,2],[-81,12]
+],
+
+/* EUROPE + ASIA */
+[
+[-10,36],[-9,44],[-3,48],[2,51],[8,54],[13,55],[18,59],
+[25,60],[30,65],[40,68],[55,70],[75,73],[100,70],
+[125,60],[145,55],[160,48],[170,55],[178,50],[170,42],
+[155,38],[140,35],[130,30],[122,24],[115,20],[108,12],
+[100,8],[91,20],[80,22],[72,30],[62,36],[52,42],
+[45,40],[38,36],[30,40],[24,38],[18,42],[12,42],
+[8,44],[3,43],[-3,42],[-10,36]
+],
+
+/* AFRICA */
+[
+[-17,35],[-5,36],[10,37],[25,32],[34,31],[42,15],
+[50,10],[44,-5],[40,-15],[32,-25],[25,-34],[18,-35],
+[12,-28],[5,-18],[-3,-5],[-10,5],[-15,18],[-17,35]
+],
+
+/* INDIA */
+[
+[68,24],[78,30],[88,25],[92,20],[86,10],[80,7],
+[76,9],[72,17],[68,24]
+],
+
+/* JAPAN */
+[
+[130,33],[136,36],[141,42],[145,44],[143,35],[138,31],[130,33]
+],
+
+/* AUSTRALIA */
+[
+[113,-22],[119,-15],[130,-12],[140,-16],[151,-24],
+[153,-35],[145,-42],[132,-43],[119,-35],[113,-22]
+],
+
+/* GREENLAND */
+[
+[-52,60],[-42,62],[-28,70],[-25,78],[-40,84],[-55,82],
+[-65,75],[-60,66],[-52,60]
+]
+];
+
+/* France polygon, intentionally separate for highlight */
+
+const france = [
+[-5.2,48.6],[-1.5,49.7],[2.5,51.0],[7.5,48.8],
+[7.2,43.7],[3.0,42.3],[-1.8,43.2],[-4.8,46.0],[-5.2,48.6]
+];
+
+/* Important world points */
+
+const locations = [
+{lon:2.35,lat:48.86,name:"Paris",france:true},
+{lon:-0.13,lat:51.50,name:"London"},
+{lon:13.40,lat:52.52,name:"Berlin"},
+{lon:8.54,lat:47.37,name:"Zurich"},
+{lon:-74.0,lat:40.71,name:"New York"},
+{lon:-122.42,lat:37.77,name:"San Francisco"},
+{lon:-46.63,lat:-23.55,name:"São Paulo"},
+{lon:18.42,lat:-33.92,name:"Cape Town"},
+{lon:55.27,lat:25.20,name:"Dubai"},
+{lon:72.88,lat:19.08,name:"Mumbai"},
+{lon:103.82,lat:1.35,name:"Singapore"},
+{lon:139.69,lat:35.68,name:"Tokyo"},
+{lon:151.21,lat:-33.87,name:"Sydney"}
+];
+
+/*
+  Connections converge toward France.
+  They are purely visual and do not claim actual Firnatis data flows.
+*/
+
+const connections = [
+[locations[4],locations[0]],
+[locations[5],locations[0]],
+[locations[6],locations[0]],
+[locations[7],locations[0]],
+[locations[8],locations[0]],
+[locations[9],locations[0]],
+[locations[10],locations[0]],
+[locations[11],locations[0]],
+[locations[12],locations[0]],
+[locations[1],locations[0]],
+[locations[2],locations[0]],
+[locations[3],locations[0]]
+];
+
+let rotation = -0.20;
+let time = 0;
+
+/* convert geographic coordinate to sphere */
+
+function spherePoint(lon,lat,rot=rotation){
+
+  const lambda=(lon*Math.PI/180)+rot;
+  const phi=lat*Math.PI/180;
+
+  const x=Math.cos(phi)*Math.sin(lambda);
+  const y=-Math.sin(phi);
+  const z=Math.cos(phi)*Math.cos(lambda);
+
+  return {
+    x:CX+x*R,
+    y:CY+y*R,
+    z,
+    sx:x,
+    sy:y
+  };
+}
+
+/* background stars */
+
+const stars = Array.from({length:110},()=>({
+  x:Math.random()*W,
+  y:Math.random()*H,
+  r:Math.random()*1.15+.2,
+  a:Math.random()*.55+.08
+}));
+
+function drawStars(){
+
+  stars.forEach((s,i)=>{
+    const flicker=.7+.3*Math.sin(time*.015+i);
+    ctx.fillStyle=`rgba(104,224,235,${s.a*flicker})`;
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fill();
+  });
+
+}
+
+/* sphere */
+
+function drawOcean(){
+
+  const g=ctx.createRadialGradient(
+    CX-R*.35,
+    CY-R*.38,
+    R*.08,
+    CX,
+    CY,
+    R
+  );
+
+  g.addColorStop(0,"#123d59");
+  g.addColorStop(.28,"#092c43");
+  g.addColorStop(.70,"#041a2a");
+  g.addColorStop(1,"#01080e");
+
+  ctx.beginPath();
+  ctx.arc(CX,CY,R,0,Math.PI*2);
+  ctx.fillStyle=g;
+  ctx.fill();
+
+  ctx.strokeStyle="rgba(91,225,238,.55)";
+  ctx.lineWidth=1.1;
+  ctx.stroke();
+
+  ctx.save();
+
+  ctx.beginPath();
+  ctx.arc(CX,CY,R,0,Math.PI*2);
+  ctx.clip();
+
+  const atmosphere=ctx.createLinearGradient(CX-R,CY,CX+R,CY);
+
+  atmosphere.addColorStop(0,"rgba(0,0,0,.42)");
+  atmosphere.addColorStop(.42,"rgba(70,211,226,.025)");
+  atmosphere.addColorStop(.7,"rgba(39,160,194,.04)");
+  atmosphere.addColorStop(1,"rgba(0,0,0,.62)");
+
+  ctx.fillStyle=atmosphere;
+  ctx.fillRect(CX-R,CY-R,R*2,R*2);
+
+  ctx.restore();
+
+  ctx.shadowColor="rgba(58,210,225,.35)";
+  ctx.shadowBlur=28;
+
+  ctx.beginPath();
+  ctx.arc(CX,CY,R+1,0,Math.PI*2);
+  ctx.strokeStyle="rgba(74,222,236,.28)";
+  ctx.stroke();
+
+  ctx.shadowBlur=0;
+}
+
+/* latitude / longitude grid */
+
+function drawGrid(){
+
+  ctx.save();
+
+  ctx.beginPath();
+  ctx.arc(CX,CY,R,0,Math.PI*2);
+  ctx.clip();
+
+  ctx.strokeStyle="rgba(83,207,220,.095)";
+  ctx.lineWidth=.7;
+
+  /* latitude */
+
+  for(let lat=-60;lat<=60;lat+=20){
+
+    ctx.beginPath();
+
+    let started=false;
+
+    for(let lon=-180;lon<=180;lon+=3){
+
+      const p=spherePoint(lon,lat);
+
+      if(p.z>0){
+
+        if(!started){
+          ctx.moveTo(p.x,p.y);
+          started=true;
+        }else{
+          ctx.lineTo(p.x,p.y);
+        }
+
+      }else{
+        started=false;
+      }
+    }
+
+    ctx.stroke();
+  }
+
+  /* longitude */
+
+  for(let lon=-180;lon<180;lon+=20){
+
+    ctx.beginPath();
+
+    let started=false;
+
+    for(let lat=-90;lat<=90;lat+=2){
+
+      const p=spherePoint(lon,lat);
+
+      if(p.z>0){
+
+        if(!started){
+          ctx.moveTo(p.x,p.y);
+          started=true;
+        }else{
+          ctx.lineTo(p.x,p.y);
+        }
+
+      }else{
+        started=false;
+      }
+    }
+
+    ctx.stroke();
+  }
+
+  ctx.restore();
+}
+
+/* draw geographic polygon */
+
+function drawGeoPolygon(poly,fill,stroke,width=1){
+
+  const points=poly.map(([lon,lat])=>spherePoint(lon,lat));
+
+  /*
+    Do not draw polygons mostly behind globe.
+  */
+
+  const visible=points.filter(p=>p.z>0);
+
+  if(visible.length<3)return;
+
+  ctx.save();
+
+  ctx.beginPath();
+  ctx.arc(CX,CY,R,0,Math.PI*2);
+  ctx.clip();
+
+  ctx.beginPath();
+
+  let drawing=false;
+
+  for(const p of points){
+
+    if(p.z>-.06){
+
+      if(!drawing){
+        ctx.moveTo(p.x,p.y);
+        drawing=true;
+      }else{
+        ctx.lineTo(p.x,p.y);
+      }
+
+    }else{
+      drawing=false;
+    }
+  }
+
+  ctx.closePath();
+
+  ctx.fillStyle=fill;
+  ctx.fill();
+
+  ctx.strokeStyle=stroke;
+  ctx.lineWidth=width;
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+/* continents */
+
+function drawContinents(){
+
+  continents.forEach(poly=>{
+
+    drawGeoPolygon(
+      poly,
+      "rgba(28,119,139,.42)",
+      "rgba(87,219,225,.32)",
+      .75
+    );
+
+  });
+
+  /* subtle land dots */
+
+  for(let lon=-170;lon<=170;lon+=9){
+
+    for(let lat=-55;lat<=72;lat+=8){
+
+      const p=spherePoint(
+        lon+Math.sin(lat)*1.7,
+        lat
+      );
+
+      if(p.z>.2){
+
+        ctx.fillStyle=`rgba(91,217,224,${.035+p.z*.055})`;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,.65,0,Math.PI*2);
+        ctx.fill();
+
+      }
+    }
+  }
+}
+
+/* France highlight */
+
+function drawFrance(){
+
+  const center=spherePoint(2.35,46.6);
+
+  if(center.z<=0){
+    franceLabel.classList.remove("visible");
+    return;
+  }
+
+  drawGeoPolygon(
+    france,
+    "rgba(255,214,107,.82)",
+    "rgba(255,244,184,.98)",
+    1.6
+  );
+
+  const paris=spherePoint(2.35,48.86);
+
+  const pulse=8+Math.sin(time*.055)*3;
+
+  ctx.shadowColor="#ffd66b";
+  ctx.shadowBlur=18;
+
+  ctx.beginPath();
+  ctx.arc(paris.x,paris.y,4.5,0,Math.PI*2);
+  ctx.fillStyle="#fff4b0";
+  ctx.fill();
+
+  ctx.shadowBlur=0;
+
+  ctx.beginPath();
+  ctx.arc(paris.x,paris.y,pulse,0,Math.PI*2);
+  ctx.strokeStyle="rgba(255,214,107,.48)";
+  ctx.lineWidth=1;
+  ctx.stroke();
+
+  franceLabel.classList.add("visible");
+}
+
+/* world city points */
+
+function drawLocations(){
+
+  locations.forEach((loc,index)=>{
+
+    const p=spherePoint(loc.lon,loc.lat);
+
+    if(p.z<=.03)return;
+
+    const pulse=
+      2.1+
+      Math.sin(time*.04+index)*.7;
+
+    ctx.shadowColor=
+      loc.france ? "#ffd66b" : "#43dce5";
+
+    ctx.shadowBlur=12;
+
+    ctx.beginPath();
+    ctx.arc(
+      p.x,
+      p.y,
+      loc.france ? 4 : pulse,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fillStyle=
+      loc.france
+        ? "#fff1a6"
+        : `rgba(122,244,246,${.45+p.z*.45})`;
+
+    ctx.fill();
+
+    ctx.shadowBlur=0;
+
+  });
+
+}
+
+/* quadratic curved route */
+
+function routeGeometry(a,b){
+
+  const p1=spherePoint(a.lon,a.lat);
+  const p2=spherePoint(b.lon,b.lat);
+
+  if(p1.z<.05 || p2.z<.05)return null;
+
+  const mx=(p1.x+p2.x)/2;
+  const my=(p1.y+p2.y)/2;
+
+  const dx=p2.x-p1.x;
+  const dy=p2.y-p1.y;
+
+  const dist=Math.sqrt(dx*dx+dy*dy);
+
+  const nx=-dy/(dist||1);
+  const ny=dx/(dist||1);
+
+  /*
+    Curve rises toward outer globe.
+  */
+
+  const bend=Math.min(80,dist*.28);
+
+  return{
+    p1,
+    p2,
+    cx:mx+nx*bend,
+    cy:my+ny*bend
+  };
+}
+
+function quadraticPoint(g,t){
+
+  const mt=1-t;
+
+  return{
+    x:
+      mt*mt*g.p1.x+
+      2*mt*t*g.cx+
+      t*t*g.p2.x,
+
+    y:
+      mt*mt*g.p1.y+
+      2*mt*t*g.cy+
+      t*t*g.p2.y
+  };
+}
+
+/* signal routes */
+
+function drawConnections(){
+
+  connections.forEach((route,index)=>{
+
+    const g=routeGeometry(route[0],route[1]);
+
+    if(!g)return;
+
+    ctx.beginPath();
+    ctx.moveTo(g.p1.x,g.p1.y);
+    ctx.quadraticCurveTo(
+      g.cx,
+      g.cy,
+      g.p2.x,
+      g.p2.y
+    );
+
+    ctx.strokeStyle="rgba(65,220,230,.24)";
+    ctx.lineWidth=.8;
+    ctx.stroke();
+
+    /*
+      Animated signal travelling toward France.
+    */
+
+    const speed=.0036;
+    const progress=
+      (time*speed+index/connections.length)%1;
+
+    const q=quadraticPoint(g,progress);
+
+    const tailProgress=Math.max(0,progress-.09);
+    const tail=quadraticPoint(g,tailProgress);
+
+    const grad=ctx.createLinearGradient(
+      tail.x,tail.y,q.x,q.y
+    );
+
+    grad.addColorStop(0,"rgba(62,220,227,0)");
+    grad.addColorStop(.6,"rgba(62,220,227,.45)");
+    grad.addColorStop(1,"rgba(220,255,255,1)");
+
+    ctx.beginPath();
+    ctx.moveTo(tail.x,tail.y);
+
+    /*
+      Small segment approximates the route.
+    */
+
+    for(let s=tailProgress;s<=progress;s+=.012){
+      const pt=quadraticPoint(g,s);
+      ctx.lineTo(pt.x,pt.y);
+    }
+
+    ctx.strokeStyle=grad;
+    ctx.lineWidth=2;
+    ctx.stroke();
+
+    ctx.shadowColor="#56edf2";
+    ctx.shadowBlur=13;
+
+    ctx.beginPath();
+    ctx.arc(q.x,q.y,2.7,0,Math.PI*2);
+    ctx.fillStyle="#dfffff";
+    ctx.fill();
+
+    ctx.shadowBlur=0;
+
+  });
+
+}
+
+/* atmosphere */
+
+function drawAtmosphere(){
+
+  const gradient=ctx.createRadialGradient(
+    CX,CY,R*.91,
+    CX,CY,R*1.14
+  );
+
+  gradient.addColorStop(0,"rgba(61,220,232,0)");
+  gradient.addColorStop(.52,"rgba(61,220,232,.07)");
+  gradient.addColorStop(1,"rgba(61,220,232,0)");
+
+  ctx.fillStyle=gradient;
+
+  ctx.beginPath();
+  ctx.arc(CX,CY,R*1.15,0,Math.PI*2);
+  ctx.fill();
+
+}
+
+/* animation */
+
+function render(){
+
+  ctx.clearRect(0,0,W,H);
+
+  time++;
+
+  /*
+    Slow rotation.
+    About one revolution every ~2 minutes.
+  */
+
+  rotation += .00055;
+
+  drawStars();
+  drawAtmosphere();
+  drawOcean();
+  drawGrid();
+  drawContinents();
+  drawConnections();
+  drawLocations();
+  drawFrance();
+
+  requestAnimationFrame(render);
+}
+
+render();
+
+/* scroll appearance */
+
+const observer=new IntersectionObserver(
+  entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
         entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   },
-  {
-    threshold: 0.12
-  }
+  {threshold:.12}
 );
 
-document.querySelectorAll(".reveal").forEach(el => {
-  revealObserver.observe(el);
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
 });
-
-/* Mouvement extrêmement léger du globe avec la souris */
-
-const stage = document.querySelector(".globe-stage");
-const globeWrap = document.querySelector(".globe-wrap");
-
-if (stage && globeWrap && window.matchMedia("(pointer:fine)").matches) {
-
-  stage.addEventListener("mousemove", event => {
-
-    const rect = stage.getBoundingClientRect();
-
-    const x =
-      (event.clientX - rect.left) / rect.width - 0.5;
-
-    const y =
-      (event.clientY - rect.top) / rect.height - 0.5;
-
-    globeWrap.style.transform =
-      `rotateY(${x * 8}deg) rotateX(${-y * 6}deg)`;
-  });
-
-  stage.addEventListener("mouseleave", () => {
-    globeWrap.style.transform =
-      "rotateY(0deg) rotateX(0deg)";
-  });
-}
 </script>
 
 </body>
