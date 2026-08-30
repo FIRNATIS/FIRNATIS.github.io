@@ -6,21 +6,20 @@
 
 <title>FIRNATIS — Intelligence économique et analyse stratégique</title>
 
-<meta name="description" content="FIRNATIS organise et met en perspective les informations essentielles sur les entreprises et leur environnement pour éclairer l'analyse et la décision stratégique.">
+<meta name="description" content="FIRNATIS organise et met en perspective les informations utiles à la compréhension des entreprises et de leur environnement pour éclairer la décision stratégique.">
 
 <style>
 :root{
   --bg:#020c15;
   --bg2:#061725;
-  --panel:rgba(8,29,44,.72);
+  --card:rgba(8,29,44,.72);
   --border:rgba(104,225,232,.12);
-  --border2:rgba(104,225,232,.26);
+  --border2:rgba(104,225,232,.27);
   --text:#f4f8fb;
-  --muted:#94aab7;
-  --cyan:#3edce3;
-  --cyan2:#9cffff;
-  --blue:#48aef0;
-  --france:#ffd66b;
+  --muted:#93a9b6;
+  --cyan:#35e1e7;
+  --cyan2:#a6ffff;
+  --gold:#ffd66b;
   --max:1200px;
 }
 
@@ -33,7 +32,7 @@ body{
   overflow-x:hidden;
   color:var(--text);
   background:
-    radial-gradient(circle at 78% 5%,rgba(31,139,170,.13),transparent 28%),
+    radial-gradient(circle at 78% 5%,rgba(24,132,166,.12),transparent 27%),
     linear-gradient(180deg,#04131f 0%,#020b13 100%);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.6;
@@ -49,7 +48,9 @@ a{
   margin:auto;
 }
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+   ========================= */
 
 header{
   position:fixed;
@@ -57,25 +58,25 @@ header{
   left:0;
   width:100%;
   z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,.05);
-  background:rgba(2,12,21,.78);
+  background:rgba(2,12,21,.76);
   backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 nav{
   height:72px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
 .logo{
   font-weight:900;
-  letter-spacing:.19em;
+  letter-spacing:.18em;
   font-size:.95rem;
 }
 
-.logo span{color:var(--cyan)}
+.logo b{color:var(--cyan)}
 
 .navlinks{
   display:flex;
@@ -85,45 +86,47 @@ nav{
   font-size:.82rem;
 }
 
-.navlinks a:hover{color:#fff}
+.navlinks a:hover{color:white}
 
-.navcta{
-  border:1px solid rgba(62,220,227,.4);
+.navbutton{
+  border:1px solid rgba(53,225,231,.4);
   padding:9px 16px;
   border-radius:7px;
-  color:#efffff!important;
+  color:white!important;
 }
 
-/* HERO */
+/* =========================
+   HERO
+   ========================= */
 
 .hero{
-  min-height:850px;
+  min-height:830px;
   padding-top:105px;
   display:grid;
-  grid-template-columns:.92fr 1.08fr;
+  grid-template-columns:.90fr 1.10fr;
   align-items:center;
-  gap:15px;
+  gap:5px;
 }
 
 .eyebrow,
 .section-label{
   color:var(--cyan);
-  text-transform:uppercase;
-  letter-spacing:.19em;
+  font-size:.68rem;
   font-weight:800;
-  font-size:.69rem;
+  letter-spacing:.19em;
+  text-transform:uppercase;
 }
 
 .hero h1{
   margin:18px 0 0;
-  font-size:clamp(4.6rem,7vw,7rem);
-  letter-spacing:-.07em;
+  font-size:clamp(4.5rem,7vw,7rem);
   line-height:.86;
+  letter-spacing:-.07em;
 }
 
 .hero h2{
-  margin:30px 0 0;
   max-width:610px;
+  margin:30px 0 0;
   font-size:clamp(1.8rem,3vw,3rem);
   line-height:1.08;
   letter-spacing:-.045em;
@@ -133,10 +136,9 @@ nav{
 .hero h2 span{color:var(--cyan)}
 
 .hero-copy{
-  max-width:600px;
-  margin:27px 0 33px;
+  max-width:610px;
+  margin:27px 0 32px;
   color:var(--muted);
-  font-size:1rem;
 }
 
 .actions{
@@ -151,8 +153,8 @@ nav{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  border:1px solid rgba(255,255,255,.12);
   border-radius:7px;
+  border:1px solid rgba(255,255,255,.12);
   font-size:.86rem;
   font-weight:750;
   transition:.25s ease;
@@ -166,7 +168,7 @@ nav{
   background:var(--cyan);
   color:#021317;
   border-color:var(--cyan);
-  box-shadow:0 10px 35px rgba(62,220,227,.14);
+  box-shadow:0 10px 35px rgba(53,225,231,.13);
 }
 
 .secondary{
@@ -174,106 +176,117 @@ nav{
 }
 
 .proofs{
+  margin-top:42px;
   display:flex;
   flex-wrap:wrap;
   gap:24px;
-  margin-top:42px;
   color:#91a8b4;
   font-size:.72rem;
 }
 
-.proofs span::before{
+.proofs span:before{
   content:"●";
-  margin-right:8px;
   color:var(--cyan);
+  margin-right:8px;
   font-size:.5rem;
 }
 
 /* =========================================================
-   REAL ANIMATED EARTH — CANVAS
+   GLOBE 3D
+   La géographie provient de données GeoJSON réelles.
    ========================================================= */
 
-.earth-stage{
+.globe-zone{
   position:relative;
-  width:100%;
-  height:670px;
+  height:690px;
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:visible;
 }
 
-.earth-stage::before{
+.globe-zone:before{
   content:"";
   position:absolute;
-  width:570px;
-  height:570px;
+  width:620px;
+  height:620px;
   border-radius:50%;
-  background:radial-gradient(
-    circle,
-    rgba(40,197,220,.13),
-    rgba(22,96,145,.05) 48%,
-    transparent 72%
-  );
+  background:
+    radial-gradient(
+      circle,
+      rgba(35,205,226,.13) 0%,
+      rgba(22,114,162,.055) 46%,
+      transparent 72%
+    );
   filter:blur(25px);
-  animation:glow 5s ease-in-out infinite;
+  animation:globeAura 5s ease-in-out infinite;
 }
 
-#earthCanvas{
-  width:650px;
-  height:650px;
-  max-width:100%;
+@keyframes globeAura{
+  0%,100%{
+    transform:scale(.96);
+    opacity:.65;
+  }
+  50%{
+    transform:scale(1.04);
+    opacity:1;
+  }
+}
+
+#globe{
   position:relative;
   z-index:5;
-  filter:drop-shadow(0 0 28px rgba(43,193,220,.14));
+  width:680px;
+  height:680px;
+  cursor:grab;
 }
 
-.france-label{
+#globe:active{cursor:grabbing}
+
+.globe-caption{
   position:absolute;
-  z-index:20;
-  left:16%;
-  top:58%;
-  width:175px;
-  padding:11px 13px;
-  border:1px solid rgba(255,214,107,.4);
-  border-radius:7px;
-  background:rgba(3,16,27,.88);
-  box-shadow:0 10px 35px rgba(0,0,0,.3);
-  opacity:0;
-  transform:translateY(8px);
-  transition:.6s ease;
+  right:28px;
+  bottom:70px;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#718c9b;
+  font-size:.68rem;
+  letter-spacing:.04em;
   pointer-events:none;
 }
 
-.france-label.visible{
-  opacity:1;
-  transform:none;
+.mouse-icon{
+  width:18px;
+  height:25px;
+  border:1px solid rgba(142,220,225,.45);
+  border-radius:9px;
+  position:relative;
 }
 
-.france-label strong{
-  display:block;
-  color:var(--france);
-  font-size:.7rem;
-  letter-spacing:.12em;
-  margin-bottom:3px;
+.mouse-icon:before{
+  content:"";
+  position:absolute;
+  top:4px;
+  left:7px;
+  width:2px;
+  height:5px;
+  background:var(--cyan);
+  border-radius:2px;
+  animation:wheel 1.7s ease-in-out infinite;
 }
 
-.france-label span{
-  display:block;
-  color:#b5c6cf;
-  font-size:.68rem;
-  line-height:1.4;
+@keyframes wheel{
+  0%,100%{transform:translateY(0);opacity:.4}
+  50%{transform:translateY(4px);opacity:1}
 }
 
-@keyframes glow{
-  0%,100%{transform:scale(.96);opacity:.65}
-  50%{transform:scale(1.04);opacity:1}
-}
-
-/* SECTIONS */
+/* =========================
+   SECTIONS
+   ========================= */
 
 section{
-  padding:112px 0;
+  padding:110px 0;
 }
 
 .section-label{
@@ -281,7 +294,7 @@ section{
 }
 
 .section-title{
-  max-width:820px;
+  max-width:840px;
   margin:0 0 20px;
   font-size:clamp(2.1rem,4vw,3.7rem);
   line-height:1.05;
@@ -289,12 +302,14 @@ section{
 }
 
 .section-intro{
-  max-width:740px;
-  margin:0 0 55px;
+  max-width:750px;
+  margin:0 0 54px;
   color:var(--muted);
 }
 
-/* CARDS */
+/* =========================
+   CARDS
+   ========================= */
 
 .cards{
   display:grid;
@@ -310,22 +325,12 @@ section{
   border:1px solid rgba(255,255,255,.075);
   border-radius:15px;
   background:
+    radial-gradient(circle at 100% 0%,rgba(53,225,231,.045),transparent 35%),
     linear-gradient(145deg,rgba(13,39,56,.72),rgba(5,21,33,.55));
   transition:.3s ease;
 }
 
-.card::before{
-  content:"";
-  position:absolute;
-  width:160px;
-  height:160px;
-  top:-100px;
-  right:-90px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(62,220,227,.10),transparent 68%);
-}
-
-.card::after{
+.card:after{
   content:"";
   position:absolute;
   left:0;
@@ -338,10 +343,10 @@ section{
 
 .card:hover{
   transform:translateY(-6px);
-  border-color:rgba(62,220,227,.25);
+  border-color:rgba(53,225,231,.25);
 }
 
-.card:hover::after{width:100%}
+.card:hover:after{width:100%}
 
 .card-number{
   display:block;
@@ -363,7 +368,9 @@ section{
   font-size:.9rem;
 }
 
-/* PROCESS */
+/* =========================
+   PROCESS
+   ========================= */
 
 .process{
   border-top:1px solid rgba(255,255,255,.055);
@@ -382,14 +389,19 @@ section{
   padding:25px 27px 15px 0;
 }
 
-.step:not(:last-child)::after{
+.step:not(:last-child):after{
   content:"";
   position:absolute;
   right:16px;
   top:37px;
   width:38px;
   height:1px;
-  background:linear-gradient(90deg,rgba(62,220,227,.15),var(--cyan));
+  background:
+    linear-gradient(
+      90deg,
+      rgba(53,225,231,.15),
+      var(--cyan)
+    );
 }
 
 .step-number{
@@ -399,7 +411,7 @@ section{
   align-items:center;
   justify-content:center;
   margin-bottom:22px;
-  border:1px solid rgba(62,220,227,.5);
+  border:1px solid rgba(53,225,231,.5);
   border-radius:50%;
   color:var(--cyan);
   font-size:.61rem;
@@ -417,7 +429,9 @@ section{
   font-size:.86rem;
 }
 
-/* ANALYSIS */
+/* =========================
+   ANALYSIS
+   ========================= */
 
 .three{
   display:grid;
@@ -439,16 +453,18 @@ section{
   color:var(--muted);
 }
 
-/* SIGNAL */
+/* =========================
+   SIGNAL
+   ========================= */
 
 .signal-box{
-  padding:72px;
   position:relative;
   overflow:hidden;
-  border:1px solid rgba(62,220,227,.2);
+  padding:72px;
+  border:1px solid rgba(53,225,231,.20);
   border-radius:20px;
   background:
-    radial-gradient(circle at 94% 4%,rgba(62,220,227,.08),transparent 27%),
+    radial-gradient(circle at 94% 4%,rgba(53,225,231,.08),transparent 27%),
     linear-gradient(135deg,rgba(13,45,61,.72),rgba(5,20,31,.78));
 }
 
@@ -487,7 +503,9 @@ section{
   font-size:.87rem;
 }
 
-/* USE CASES */
+/* =========================
+   USE CASES
+   ========================= */
 
 .use-grid{
   display:grid;
@@ -503,7 +521,7 @@ section{
 }
 
 .use:hover{
-  border-color:rgba(62,220,227,.16);
+  border-color:rgba(53,225,231,.16);
   border-radius:12px;
   background:rgba(255,255,255,.018);
 }
@@ -515,7 +533,9 @@ section{
   color:var(--muted);
 }
 
-/* INTERNATIONAL */
+/* =========================
+   INTERNATIONAL
+   ========================= */
 
 .international{
   max-width:850px;
@@ -529,23 +549,29 @@ section{
   margin-right:auto;
 }
 
-.network{
+.worldline{
   position:relative;
   height:120px;
   margin-top:35px;
 }
 
-.network::before{
+.worldline:before{
   content:"";
   position:absolute;
   left:5%;
   right:5%;
   top:59px;
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(62,220,227,.45),transparent);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(53,225,231,.45),
+      transparent
+    );
 }
 
-.net-dot{
+.world-dot{
   position:absolute;
   top:56px;
   width:7px;
@@ -555,19 +581,26 @@ section{
   box-shadow:0 0 14px var(--cyan);
 }
 
-.nd1{left:12%}
-.nd2{left:31%}
-.nd3{left:50%}
-.nd4{left:69%}
-.nd5{left:87%}
+.d1{left:12%}
+.d2{left:31%}
+.d3{left:50%}
+.d4{left:69%}
+.d5{left:87%}
 
-.net-light{
+.world-light{
   position:absolute;
   top:58px;
   width:100px;
   height:2px;
   left:-110px;
-  background:linear-gradient(90deg,transparent,#fff,var(--cyan),transparent);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      white,
+      var(--cyan),
+      transparent
+    );
   box-shadow:0 0 10px var(--cyan);
   animation:travel 5.5s linear infinite;
 }
@@ -577,7 +610,9 @@ section{
   to{left:calc(100% + 110px)}
 }
 
-/* TRUST */
+/* =========================
+   TRUST
+   ========================= */
 
 .trust{
   text-align:center;
@@ -593,7 +628,9 @@ section{
   letter-spacing:-.06em;
 }
 
-.trust h2 span{color:var(--cyan)}
+.trust h2 span{
+  color:var(--cyan);
+}
 
 .trust p{
   max-width:720px;
@@ -601,7 +638,9 @@ section{
   color:var(--muted);
 }
 
-/* FINAL */
+/* =========================
+   FINAL
+   ========================= */
 
 .final{
   padding:135px 0;
@@ -622,6 +661,10 @@ section{
   color:var(--muted);
 }
 
+/* =========================
+   FOOTER
+   ========================= */
+
 footer{
   padding:32px 0;
   border-top:1px solid rgba(255,255,255,.06);
@@ -634,12 +677,16 @@ footer{
   justify-content:space-between;
 }
 
-/* SCROLL REVEAL */
+/* =========================
+   REVEAL
+   ========================= */
 
 .reveal{
   opacity:0;
   transform:translateY(22px);
-  transition:opacity .75s ease,transform .75s ease;
+  transition:
+    opacity .75s ease,
+    transform .75s ease;
 }
 
 .reveal.visible{
@@ -647,49 +694,83 @@ footer{
   transform:none;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+   ========================= */
 
 @media(max-width:960px){
+
   .hero{
     grid-template-columns:1fr;
     padding-top:145px;
   }
 
-  .earth-stage{
-    height:620px;
+  .globe-zone{
+    height:650px;
   }
 
-  .cards{grid-template-columns:1fr 1fr}
-  .steps{grid-template-columns:1fr}
-  .step:not(:last-child)::after{display:none}
-  .three,.signal-grid{grid-template-columns:1fr}
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .step:not(:last-child):after{
+    display:none;
+  }
+
+  .three,
+  .signal-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:650px){
+
   .container{
     width:min(calc(100% - 30px),var(--max));
   }
 
-  .navlinks{display:none}
-
-  .hero h1{font-size:4rem}
-  .hero h2{font-size:1.8rem}
-
-  .earth-stage{
-    height:430px;
-    margin:0 -30px;
+  .navlinks{
+    display:none;
   }
 
-  .france-label{
-    left:6%;
-    top:62%;
+  .hero h1{
+    font-size:4rem;
   }
 
-  section{padding:80px 0}
+  .hero h2{
+    font-size:1.8rem;
+  }
 
-  .cards,.use-grid{grid-template-columns:1fr}
+  .globe-zone{
+    height:470px;
+    margin:0 -20px;
+  }
 
-  .signal-box{padding:39px 25px}
+  #globe{
+    width:470px;
+    height:470px;
+  }
+
+  .globe-caption{
+    display:none;
+  }
+
+  section{
+    padding:80px 0;
+  }
+
+  .cards,
+  .use-grid{
+    grid-template-columns:1fr;
+  }
+
+  .signal-box{
+    padding:39px 25px;
+  }
 
   .footer{
     flex-direction:column;
@@ -699,7 +780,10 @@ footer{
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none}
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
 }
 </style>
 </head>
@@ -709,25 +793,37 @@ footer{
 <header>
 <div class="container">
 <nav>
-<a class="logo" href="#top">FIRNATIS<span>.</span></a>
+
+<a class="logo" href="#top">
+FIRNATIS<b>.</b>
+</a>
 
 <div class="navlinks">
 <a href="#capacites">Capacités</a>
 <a href="#approche">Approche</a>
 <a href="#usages">Usages</a>
 <a href="#principes">Principes</a>
-<a class="navcta" href="#capacites">Découvrir FIRNATIS →</a>
+<a href="#capacites" class="navbutton">
+Découvrir FIRNATIS →
+</a>
 </div>
+
 </nav>
 </div>
 </header>
 
 <main id="top">
 
+<!-- =========================
+     HERO
+     ========================= -->
+
 <div class="container">
+
 <div class="hero">
 
 <div>
+
 <div class="eyebrow">
 INTELLIGENCE ÉCONOMIQUE · ANALYSE STRATÉGIQUE
 </div>
@@ -747,8 +843,15 @@ lecture utile à la décision stratégique.
 </p>
 
 <div class="actions">
-<a class="button primary" href="#capacites">Découvrir FIRNATIS →</a>
-<a class="button secondary" href="#approche">Explorer les capacités</a>
+
+<a href="#capacites" class="button primary">
+Découvrir FIRNATIS →
+</a>
+
+<a href="#approche" class="button secondary">
+Explorer les capacités
+</a>
+
 </div>
 
 <div class="proofs">
@@ -756,25 +859,40 @@ lecture utile à la décision stratégique.
 <span>Analyse explicable</span>
 <span>Vision multidimensionnelle</span>
 </div>
-</div>
-
-<!-- VRAIE TERRE DESSINÉE ET ANIMÉE EN CANVAS -->
-
-<div class="earth-stage">
-
-<canvas id="earthCanvas" width="760" height="760" aria-label="Globe terrestre animé"></canvas>
-
-<div class="france-label" id="franceLabel">
-<strong>FRANCE</strong>
-<span>Point de référence européen</span>
-</div>
 
 </div>
 
+<!-- ========================================================
+     GLOBE TERRESTRE 3D
+
+     Les continents NE SONT PAS dessinés à la main.
+     Ils proviennent d'un véritable jeu de données géographiques
+     GeoJSON.
+
+     France = territoire légèrement doré.
+     Flux = entrants ET sortants.
+     ======================================================== -->
+
+<div class="globe-zone">
+
+<div id="globe"></div>
+
+<div class="globe-caption">
+<div class="mouse-icon"></div>
+<span>Glisser pour explorer</span>
+</div>
+
+</div>
+
 </div>
 </div>
+
+<!-- =========================
+     CAPACITÉS
+     ========================= -->
 
 <section id="capacites">
+
 <div class="container reveal">
 
 <div class="section-label">
@@ -796,47 +914,73 @@ de son environnement et de ses évolutions.
 <article class="card">
 <span class="card-number">01</span>
 <h3>Capital & écosystème</h3>
-<p>Comprendre les structures d'entreprise et les relations qui façonnent leur environnement économique.</p>
+<p>
+Comprendre les structures d'entreprise et les relations
+qui façonnent leur environnement économique.
+</p>
 </article>
 
 <article class="card">
 <span class="card-number">02</span>
 <h3>Innovation & propriété intellectuelle</h3>
-<p>Observer les dynamiques d'innovation et les actifs technologiques visibles.</p>
+<p>
+Observer les dynamiques d'innovation et les actifs
+technologiques visibles.
+</p>
 </article>
 
 <article class="card">
 <span class="card-number">03</span>
 <h3>Projets & financements</h3>
-<p>Identifier les projets, collaborations et dynamiques de financement pertinentes.</p>
+<p>
+Identifier les projets, collaborations et dynamiques
+de financement pertinentes.
+</p>
 </article>
 
 <article class="card">
 <span class="card-number">04</span>
 <h3>Dynamique RH</h3>
-<p>Observer les signaux liés aux implantations, aux offres d'emploi observables, aux métiers recherchés et aux évolutions territoriales.</p>
+<p>
+Observer les signaux liés aux implantations,
+aux offres d'emploi observables, aux métiers recherchés
+et aux évolutions territoriales.
+</p>
 </article>
 
 <article class="card">
 <span class="card-number">05</span>
 <h3>Risques & conformité</h3>
-<p>Mettre en perspective les informations utiles à l'identification des facteurs de vigilance.</p>
+<p>
+Mettre en perspective les informations utiles
+à l'identification des facteurs de vigilance.
+</p>
 </article>
 
 <article class="card">
 <span class="card-number">06</span>
 <h3>Signaux stratégiques</h3>
-<p>Faire émerger les changements qui méritent l'attention de l'analyste.</p>
+<p>
+Faire émerger les changements qui méritent
+l'attention de l'analyste.
+</p>
 </article>
 
 </div>
 </div>
 </section>
 
+<!-- =========================
+     APPROCHE
+     ========================= -->
+
 <section class="process" id="approche">
+
 <div class="container reveal">
 
-<div class="section-label">DE L'INFORMATION À LA DÉCISION</div>
+<div class="section-label">
+DE L'INFORMATION À LA DÉCISION
+</div>
 
 <h2 class="section-title">
 Une lecture structurée pour faire ressortir l'essentiel.
@@ -847,113 +991,172 @@ Une lecture structurée pour faire ressortir l'essentiel.
 <div class="step">
 <div class="step-number">1</div>
 <h3>OBSERVER</h3>
-<p>Rassembler les informations pertinentes autour d'une entreprise et de son environnement.</p>
+<p>
+Rassembler les informations pertinentes autour
+d'une entreprise et de son environnement.
+</p>
 </div>
 
 <div class="step">
 <div class="step-number">2</div>
 <h3>RELIER</h3>
-<p>Mettre en perspective des informations dispersées pour restituer une vision cohérente.</p>
+<p>
+Mettre en perspective des informations dispersées
+pour restituer une vision cohérente.
+</p>
 </div>
 
 <div class="step">
 <div class="step-number">3</div>
 <h3>COMPRENDRE</h3>
-<p>Identifier les évolutions technologiques, économiques, capitalistiques et humaines.</p>
+<p>
+Identifier les évolutions technologiques,
+économiques, capitalistiques et humaines.
+</p>
 </div>
 
 <div class="step">
 <div class="step-number">4</div>
 <h3>DÉTECTER</h3>
-<p>Faire émerger les changements et signaux qui méritent l'attention.</p>
+<p>
+Faire émerger les changements et signaux
+qui méritent l'attention.
+</p>
 </div>
 
 <div class="step">
 <div class="step-number">5</div>
 <h3>DÉCIDER</h3>
-<p>Transformer l'information disponible en éléments mobilisables pour l'analyse stratégique.</p>
+<p>
+Transformer l'information disponible en éléments
+mobilisables pour l'analyse stratégique.
+</p>
 </div>
 
 </div>
 </div>
 </section>
 
+<!-- =========================
+     ANALYSE
+     ========================= -->
+
 <section>
+
 <div class="container reveal">
 
-<div class="section-label">PENSÉ POUR L'ANALYSE STRATÉGIQUE</div>
+<div class="section-label">
+PENSÉ POUR L'ANALYSE STRATÉGIQUE
+</div>
 
 <h2 class="section-title">
 Une plateforme conçue pour éclairer, pas pour ajouter du bruit.
 </h2>
 
 <p class="section-intro">
-L'enjeu n'est plus seulement d'accéder à davantage d'informations.
-Il est d'identifier celles qui contribuent réellement à la compréhension d'une situation.
+L'enjeu n'est plus seulement d'accéder à davantage
+d'informations. Il est d'identifier celles qui contribuent
+réellement à la compréhension d'une situation.
 </p>
 
 <div class="three">
 
 <div class="feature">
 <h3>Vision consolidée</h3>
-<p>Réunir dans un même environnement différentes dimensions utiles à la compréhension d'une entreprise.</p>
+<p>
+Réunir dans un même environnement différentes dimensions
+utiles à la compréhension d'une entreprise.
+</p>
 </div>
 
 <div class="feature">
 <h3>Lecture dynamique</h3>
-<p>Ne pas seulement observer une situation : suivre les évolutions et changements significatifs dans le temps.</p>
+<p>
+Suivre les évolutions et changements significatifs
+dans le temps.
+</p>
 </div>
 
 <div class="feature">
 <h3>Analyse explicable</h3>
-<p>Conserver la distinction entre les informations observées, leur contexte et les éléments d'analyse qui en découlent.</p>
+<p>
+Conserver la distinction entre les informations observées,
+leur contexte et les éléments d'analyse qui en découlent.
+</p>
 </div>
 
 </div>
+
 </div>
 </section>
 
+<!-- =========================
+     SIGNAL
+     ========================= -->
+
 <section>
+
 <div class="container reveal">
 
 <div class="signal-box">
 
-<div class="section-label">DE L'INFORMATION AU SIGNAL</div>
+<div class="section-label">
+DE L'INFORMATION AU SIGNAL
+</div>
 
-<h2>Accéder à l'information ne suffit plus.</h2>
+<h2>
+Accéder à l'information ne suffit plus.
+</h2>
 
 <p>
 FIRNATIS est conçu pour réduire la dispersion informationnelle,
 contextualiser les informations disponibles et faciliter
-l'identification des évolutions qui méritent réellement l'attention.
+l'identification des évolutions qui méritent réellement
+l'attention.
 </p>
 
 <div class="signal-grid">
 
 <div class="signal">
 <strong>Traçabilité</strong>
-<span>Préserver l'origine et le contexte des informations mobilisées.</span>
+<span>
+Préserver l'origine et le contexte des informations mobilisées.
+</span>
 </div>
 
 <div class="signal">
 <strong>Explicabilité</strong>
-<span>Permettre de comprendre la portée des éléments présentés à l'analyste.</span>
+<span>
+Permettre de comprendre la portée des éléments présentés
+à l'analyste.
+</span>
 </div>
 
 <div class="signal">
 <strong>Prudence analytique</strong>
-<span>Distinguer les faits observés des rapprochements et des interprétations.</span>
+<span>
+Distinguer les faits observés des rapprochements
+et des interprétations.
+</span>
 </div>
 
 </div>
+
 </div>
 </div>
 </section>
 
+<!-- =========================
+     USAGES
+     ========================= -->
+
 <section id="usages">
+
 <div class="container reveal">
 
-<div class="section-label">DES CAS D'USAGE CONCRETS</div>
+<div class="section-label">
+DES CAS D'USAGE CONCRETS
+</div>
 
 <h2 class="section-title">
 Aller plus vite de l'information à la décision.
@@ -963,32 +1166,49 @@ Aller plus vite de l'information à la décision.
 
 <div class="use">
 <h3>Veille entreprise</h3>
-<p>Suivre les évolutions significatives autour d'une entreprise.</p>
+<p>
+Suivre les évolutions significatives autour d'une entreprise.
+</p>
 </div>
 
 <div class="use">
 <h3>Analyse concurrentielle</h3>
-<p>Comparer des acteurs et identifier leurs dynamiques respectives.</p>
+<p>
+Comparer des acteurs et identifier leurs dynamiques respectives.
+</p>
 </div>
 
 <div class="use">
 <h3>Cartographie d'écosystème</h3>
-<p>Comprendre les relations et interdépendances utiles à l'analyse d'un environnement économique.</p>
+<p>
+Comprendre les relations et interdépendances utiles
+à l'analyse d'un environnement économique.
+</p>
 </div>
 
 <div class="use">
 <h3>Anticipation stratégique</h3>
-<p>Identifier des signaux susceptibles d'éclairer une évolution, une opportunité ou un facteur de vigilance.</p>
+<p>
+Identifier des signaux susceptibles d'éclairer une évolution,
+une opportunité ou un facteur de vigilance.
+</p>
 </div>
 
 </div>
 </div>
 </section>
 
+<!-- =========================
+     INTERNATIONAL
+     ========================= -->
+
 <section>
+
 <div class="container international reveal">
 
-<div class="section-label">UNE LECTURE QUI DÉPASSE LES FRONTIÈRES</div>
+<div class="section-label">
+UNE LECTURE QUI DÉPASSE LES FRONTIÈRES
+</div>
 
 <h2 class="section-title">
 Comprendre l'entreprise dans son environnement international.
@@ -1001,19 +1221,24 @@ issues de différents environnements économiques et territoriaux,
 tout en conservant leur contexte et leur niveau de comparabilité.
 </p>
 
-<div class="network">
-<div class="net-dot nd1"></div>
-<div class="net-dot nd2"></div>
-<div class="net-dot nd3"></div>
-<div class="net-dot nd4"></div>
-<div class="net-dot nd5"></div>
-<div class="net-light"></div>
+<div class="worldline">
+<div class="world-dot d1"></div>
+<div class="world-dot d2"></div>
+<div class="world-dot d3"></div>
+<div class="world-dot d4"></div>
+<div class="world-dot d5"></div>
+<div class="world-light"></div>
 </div>
 
 </div>
 </section>
 
+<!-- =========================
+     PRINCIPES
+     ========================= -->
+
 <section class="trust" id="principes">
+
 <div class="container reveal">
 
 <h2>
@@ -1023,18 +1248,25 @@ Une information traçable.<br>
 
 <p>
 FIRNATIS privilégie la traçabilité des informations,
-l'explicabilité des résultats et la distinction entre faits observés
-et éléments d'analyse afin de permettre une lecture rigoureuse
-de l'information présentée.
+l'explicabilité des résultats et la distinction entre faits
+observés et éléments d'analyse afin de permettre une lecture
+rigoureuse de l'information présentée.
 </p>
 
 </div>
 </section>
 
+<!-- =========================
+     CTA
+     ========================= -->
+
 <section class="final">
+
 <div class="container reveal">
 
-<div class="section-label">FIRNATIS</div>
+<div class="section-label">
+FIRNATIS
+</div>
 
 <h2>
 Voir plus clair dans un environnement informationnel complexe.
@@ -1045,7 +1277,9 @@ Une lecture structurée de l'entreprise et de son environnement
 pour soutenir la veille, l'analyse et la décision stratégique.
 </p>
 
-<a class="button primary" href="#top">Découvrir FIRNATIS →</a>
+<a href="#top" class="button primary">
+Découvrir FIRNATIS →
+</a>
 
 </div>
 </section>
@@ -1059,672 +1293,834 @@ pour soutenir la veille, l'analyse et la décision stratégique.
 </div>
 </footer>
 
+
+<!-- =========================================================
+     LIBRAIRIES DU GLOBE 3D
+     ========================================================= -->
+
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="https://unpkg.com/globe.gl@2.32.1/dist/globe.gl.min.js"></script>
+
 <script>
-/* ============================================================
-   FIRNATIS EARTH
-   Globe terrestre vectoriel Canvas.
-   Aucun fichier externe / aucune image / aucune bibliothèque.
-   ============================================================ */
 
-const canvas = document.getElementById("earthCanvas");
-const ctx = canvas.getContext("2d");
-const franceLabel = document.getElementById("franceLabel");
+/* =========================================================
+   FIRNATIS — GLOBE TERRESTRE RÉEL
+   ========================================================= */
 
-const W = canvas.width;
-const H = canvas.height;
+const globeElement = document.getElementById("globe");
 
-const CX = W / 2;
-const CY = H / 2;
-const R = 260;
-
-/*
-  Continents simplifiés mais géographiquement reconnaissables.
-  Chaque polygone contient [longitude, latitude].
-*/
-
-const continents = [
-
-/* NORTH AMERICA */
-[
-[-168,72],[-150,70],[-135,58],[-128,52],[-124,42],[-117,32],
-[-108,25],[-98,20],[-90,20],[-83,25],[-80,32],[-75,40],
-[-66,46],[-60,53],[-68,60],[-82,64],[-95,72],[-120,75],
-[-145,73],[-168,72]
-],
-
-/* SOUTH AMERICA */
-[
-[-81,12],[-72,10],[-62,5],[-52,2],[-44,-8],[-38,-17],
-[-43,-25],[-50,-32],[-55,-42],[-64,-55],[-71,-52],
-[-75,-38],[-72,-25],[-77,-10],[-81,2],[-81,12]
-],
-
-/* EUROPE + ASIA */
-[
-[-10,36],[-9,44],[-3,48],[2,51],[8,54],[13,55],[18,59],
-[25,60],[30,65],[40,68],[55,70],[75,73],[100,70],
-[125,60],[145,55],[160,48],[170,55],[178,50],[170,42],
-[155,38],[140,35],[130,30],[122,24],[115,20],[108,12],
-[100,8],[91,20],[80,22],[72,30],[62,36],[52,42],
-[45,40],[38,36],[30,40],[24,38],[18,42],[12,42],
-[8,44],[3,43],[-3,42],[-10,36]
-],
-
-/* AFRICA */
-[
-[-17,35],[-5,36],[10,37],[25,32],[34,31],[42,15],
-[50,10],[44,-5],[40,-15],[32,-25],[25,-34],[18,-35],
-[12,-28],[5,-18],[-3,-5],[-10,5],[-15,18],[-17,35]
-],
-
-/* INDIA */
-[
-[68,24],[78,30],[88,25],[92,20],[86,10],[80,7],
-[76,9],[72,17],[68,24]
-],
-
-/* JAPAN */
-[
-[130,33],[136,36],[141,42],[145,44],[143,35],[138,31],[130,33]
-],
-
-/* AUSTRALIA */
-[
-[113,-22],[119,-15],[130,-12],[140,-16],[151,-24],
-[153,-35],[145,-42],[132,-43],[119,-35],[113,-22]
-],
-
-/* GREENLAND */
-[
-[-52,60],[-42,62],[-28,70],[-25,78],[-40,84],[-55,82],
-[-65,75],[-60,66],[-52,60]
-]
-];
-
-/* France polygon, intentionally separate for highlight */
-
-const france = [
-[-5.2,48.6],[-1.5,49.7],[2.5,51.0],[7.5,48.8],
-[7.2,43.7],[3.0,42.3],[-1.8,43.2],[-4.8,46.0],[-5.2,48.6]
-];
-
-/* Important world points */
-
-const locations = [
-{lon:2.35,lat:48.86,name:"Paris",france:true},
-{lon:-0.13,lat:51.50,name:"London"},
-{lon:13.40,lat:52.52,name:"Berlin"},
-{lon:8.54,lat:47.37,name:"Zurich"},
-{lon:-74.0,lat:40.71,name:"New York"},
-{lon:-122.42,lat:37.77,name:"San Francisco"},
-{lon:-46.63,lat:-23.55,name:"São Paulo"},
-{lon:18.42,lat:-33.92,name:"Cape Town"},
-{lon:55.27,lat:25.20,name:"Dubai"},
-{lon:72.88,lat:19.08,name:"Mumbai"},
-{lon:103.82,lat:1.35,name:"Singapore"},
-{lon:139.69,lat:35.68,name:"Tokyo"},
-{lon:151.21,lat:-33.87,name:"Sydney"}
-];
-
-/*
-  Connections converge toward France.
-  They are purely visual and do not claim actual Firnatis data flows.
-*/
-
-const connections = [
-[locations[4],locations[0]],
-[locations[5],locations[0]],
-[locations[6],locations[0]],
-[locations[7],locations[0]],
-[locations[8],locations[0]],
-[locations[9],locations[0]],
-[locations[10],locations[0]],
-[locations[11],locations[0]],
-[locations[12],locations[0]],
-[locations[1],locations[0]],
-[locations[2],locations[0]],
-[locations[3],locations[0]]
-];
-
-let rotation = -0.20;
-let time = 0;
-
-/* convert geographic coordinate to sphere */
-
-function spherePoint(lon,lat,rot=rotation){
-
-  const lambda=(lon*Math.PI/180)+rot;
-  const phi=lat*Math.PI/180;
-
-  const x=Math.cos(phi)*Math.sin(lambda);
-  const y=-Math.sin(phi);
-  const z=Math.cos(phi)*Math.cos(lambda);
-
-  return {
-    x:CX+x*R,
-    y:CY+y*R,
-    z,
-    sx:x,
-    sy:y
-  };
-}
-
-/* background stars */
-
-const stars = Array.from({length:110},()=>({
-  x:Math.random()*W,
-  y:Math.random()*H,
-  r:Math.random()*1.15+.2,
-  a:Math.random()*.55+.08
-}));
-
-function drawStars(){
-
-  stars.forEach((s,i)=>{
-    const flicker=.7+.3*Math.sin(time*.015+i);
-    ctx.fillStyle=`rgba(104,224,235,${s.a*flicker})`;
-    ctx.beginPath();
-    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fill();
-  });
-
-}
-
-/* sphere */
-
-function drawOcean(){
-
-  const g=ctx.createRadialGradient(
-    CX-R*.35,
-    CY-R*.38,
-    R*.08,
-    CX,
-    CY,
-    R
-  );
-
-  g.addColorStop(0,"#123d59");
-  g.addColorStop(.28,"#092c43");
-  g.addColorStop(.70,"#041a2a");
-  g.addColorStop(1,"#01080e");
-
-  ctx.beginPath();
-  ctx.arc(CX,CY,R,0,Math.PI*2);
-  ctx.fillStyle=g;
-  ctx.fill();
-
-  ctx.strokeStyle="rgba(91,225,238,.55)";
-  ctx.lineWidth=1.1;
-  ctx.stroke();
-
-  ctx.save();
-
-  ctx.beginPath();
-  ctx.arc(CX,CY,R,0,Math.PI*2);
-  ctx.clip();
-
-  const atmosphere=ctx.createLinearGradient(CX-R,CY,CX+R,CY);
-
-  atmosphere.addColorStop(0,"rgba(0,0,0,.42)");
-  atmosphere.addColorStop(.42,"rgba(70,211,226,.025)");
-  atmosphere.addColorStop(.7,"rgba(39,160,194,.04)");
-  atmosphere.addColorStop(1,"rgba(0,0,0,.62)");
-
-  ctx.fillStyle=atmosphere;
-  ctx.fillRect(CX-R,CY-R,R*2,R*2);
-
-  ctx.restore();
-
-  ctx.shadowColor="rgba(58,210,225,.35)";
-  ctx.shadowBlur=28;
-
-  ctx.beginPath();
-  ctx.arc(CX,CY,R+1,0,Math.PI*2);
-  ctx.strokeStyle="rgba(74,222,236,.28)";
-  ctx.stroke();
-
-  ctx.shadowBlur=0;
-}
-
-/* latitude / longitude grid */
-
-function drawGrid(){
-
-  ctx.save();
-
-  ctx.beginPath();
-  ctx.arc(CX,CY,R,0,Math.PI*2);
-  ctx.clip();
-
-  ctx.strokeStyle="rgba(83,207,220,.095)";
-  ctx.lineWidth=.7;
-
-  /* latitude */
-
-  for(let lat=-60;lat<=60;lat+=20){
-
-    ctx.beginPath();
-
-    let started=false;
-
-    for(let lon=-180;lon<=180;lon+=3){
-
-      const p=spherePoint(lon,lat);
-
-      if(p.z>0){
-
-        if(!started){
-          ctx.moveTo(p.x,p.y);
-          started=true;
-        }else{
-          ctx.lineTo(p.x,p.y);
-        }
-
-      }else{
-        started=false;
-      }
-    }
-
-    ctx.stroke();
-  }
-
-  /* longitude */
-
-  for(let lon=-180;lon<180;lon+=20){
-
-    ctx.beginPath();
-
-    let started=false;
-
-    for(let lat=-90;lat<=90;lat+=2){
-
-      const p=spherePoint(lon,lat);
-
-      if(p.z>0){
-
-        if(!started){
-          ctx.moveTo(p.x,p.y);
-          started=true;
-        }else{
-          ctx.lineTo(p.x,p.y);
-        }
-
-      }else{
-        started=false;
-      }
-    }
-
-    ctx.stroke();
-  }
-
-  ctx.restore();
-}
-
-/* draw geographic polygon */
-
-function drawGeoPolygon(poly,fill,stroke,width=1){
-
-  const points=poly.map(([lon,lat])=>spherePoint(lon,lat));
-
-  /*
-    Do not draw polygons mostly behind globe.
-  */
-
-  const visible=points.filter(p=>p.z>0);
-
-  if(visible.length<3)return;
-
-  ctx.save();
-
-  ctx.beginPath();
-  ctx.arc(CX,CY,R,0,Math.PI*2);
-  ctx.clip();
-
-  ctx.beginPath();
-
-  let drawing=false;
-
-  for(const p of points){
-
-    if(p.z>-.06){
-
-      if(!drawing){
-        ctx.moveTo(p.x,p.y);
-        drawing=true;
-      }else{
-        ctx.lineTo(p.x,p.y);
-      }
-
-    }else{
-      drawing=false;
-    }
-  }
-
-  ctx.closePath();
-
-  ctx.fillStyle=fill;
-  ctx.fill();
-
-  ctx.strokeStyle=stroke;
-  ctx.lineWidth=width;
-  ctx.stroke();
-
-  ctx.restore();
-}
-
-/* continents */
-
-function drawContinents(){
-
-  continents.forEach(poly=>{
-
-    drawGeoPolygon(
-      poly,
-      "rgba(28,119,139,.42)",
-      "rgba(87,219,225,.32)",
-      .75
-    );
-
-  });
-
-  /* subtle land dots */
-
-  for(let lon=-170;lon<=170;lon+=9){
-
-    for(let lat=-55;lat<=72;lat+=8){
-
-      const p=spherePoint(
-        lon+Math.sin(lat)*1.7,
-        lat
-      );
-
-      if(p.z>.2){
-
-        ctx.fillStyle=`rgba(91,217,224,${.035+p.z*.055})`;
-
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,.65,0,Math.PI*2);
-        ctx.fill();
-
-      }
-    }
-  }
-}
-
-/* France highlight */
-
-function drawFrance(){
-
-  const center=spherePoint(2.35,46.6);
-
-  if(center.z<=0){
-    franceLabel.classList.remove("visible");
-    return;
-  }
-
-  drawGeoPolygon(
-    france,
-    "rgba(255,214,107,.82)",
-    "rgba(255,244,184,.98)",
-    1.6
-  );
-
-  const paris=spherePoint(2.35,48.86);
-
-  const pulse=8+Math.sin(time*.055)*3;
-
-  ctx.shadowColor="#ffd66b";
-  ctx.shadowBlur=18;
-
-  ctx.beginPath();
-  ctx.arc(paris.x,paris.y,4.5,0,Math.PI*2);
-  ctx.fillStyle="#fff4b0";
-  ctx.fill();
-
-  ctx.shadowBlur=0;
-
-  ctx.beginPath();
-  ctx.arc(paris.x,paris.y,pulse,0,Math.PI*2);
-  ctx.strokeStyle="rgba(255,214,107,.48)";
-  ctx.lineWidth=1;
-  ctx.stroke();
-
-  franceLabel.classList.add("visible");
-}
-
-/* world city points */
-
-function drawLocations(){
-
-  locations.forEach((loc,index)=>{
-
-    const p=spherePoint(loc.lon,loc.lat);
-
-    if(p.z<=.03)return;
-
-    const pulse=
-      2.1+
-      Math.sin(time*.04+index)*.7;
-
-    ctx.shadowColor=
-      loc.france ? "#ffd66b" : "#43dce5";
-
-    ctx.shadowBlur=12;
-
-    ctx.beginPath();
-    ctx.arc(
-      p.x,
-      p.y,
-      loc.france ? 4 : pulse,
-      0,
-      Math.PI*2
-    );
-
-    ctx.fillStyle=
-      loc.france
-        ? "#fff1a6"
-        : `rgba(122,244,246,${.45+p.z*.45})`;
-
-    ctx.fill();
-
-    ctx.shadowBlur=0;
-
-  });
-
-}
-
-/* quadratic curved route */
-
-function routeGeometry(a,b){
-
-  const p1=spherePoint(a.lon,a.lat);
-  const p2=spherePoint(b.lon,b.lat);
-
-  if(p1.z<.05 || p2.z<.05)return null;
-
-  const mx=(p1.x+p2.x)/2;
-  const my=(p1.y+p2.y)/2;
-
-  const dx=p2.x-p1.x;
-  const dy=p2.y-p1.y;
-
-  const dist=Math.sqrt(dx*dx+dy*dy);
-
-  const nx=-dy/(dist||1);
-  const ny=dx/(dist||1);
-
-  /*
-    Curve rises toward outer globe.
-  */
-
-  const bend=Math.min(80,dist*.28);
-
-  return{
-    p1,
-    p2,
-    cx:mx+nx*bend,
-    cy:my+ny*bend
-  };
-}
-
-function quadraticPoint(g,t){
-
-  const mt=1-t;
-
-  return{
-    x:
-      mt*mt*g.p1.x+
-      2*mt*t*g.cx+
-      t*t*g.p2.x,
-
-    y:
-      mt*mt*g.p1.y+
-      2*mt*t*g.cy+
-      t*t*g.p2.y
-  };
-}
-
-/* signal routes */
-
-function drawConnections(){
-
-  connections.forEach((route,index)=>{
-
-    const g=routeGeometry(route[0],route[1]);
-
-    if(!g)return;
-
-    ctx.beginPath();
-    ctx.moveTo(g.p1.x,g.p1.y);
-    ctx.quadraticCurveTo(
-      g.cx,
-      g.cy,
-      g.p2.x,
-      g.p2.y
-    );
-
-    ctx.strokeStyle="rgba(65,220,230,.24)";
-    ctx.lineWidth=.8;
-    ctx.stroke();
-
-    /*
-      Animated signal travelling toward France.
-    */
-
-    const speed=.0036;
-    const progress=
-      (time*speed+index/connections.length)%1;
-
-    const q=quadraticPoint(g,progress);
-
-    const tailProgress=Math.max(0,progress-.09);
-    const tail=quadraticPoint(g,tailProgress);
-
-    const grad=ctx.createLinearGradient(
-      tail.x,tail.y,q.x,q.y
-    );
-
-    grad.addColorStop(0,"rgba(62,220,227,0)");
-    grad.addColorStop(.6,"rgba(62,220,227,.45)");
-    grad.addColorStop(1,"rgba(220,255,255,1)");
-
-    ctx.beginPath();
-    ctx.moveTo(tail.x,tail.y);
-
-    /*
-      Small segment approximates the route.
-    */
-
-    for(let s=tailProgress;s<=progress;s+=.012){
-      const pt=quadraticPoint(g,s);
-      ctx.lineTo(pt.x,pt.y);
-    }
-
-    ctx.strokeStyle=grad;
-    ctx.lineWidth=2;
-    ctx.stroke();
-
-    ctx.shadowColor="#56edf2";
-    ctx.shadowBlur=13;
-
-    ctx.beginPath();
-    ctx.arc(q.x,q.y,2.7,0,Math.PI*2);
-    ctx.fillStyle="#dfffff";
-    ctx.fill();
-
-    ctx.shadowBlur=0;
-
-  });
-
-}
-
-/* atmosphere */
-
-function drawAtmosphere(){
-
-  const gradient=ctx.createRadialGradient(
-    CX,CY,R*.91,
-    CX,CY,R*1.14
-  );
-
-  gradient.addColorStop(0,"rgba(61,220,232,0)");
-  gradient.addColorStop(.52,"rgba(61,220,232,.07)");
-  gradient.addColorStop(1,"rgba(61,220,232,0)");
-
-  ctx.fillStyle=gradient;
-
-  ctx.beginPath();
-  ctx.arc(CX,CY,R*1.15,0,Math.PI*2);
-  ctx.fill();
-
-}
-
-/* animation */
-
-function render(){
-
-  ctx.clearRect(0,0,W,H);
-
-  time++;
-
-  /*
-    Slow rotation.
-    About one revolution every ~2 minutes.
-  */
-
-  rotation += .00055;
-
-  drawStars();
-  drawAtmosphere();
-  drawOcean();
-  drawGrid();
-  drawContinents();
-  drawConnections();
-  drawLocations();
-  drawFrance();
-
-  requestAnimationFrame(render);
-}
-
-render();
-
-/* scroll appearance */
-
-const observer=new IntersectionObserver(
-  entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  {threshold:.12}
+const globeSize = Math.min(
+  680,
+  Math.max(430, window.innerWidth * .47)
 );
 
-document.querySelectorAll(".reveal").forEach(el=>{
-  observer.observe(el);
+
+/* ---------------------------------------------------------
+   VILLES / POINTS GÉOGRAPHIQUES
+   --------------------------------------------------------- */
+
+const cities = [
+
+  {
+    name:"Paris",
+    lat:48.8566,
+    lng:2.3522,
+    france:true
+  },
+
+  {
+    name:"Londres",
+    lat:51.5072,
+    lng:-0.1276
+  },
+
+  {
+    name:"Berlin",
+    lat:52.5200,
+    lng:13.4050
+  },
+
+  {
+    name:"Zurich",
+    lat:47.3769,
+    lng:8.5417
+  },
+
+  {
+    name:"Stockholm",
+    lat:59.3293,
+    lng:18.0686
+  },
+
+  {
+    name:"Vilnius",
+    lat:54.6872,
+    lng:25.2797
+  },
+
+  {
+    name:"Riga",
+    lat:56.9496,
+    lng:24.1052
+  },
+
+  {
+    name:"New York",
+    lat:40.7128,
+    lng:-74.0060
+  },
+
+  {
+    name:"Washington",
+    lat:38.9072,
+    lng:-77.0369
+  },
+
+  {
+    name:"San Francisco",
+    lat:37.7749,
+    lng:-122.4194
+  },
+
+  {
+    name:"Montréal",
+    lat:45.5019,
+    lng:-73.5674
+  },
+
+  {
+    name:"São Paulo",
+    lat:-23.5505,
+    lng:-46.6333
+  },
+
+  {
+    name:"Johannesburg",
+    lat:-26.2041,
+    lng:28.0473
+  },
+
+  {
+    name:"Dubaï",
+    lat:25.2048,
+    lng:55.2708
+  },
+
+  {
+    name:"Mumbai",
+    lat:19.0760,
+    lng:72.8777
+  },
+
+  {
+    name:"Singapour",
+    lat:1.3521,
+    lng:103.8198
+  },
+
+  {
+    name:"Tokyo",
+    lat:35.6762,
+    lng:139.6503
+  },
+
+  {
+    name:"Séoul",
+    lat:37.5665,
+    lng:126.9780
+  },
+
+  {
+    name:"Sydney",
+    lat:-33.8688,
+    lng:151.2093
+  }
+
+];
+
+
+/* ---------------------------------------------------------
+   FLUX BIDIRECTIONNELS
+
+   Certains flux vont vers la France.
+   D'autres partent de France.
+   D'autres relient directement deux régions du monde.
+
+   Cela évite l'effet "tout converge vers Paris".
+   --------------------------------------------------------- */
+
+const arcs = [
+
+  /* FRANCE -> MONDE */
+
+  {
+    startLat:48.8566,
+    startLng:2.3522,
+    endLat:40.7128,
+    endLng:-74.0060,
+    direction:"out"
+  },
+
+  {
+    startLat:48.8566,
+    startLng:2.3522,
+    endLat:35.6762,
+    endLng:139.6503,
+    direction:"out"
+  },
+
+  {
+    startLat:48.8566,
+    startLng:2.3522,
+    endLat:1.3521,
+    endLng:103.8198,
+    direction:"out"
+  },
+
+  {
+    startLat:48.8566,
+    startLng:2.3522,
+    endLat:-23.5505,
+    endLng:-46.6333,
+    direction:"out"
+  },
+
+  {
+    startLat:48.8566,
+    startLng:2.3522,
+    endLat:59.3293,
+    endLng:18.0686,
+    direction:"out"
+  },
+
+
+  /* MONDE -> FRANCE */
+
+  {
+    startLat:-33.8688,
+    startLng:151.2093,
+    endLat:48.8566,
+    endLng:2.3522,
+    direction:"in"
+  },
+
+  {
+    startLat:19.0760,
+    startLng:72.8777,
+    endLat:48.8566,
+    endLng:2.3522,
+    direction:"in"
+  },
+
+  {
+    startLat:37.7749,
+    startLng:-122.4194,
+    endLat:48.8566,
+    endLng:2.3522,
+    direction:"in"
+  },
+
+  {
+    startLat:-26.2041,
+    startLng:28.0473,
+    endLat:48.8566,
+    endLng:2.3522,
+    direction:"in"
+  },
+
+  {
+    startLat:54.6872,
+    startLng:25.2797,
+    endLat:48.8566,
+    endLng:2.3522,
+    direction:"in"
+  },
+
+
+  /* MONDE <-> MONDE */
+
+  {
+    startLat:40.7128,
+    startLng:-74.0060,
+    endLat:51.5072,
+    endLng:-0.1276,
+    direction:"global"
+  },
+
+  {
+    startLat:35.6762,
+    startLng:139.6503,
+    endLat:1.3521,
+    endLng:103.8198,
+    direction:"global"
+  },
+
+  {
+    startLat:25.2048,
+    startLng:55.2708,
+    endLat:19.0760,
+    endLng:72.8777,
+    direction:"global"
+  },
+
+  {
+    startLat:37.5665,
+    startLng:126.9780,
+    endLat:-33.8688,
+    endLng:151.2093,
+    direction:"global"
+  },
+
+  {
+    startLat:45.5019,
+    startLng:-73.5674,
+    endLat:51.5072,
+    endLng:-0.1276,
+    direction:"global"
+  }
+
+];
+
+
+/* ---------------------------------------------------------
+   INITIALISATION DU GLOBE
+   --------------------------------------------------------- */
+
+const globe = Globe()(globeElement)
+
+  .width(globeSize)
+  .height(globeSize)
+
+  .backgroundColor("rgba(0,0,0,0)")
+
+  .showAtmosphere(true)
+
+  .atmosphereColor("#36dce8")
+
+  .atmosphereAltitude(.14)
+
+  .showGraticules(true)
+
+  .pointOfView(
+    {
+      lat:24,
+      lng:8,
+      altitude:2.0
+    },
+    0
+  );
+
+
+/* ---------------------------------------------------------
+   APPARENCE DE LA SPHÈRE
+   --------------------------------------------------------- */
+
+globe.globeMaterial().color.set("#041a2b");
+
+globe.globeMaterial().emissive.set("#03111d");
+
+globe.globeMaterial().emissiveIntensity = .55;
+
+globe.globeMaterial().shininess = .75;
+
+
+/* ---------------------------------------------------------
+   CHARGEMENT DE VRAIES FRONTIÈRES GÉOGRAPHIQUES
+   --------------------------------------------------------- */
+
+fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+
+.then(response => {
+
+  if(!response.ok){
+    throw new Error("Impossible de charger les données géographiques.");
+  }
+
+  return response.json();
+
+})
+
+.then(world => {
+
+  const countries = world.features;
+
+
+  globe
+
+    .polygonsData(countries)
+
+    .polygonAltitude(country => {
+
+      const name = getCountryName(country);
+
+      return isFrance(name)
+        ? .018
+        : .007;
+
+    })
+
+    .polygonCapColor(country => {
+
+      const name = getCountryName(country);
+
+      if(isFrance(name)){
+        return "rgba(255,214,107,.88)";
+      }
+
+      return "rgba(16,91,115,.54)";
+
+    })
+
+    .polygonSideColor(country => {
+
+      const name = getCountryName(country);
+
+      if(isFrance(name)){
+        return "rgba(255,214,107,.35)";
+      }
+
+      return "rgba(4,30,45,.48)";
+
+    })
+
+    .polygonStrokeColor(country => {
+
+      const name = getCountryName(country);
+
+      if(isFrance(name)){
+        return "rgba(255,245,195,1)";
+      }
+
+      return "rgba(82,210,220,.34)";
+
+    })
+
+    .polygonLabel(country => {
+
+      const name = getCountryName(country);
+
+      return `
+        <div style="
+          padding:7px 10px;
+          background:rgba(2,14,24,.94);
+          border:1px solid rgba(70,220,228,.25);
+          border-radius:6px;
+          font-family:Inter,Arial,sans-serif;
+          font-size:12px;
+          color:#eaffff;
+        ">
+          ${name}
+        </div>
+      `;
+
+    });
+
+})
+
+.catch(error => {
+  console.error(error);
 });
+
+
+/* ---------------------------------------------------------
+   IDENTIFICATION DE LA FRANCE
+
+   Aucun texte permanent "point de référence".
+   La France est seulement distinguée visuellement.
+   --------------------------------------------------------- */
+
+function getCountryName(country){
+
+  const p = country.properties || {};
+
+  return (
+    p.name ||
+    p.NAME ||
+    p.ADMIN ||
+    p.admin ||
+    p.NAME_EN ||
+    ""
+  );
+
+}
+
+function isFrance(name){
+
+  const n = String(name)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"");
+
+  return (
+    n === "france" ||
+    n === "french republic"
+  );
+
+}
+
+
+/* ---------------------------------------------------------
+   POINTS
+   --------------------------------------------------------- */
+
+globe
+
+  .pointsData(cities)
+
+  .pointLat(d => d.lat)
+
+  .pointLng(d => d.lng)
+
+  .pointAltitude(d =>
+    d.france ? .035 : .018
+  )
+
+  .pointRadius(d =>
+    d.france ? .34 : .16
+  )
+
+  .pointColor(d =>
+    d.france
+      ? "#ffd66b"
+      : "#8cffff"
+  )
+
+  .pointLabel(d => `
+    <div style="
+      padding:7px 10px;
+      background:rgba(2,14,24,.94);
+      border:1px solid ${
+        d.france
+          ? "rgba(255,214,107,.45)"
+          : "rgba(70,220,228,.28)"
+      };
+      border-radius:6px;
+      font-family:Inter,Arial,sans-serif;
+      font-size:12px;
+      color:${
+        d.france
+          ? "#ffe79b"
+          : "#eaffff"
+      };
+    ">
+      ${d.name}
+    </div>
+  `);
+
+
+/* ---------------------------------------------------------
+   ANNEAUX / IMPULSIONS
+
+   Plusieurs nœuds émettent des signaux.
+   Paris n'est donc pas le seul centre animé.
+   --------------------------------------------------------- */
+
+const rings = [
+
+  cities[0],
+  cities[4],
+  cities[5],
+  cities[7],
+  cities[10],
+  cities[13],
+  cities[15],
+  cities[16],
+  cities[18]
+
+];
+
+globe
+
+  .ringsData(rings)
+
+  .ringLat(d => d.lat)
+
+  .ringLng(d => d.lng)
+
+  .ringColor(d => t => {
+
+    if(d.france){
+      return `rgba(255,214,107,${1-t})`;
+    }
+
+    return `rgba(53,225,231,${1-t})`;
+
+  })
+
+  .ringMaxRadius(d =>
+    d.france ? 3.6 : 2.4
+  )
+
+  .ringPropagationSpeed(d =>
+    d.france ? 1.6 : 1.1
+  )
+
+  .ringRepeatPeriod(d =>
+    d.france ? 1150 : 1800
+  );
+
+
+/* ---------------------------------------------------------
+   ARCS INTERNATIONAUX
+   --------------------------------------------------------- */
+
+globe
+
+  .arcsData(arcs)
+
+  .arcStartLat(d => d.startLat)
+
+  .arcStartLng(d => d.startLng)
+
+  .arcEndLat(d => d.endLat)
+
+  .arcEndLng(d => d.endLng)
+
+  .arcAltitudeAutoScale(.34)
+
+  .arcStroke(.42)
+
+  .arcColor(d => {
+
+    if(d.direction === "out"){
+      return [
+        "rgba(255,214,107,.90)",
+        "rgba(53,225,231,.76)"
+      ];
+    }
+
+    if(d.direction === "in"){
+      return [
+        "rgba(53,225,231,.76)",
+        "rgba(255,214,107,.90)"
+      ];
+    }
+
+    return [
+      "rgba(53,225,231,.45)",
+      "rgba(130,255,255,.72)"
+    ];
+
+  })
+
+  .arcDashLength(.32)
+
+  .arcDashGap(.85)
+
+  .arcDashInitialGap(() =>
+    Math.random()
+  )
+
+  .arcDashAnimateTime(d => {
+
+    if(d.direction === "out"){
+      return 2800;
+    }
+
+    if(d.direction === "in"){
+      /*
+        Animation visuellement inversée.
+      */
+      return -3100;
+    }
+
+    return 3600;
+
+  });
+
+
+/* ---------------------------------------------------------
+   CONTRÔLES
+   --------------------------------------------------------- */
+
+const controls = globe.controls();
+
+controls.enableDamping = true;
+
+controls.dampingFactor = .06;
+
+controls.enablePan = false;
+
+controls.minDistance = 170;
+
+controls.maxDistance = 450;
+
+controls.autoRotate = true;
+
+controls.autoRotateSpeed = .32;
+
+
+/* ---------------------------------------------------------
+   ARRÊT TEMPORAIRE DE LA ROTATION LORS DE L'INTERACTION
+   --------------------------------------------------------- */
+
+let resumeTimer;
+
+function stopRotation(){
+
+  controls.autoRotate = false;
+
+  clearTimeout(resumeTimer);
+
+  resumeTimer = setTimeout(() => {
+    controls.autoRotate = true;
+  },4500);
+
+}
+
+globeElement.addEventListener(
+  "pointerdown",
+  stopRotation
+);
+
+globeElement.addEventListener(
+  "wheel",
+  stopRotation,
+  {passive:true}
+);
+
+
+/* ---------------------------------------------------------
+   ÉTOILES DISCRÈTES AUTOUR DU GLOBE
+   --------------------------------------------------------- */
+
+const scene = globe.scene();
+
+const starGeometry =
+  new THREE.BufferGeometry();
+
+const starCount = 750;
+
+const starPositions =
+  new Float32Array(starCount * 3);
+
+for(let i=0;i<starCount;i++){
+
+  const radius =
+    270 + Math.random()*450;
+
+  const theta =
+    Math.random()*Math.PI*2;
+
+  const phi =
+    Math.acos(2*Math.random()-1);
+
+  starPositions[i*3] =
+    radius*Math.sin(phi)*Math.cos(theta);
+
+  starPositions[i*3+1] =
+    radius*Math.sin(phi)*Math.sin(theta);
+
+  starPositions[i*3+2] =
+    radius*Math.cos(phi);
+
+}
+
+starGeometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(
+    starPositions,
+    3
+  )
+);
+
+const starMaterial =
+  new THREE.PointsMaterial({
+    color:0x69dce6,
+    size:.55,
+    transparent:true,
+    opacity:.30,
+    depthWrite:false
+  });
+
+const starField =
+  new THREE.Points(
+    starGeometry,
+    starMaterial
+  );
+
+scene.add(starField);
+
+
+/* ---------------------------------------------------------
+   REDIMENSIONNEMENT
+   --------------------------------------------------------- */
+
+function resizeGlobe(){
+
+  let size;
+
+  if(window.innerWidth < 650){
+
+    size =
+      Math.min(
+        470,
+        window.innerWidth + 60
+      );
+
+  }else{
+
+    size =
+      Math.min(
+        680,
+        Math.max(
+          500,
+          window.innerWidth * .47
+        )
+      );
+
+  }
+
+  globe
+    .width(size)
+    .height(size);
+
+}
+
+window.addEventListener(
+  "resize",
+  resizeGlobe
+);
+
+
+/* =========================================================
+   APPARITION DES SECTIONS
+   ========================================================= */
+
+const revealObserver =
+  new IntersectionObserver(
+
+    entries => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target
+            .classList
+            .add("visible");
+
+          revealObserver
+            .unobserve(entry.target);
+
+        }
+
+      });
+
+    },
+
+    {
+      threshold:.12
+    }
+
+  );
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(element => {
+    revealObserver.observe(element);
+  });
+
 </script>
 
 </body>
