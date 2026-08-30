@@ -8,31 +8,30 @@
 
   <meta
     name="description"
-    content="FIRNATIS transforme des informations économiques dispersées en signaux structurés pour la veille, l'analyse concurrentielle et la décision stratégique."
+    content="FIRNATIS organise et met en perspective les informations essentielles sur les entreprises et leur environnement pour éclairer l'analyse et la décision stratégique."
   />
 
-  <meta name="theme-color" content="#071426" />
+  <meta name="theme-color" content="#06111f" />
 
   <meta property="og:title"
         content="FIRNATIS — Intelligence économique et analyse stratégique" />
-
   <meta property="og:description"
-        content="De l'information dispersée à une lecture structurée de l'entreprise et de son environnement." />
-
+        content="Comprendre aujourd'hui. Éclairer vos décisions de demain." />
   <meta property="og:type" content="website" />
 
   <style>
     :root {
-      --bg: #06111f;
-      --bg-soft: #0a192b;
-      --panel: rgba(255,255,255,.045);
-      --panel-hover: rgba(255,255,255,.07);
-      --border: rgba(255,255,255,.10);
+      --bg: #050e19;
+      --bg-soft: #081725;
+      --panel: rgba(255,255,255,.038);
+      --panel-hover: rgba(255,255,255,.065);
+      --border: rgba(255,255,255,.09);
+      --border-accent: rgba(54,215,222,.24);
       --text: #f4f7fb;
       --muted: #9eacbc;
-      --accent: #3cc7d6;
-      --accent-soft: rgba(60,199,214,.13);
-      --accent-2: #72e0c2;
+      --accent: #35d6dd;
+      --accent-light: #79f0e6;
+      --accent-soft: rgba(53,214,221,.12);
       --max: 1180px;
     }
 
@@ -46,10 +45,7 @@
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at 80% 0%, rgba(36,119,152,.16), transparent 32%),
-        radial-gradient(circle at 10% 30%, rgba(43,111,125,.08), transparent 28%),
-        var(--bg);
+      overflow-x: hidden;
       color: var(--text);
       font-family:
         Inter,
@@ -60,6 +56,10 @@
         "Segoe UI",
         sans-serif;
       line-height: 1.6;
+      background:
+        radial-gradient(circle at 76% 7%, rgba(27,122,160,.13), transparent 28%),
+        radial-gradient(circle at 15% 32%, rgba(37,112,126,.06), transparent 26%),
+        var(--bg);
     }
 
     a {
@@ -72,15 +72,18 @@
       margin: 0 auto;
     }
 
-    /* NAVIGATION */
+    /* =========================
+       NAVIGATION
+       ========================= */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      background: rgba(6,17,31,.84);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,.055);
+      background: rgba(5,14,25,.84);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     nav {
@@ -88,13 +91,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      gap: 30px;
     }
 
     .brand {
-      font-weight: 800;
-      letter-spacing: .18em;
       font-size: 1rem;
+      font-weight: 850;
+      letter-spacing: .19em;
     }
 
     .brand span {
@@ -106,7 +109,7 @@
       align-items: center;
       gap: 28px;
       color: var(--muted);
-      font-size: .92rem;
+      font-size: .9rem;
     }
 
     .nav-links a {
@@ -114,74 +117,93 @@
     }
 
     .nav-links a:hover {
-      color: white;
+      color: #fff;
     }
 
-    /* HERO */
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid rgba(53,214,221,.42);
+      border-radius: 7px;
+      color: #dffcff !important;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
 
     .hero {
-      min-height: 720px;
+      min-height: 690px;
       display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 70px;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 50px;
       align-items: center;
-      padding: 110px 0 90px;
+      padding: 88px 0 76px;
+    }
+
+    .eyebrow,
+    .section-label {
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 750;
+      letter-spacing: .18em;
+      text-transform: uppercase;
     }
 
     .eyebrow {
-      color: var(--accent);
-      font-size: .76rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
       margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(3.4rem, 7vw, 6.7rem);
+      margin: 0;
+      font-size: clamp(3.7rem, 7vw, 6.4rem);
       line-height: .92;
       letter-spacing: -.06em;
-      margin: 0;
     }
 
     h1 small {
       display: block;
-      max-width: 750px;
+      max-width: 680px;
       margin-top: 28px;
-      font-size: clamp(1.45rem, 2.6vw, 2.35rem);
-      line-height: 1.15;
-      letter-spacing: -.035em;
-      font-weight: 500;
-      color: #dfe8f1;
+      font-size: clamp(1.6rem, 3vw, 2.55rem);
+      line-height: 1.16;
+      letter-spacing: -.04em;
+      font-weight: 430;
+      color: #e5ebf1;
+    }
+
+    .accent-text {
+      color: var(--accent);
     }
 
     .hero-copy {
-      max-width: 680px;
-      margin: 30px 0 36px;
+      max-width: 650px;
+      margin: 28px 0 34px;
       color: var(--muted);
-      font-size: 1.08rem;
+      font-size: 1.02rem;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 13px;
     }
 
     .button {
+      min-height: 50px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 50px;
+      gap: 10px;
       padding: 0 22px;
-      border-radius: 8px;
       border: 1px solid var(--border);
-      font-size: .92rem;
-      font-weight: 650;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-weight: 680;
       transition:
         transform .2s ease,
+        border-color .2s ease,
         background .2s ease,
-        border .2s ease;
+        box-shadow .2s ease;
     }
 
     .button:hover {
@@ -189,95 +211,479 @@
     }
 
     .button-primary {
-      color: #031217;
+      color: #021317;
       background: var(--accent);
       border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(53,214,221,.12);
+    }
+
+    .button-primary:hover {
+      box-shadow: 0 10px 36px rgba(53,214,221,.2);
     }
 
     .button-secondary {
-      background: rgba(255,255,255,.035);
+      background: rgba(255,255,255,.025);
     }
 
-    /* ABSTRACT VISUAL */
+    .button-secondary:hover {
+      border-color: rgba(53,214,221,.34);
+    }
 
-    .visual {
-      min-height: 480px;
+    /* =========================
+       ANIMATED GLOBE
+       ========================= */
+
+    .globe-area {
       position: relative;
+      min-height: 520px;
       display: flex;
       align-items: center;
       justify-content: center;
+      isolation: isolate;
     }
+
+    .globe-glow {
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle,
+          rgba(37,190,220,.12) 0%,
+          rgba(27,101,160,.06) 45%,
+          transparent 70%);
+      filter: blur(18px);
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    .globe {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(93,225,239,.42);
+      background:
+        radial-gradient(circle at 34% 30%,
+          rgba(58,215,226,.13),
+          rgba(7,35,57,.38) 38%,
+          rgba(3,14,25,.92) 74%);
+      box-shadow:
+        inset -32px -15px 55px rgba(0,0,0,.58),
+        inset 18px 4px 38px rgba(64,220,230,.08),
+        0 0 55px rgba(35,188,219,.14);
+      z-index: 5;
+    }
+
+    .globe::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 17px,
+          rgba(67,218,230,.10) 18px,
+          transparent 19px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 27px,
+          rgba(67,218,230,.09) 28px,
+          transparent 29px
+        );
+      border-radius: 50%;
+      transform: perspective(420px) rotateX(66deg);
+      animation: globeGrid 18s linear infinite;
+    }
+
+    .globe::after {
+      content: "";
+      position: absolute;
+      inset: 9%;
+      border-radius: 50%;
+      border-left: 1px solid rgba(72,222,235,.28);
+      border-right: 1px solid rgba(72,222,235,.16);
+      box-shadow:
+        0 0 30px rgba(53,214,221,.06);
+    }
+
+    .longitude {
+      position: absolute;
+      inset: 5%;
+      border: 1px solid rgba(65,214,226,.14);
+      border-radius: 50%;
+    }
+
+    .longitude.l1 {
+      transform: scaleX(.32);
+    }
+
+    .longitude.l2 {
+      transform: scaleX(.58);
+    }
+
+    .longitude.l3 {
+      transform: scaleX(.82);
+    }
+
+    .latitude {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      height: 26%;
+      border: 1px solid rgba(65,214,226,.12);
+      border-radius: 50%;
+    }
+
+    .latitude.a {
+      top: 18%;
+    }
+
+    .latitude.b {
+      top: 37%;
+    }
+
+    .latitude.c {
+      top: 56%;
+    }
+
+    .globe-dots {
+      position: absolute;
+      inset: 0;
+      animation: globeRotate 24s linear infinite;
+    }
+
+    .data-dot {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      box-shadow:
+        0 0 6px var(--accent),
+        0 0 15px rgba(53,214,221,.6);
+    }
+
+    .data-dot::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border: 1px solid rgba(53,214,221,.32);
+      border-radius: 50%;
+      animation: pulse 2.6s ease-out infinite;
+    }
+
+    .d1 { left: 29%; top: 25%; }
+    .d2 { left: 52%; top: 18%; animation-delay: .3s; }
+    .d3 { left: 69%; top: 34%; animation-delay: 1.2s; }
+    .d4 { left: 57%; top: 56%; animation-delay: .8s; }
+    .d5 { left: 34%; top: 66%; animation-delay: 1.6s; }
+    .d6 { left: 22%; top: 46%; animation-delay: .4s; }
+    .d7 { left: 73%; top: 65%; animation-delay: 1.1s; }
+    .d8 { left: 45%; top: 42%; animation-delay: 1.8s; }
+    .d9 { left: 61%; top: 77%; animation-delay: .7s; }
+
+    .continent {
+      position: absolute;
+      z-index: 2;
+      opacity: .7;
+      filter: drop-shadow(0 0 7px rgba(53,214,221,.2));
+      animation: continentShift 24s linear infinite;
+    }
+
+    .continent.europe {
+      width: 68px;
+      height: 82px;
+      top: 26%;
+      left: 46%;
+      background: rgba(61,219,228,.26);
+      clip-path: polygon(
+        12% 5%, 38% 0%, 48% 16%, 65% 12%,
+        76% 27%, 63% 39%, 84% 53%, 67% 65%,
+        69% 86%, 47% 100%, 33% 78%, 14% 72%,
+        22% 51%, 0% 37%
+      );
+    }
+
+    .continent.africa {
+      width: 94px;
+      height: 124px;
+      top: 43%;
+      left: 40%;
+      background: rgba(61,219,228,.22);
+      clip-path: polygon(
+        22% 0%, 75% 7%, 100% 32%, 83% 66%,
+        58% 100%, 39% 88%, 26% 60%, 5% 42%,
+        0% 18%
+      );
+    }
+
+    .continent.asia {
+      width: 125px;
+      height: 90px;
+      top: 27%;
+      left: 56%;
+      background: rgba(61,219,228,.18);
+      clip-path: polygon(
+        0% 23%, 26% 0%, 57% 10%, 76% 2%,
+        100% 27%, 83% 49%, 94% 69%, 66% 83%,
+        42% 71%, 25% 100%, 15% 63%
+      );
+    }
+
+    /* Orbit lines outside globe */
 
     .orbit {
       position: absolute;
-      border: 1px solid rgba(60,199,214,.16);
+      left: 50%;
+      top: 50%;
+      border: 1px solid rgba(55,210,225,.22);
       border-radius: 50%;
+      pointer-events: none;
+      z-index: 7;
     }
 
-    .orbit-1 {
-      width: 390px;
-      height: 390px;
+    .orbit.one {
+      width: 490px;
+      height: 155px;
+      margin-left: -245px;
+      margin-top: -78px;
+      transform: rotate(10deg);
+      animation: orbitOne 14s linear infinite;
     }
 
-    .orbit-2 {
-      width: 290px;
-      height: 290px;
+    .orbit.two {
+      width: 455px;
+      height: 185px;
+      margin-left: -228px;
+      margin-top: -92px;
+      transform: rotate(-26deg);
+      animation: orbitTwo 19s linear infinite reverse;
     }
 
-    .orbit-3 {
-      width: 190px;
-      height: 190px;
+    .orbit.three {
+      width: 425px;
+      height: 220px;
+      margin-left: -212px;
+      margin-top: -110px;
+      transform: rotate(58deg);
+      opacity: .55;
+      animation: orbitThree 23s linear infinite;
     }
 
-    .core {
-      width: 116px;
-      height: 116px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(60,199,214,.4);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle, rgba(60,199,214,.18), rgba(60,199,214,.04));
-      box-shadow: 0 0 70px rgba(60,199,214,.12);
-      font-weight: 800;
-      letter-spacing: .13em;
-      z-index: 2;
-    }
-
-    .node {
-      width: 10px;
-      height: 10px;
+    .orbital-point {
       position: absolute;
+      width: 7px;
+      height: 7px;
+      left: 50%;
+      top: -4px;
       border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 20px rgba(60,199,214,.8);
+      background: #d9ffff;
+      box-shadow:
+        0 0 8px var(--accent),
+        0 0 20px var(--accent);
     }
 
-    .n1 { top: 13%; left: 48%; }
-    .n2 { top: 36%; right: 8%; }
-    .n3 { bottom: 15%; right: 27%; }
-    .n4 { bottom: 20%; left: 18%; }
-    .n5 { top: 31%; left: 10%; }
+    .globe-base {
+      position: absolute;
+      z-index: 2;
+      width: 390px;
+      height: 72px;
+      bottom: 48px;
+      border: 1px solid rgba(53,214,221,.17);
+      border-radius: 50%;
+      transform: perspective(300px) rotateX(68deg);
+      box-shadow:
+        0 0 35px rgba(53,214,221,.08),
+        inset 0 0 30px rgba(53,214,221,.06);
+    }
 
-    /* COMMON SECTIONS */
+    .globe-base::before,
+    .globe-base::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(53,214,221,.18);
+      border-radius: 50%;
+    }
+
+    .globe-base::before {
+      inset: 12px 40px;
+    }
+
+    .globe-base::after {
+      inset: 23px 90px;
+    }
+
+    .beam {
+      position: absolute;
+      bottom: 82px;
+      width: 2px;
+      height: 78px;
+      z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(53,214,221,.65),
+        transparent
+      );
+      box-shadow: 0 0 15px rgba(53,214,221,.5);
+      animation: beamPulse 3s ease-in-out infinite;
+    }
+
+    .floating-particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(87,231,239,.65);
+      animation: floatParticle 7s ease-in-out infinite;
+    }
+
+    .p1 { left: 12%; top: 24%; }
+    .p2 { left: 82%; top: 18%; animation-delay: -2s; }
+    .p3 { left: 88%; top: 65%; animation-delay: -4s; }
+    .p4 { left: 18%; top: 74%; animation-delay: -1s; }
+    .p5 { left: 72%; top: 82%; animation-delay: -5s; }
+    .p6 { left: 26%; top: 12%; animation-delay: -3s; }
+
+    @keyframes globeRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes globeGrid {
+      from { transform: perspective(420px) rotateX(66deg) translateX(0); }
+      to { transform: perspective(420px) rotateX(66deg) translateX(48px); }
+    }
+
+    @keyframes continentShift {
+      0% {
+        transform: translateX(-5px);
+        opacity: .7;
+      }
+      45% {
+        transform: translateX(8px);
+        opacity: .48;
+      }
+      50% {
+        transform: translateX(10px);
+        opacity: .38;
+      }
+      55% {
+        transform: translateX(-10px);
+        opacity: .38;
+      }
+      100% {
+        transform: translateX(-5px);
+        opacity: .7;
+      }
+    }
+
+    @keyframes orbitOne {
+      from { transform: rotate(10deg); }
+      to { transform: rotate(370deg); }
+    }
+
+    @keyframes orbitTwo {
+      from { transform: rotate(-26deg); }
+      to { transform: rotate(334deg); }
+    }
+
+    @keyframes orbitThree {
+      from { transform: rotate(58deg); }
+      to { transform: rotate(418deg); }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(.4);
+        opacity: .9;
+      }
+      100% {
+        transform: scale(2.1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        transform: scale(.96);
+        opacity: .65;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+    }
+
+    @keyframes beamPulse {
+      0%, 100% {
+        opacity: .25;
+      }
+      50% {
+        opacity: .85;
+      }
+    }
+
+    @keyframes floatParticle {
+      0%, 100% {
+        transform: translate(0,0);
+        opacity: .25;
+      }
+      50% {
+        transform: translate(12px,-22px);
+        opacity: .9;
+      }
+    }
+
+    /* =========================
+       TRUST STRIP
+       ========================= */
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 52px;
+    }
+
+    .trust-item {
+      padding: 0 22px;
+      border-right: 1px solid var(--border);
+      color: #aeb9c5;
+      font-size: .77rem;
+    }
+
+    .trust-item:first-child {
+      padding-left: 0;
+    }
+
+    .trust-item:last-child {
+      border-right: 0;
+    }
+
+    .trust-icon {
+      color: var(--accent);
+      margin-right: 7px;
+    }
+
+    /* =========================
+       SECTIONS
+       ========================= */
 
     section {
-      padding: 110px 0;
+      padding: 105px 0;
     }
 
     .section-label {
-      color: var(--accent);
-      text-transform: uppercase;
-      font-size: .73rem;
-      font-weight: 700;
-      letter-spacing: .18em;
       margin-bottom: 16px;
     }
 
     .section-title {
-      max-width: 800px;
-      margin: 0 0 24px;
+      max-width: 820px;
+      margin: 0 0 23px;
       font-size: clamp(2rem, 4vw, 3.5rem);
       line-height: 1.08;
       letter-spacing: -.045em;
@@ -285,12 +691,14 @@
 
     .section-intro {
       max-width: 760px;
+      margin: 0 0 52px;
       color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 54px;
+      font-size: 1.03rem;
     }
 
-    /* CAPABILITIES */
+    /* =========================
+       CAPABILITY CARDS
+       ========================= */
 
     .grid {
       display: grid;
@@ -300,98 +708,130 @@
 
     .card {
       min-height: 220px;
-      padding: 30px;
+      padding: 29px;
+      position: relative;
+      overflow: hidden;
       border: 1px solid var(--border);
       border-radius: 14px;
-      background: var(--panel);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.018)
+        );
       transition:
         transform .25s ease,
-        border .25s ease,
+        border-color .25s ease,
         background .25s ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width .35s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      background: var(--panel-hover);
-      border-color: rgba(60,199,214,.27);
+      border-color: rgba(53,214,221,.25);
+      background: rgba(255,255,255,.055);
+    }
+
+    .card:hover::after {
+      width: 100%;
     }
 
     .card-number {
       display: block;
-      margin-bottom: 38px;
+      margin-bottom: 35px;
       color: var(--accent);
-      font-size: .72rem;
-      letter-spacing: .12em;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .13em;
     }
 
     .card h3 {
-      margin: 0 0 12px;
+      margin: 0 0 11px;
       font-size: 1rem;
-      letter-spacing: .04em;
+      letter-spacing: .025em;
       text-transform: uppercase;
     }
 
     .card p {
       margin: 0;
       color: var(--muted);
-      font-size: .94rem;
+      font-size: .91rem;
     }
 
-    /* PROCESS */
+    /* =========================
+       PROCESS
+       ========================= */
 
     .process {
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,.018);
+      background: rgba(255,255,255,.014);
     }
 
     .steps {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      margin-top: 60px;
+      margin-top: 58px;
     }
 
     .step {
       position: relative;
-      padding: 30px 25px 30px 0;
+      padding: 30px 25px 25px 0;
     }
 
     .step:not(:last-child)::after {
       content: "";
       position: absolute;
-      top: 41px;
+      top: 42px;
       right: 18px;
       width: 34px;
       height: 1px;
-      background: rgba(60,199,214,.35);
+      background: linear-gradient(
+        to right,
+        rgba(53,214,221,.25),
+        rgba(53,214,221,.7)
+      );
     }
 
     .step-index {
+      width: 25px;
+      height: 25px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 23px;
-      height: 23px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(60,199,214,.5);
+      margin-bottom: 23px;
+      border: 1px solid rgba(53,214,221,.52);
       border-radius: 50%;
       color: var(--accent);
-      font-size: .65rem;
+      font-size: .64rem;
+      box-shadow: 0 0 15px rgba(53,214,221,.06);
     }
 
     .step h3 {
       margin: 0 0 10px;
-      font-size: .95rem;
-      letter-spacing: .06em;
+      font-size: .94rem;
+      letter-spacing: .055em;
     }
 
     .step p {
       margin: 0;
       color: var(--muted);
-      font-size: .88rem;
+      font-size: .87rem;
     }
 
-    /* THREE COLUMNS */
+    /* =========================
+       ANALYSIS
+       ========================= */
 
     .three {
       display: grid;
@@ -400,12 +840,12 @@
     }
 
     .principle {
-      padding-top: 24px;
+      padding-top: 23px;
       border-top: 1px solid var(--border);
     }
 
     .principle h3 {
-      margin: 0 0 13px;
+      margin: 0 0 12px;
       font-size: 1rem;
     }
 
@@ -414,47 +854,76 @@
       color: var(--muted);
     }
 
-    /* VALUE */
+    /* =========================
+       DATA TO SIGNAL
+       ========================= */
 
     .value-box {
       position: relative;
       overflow: hidden;
-      padding: 70px;
-      border: 1px solid rgba(60,199,214,.2);
-      border-radius: 20px;
+      padding: 68px;
+      border: 1px solid var(--border-accent);
+      border-radius: 18px;
       background:
         linear-gradient(
           135deg,
-          rgba(60,199,214,.08),
-          rgba(255,255,255,.025)
+          rgba(53,214,221,.075),
+          rgba(255,255,255,.018)
         );
     }
 
-    .value-box::after {
+    .value-box::before {
       content: "";
-      width: 350px;
-      height: 350px;
       position: absolute;
-      right: -150px;
-      top: -180px;
-      border: 1px solid rgba(60,199,214,.15);
+      width: 360px;
+      height: 360px;
+      right: -180px;
+      top: -190px;
+      border: 1px solid rgba(53,214,221,.12);
       border-radius: 50%;
     }
 
     .value-box h2 {
-      max-width: 780px;
+      max-width: 760px;
       margin: 0 0 20px;
-      font-size: clamp(2.1rem, 4vw, 4rem);
+      font-size: clamp(2.2rem, 4vw, 4rem);
       line-height: 1.05;
       letter-spacing: -.05em;
     }
 
     .value-box > p {
       max-width: 760px;
+      margin-bottom: 45px;
       color: var(--muted);
     }
 
-    /* USE CASES */
+    .value-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .value-principle {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+
+    .value-principle strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: .92rem;
+    }
+
+    .value-principle span {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    /* =========================
+       USE CASES
+       ========================= */
 
     .use-cases {
       display: grid;
@@ -463,26 +932,36 @@
     }
 
     .use-case {
-      padding: 32px;
-      border-bottom: 1px solid var(--border);
+      padding: 31px;
+      border: 1px solid transparent;
+      border-bottom-color: var(--border);
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .use-case:hover {
+      border-color: rgba(53,214,221,.16);
+      border-radius: 12px;
+      background: rgba(255,255,255,.02);
     }
 
     .use-case h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
+      margin: 0 0 9px;
+      font-size: 1.04rem;
     }
 
     .use-case p {
-      color: var(--muted);
       margin: 0;
+      color: var(--muted);
     }
 
-    /* INTERNATIONAL */
+    /* =========================
+       INTERNATIONAL
+       ========================= */
 
     .international {
-      text-align: center;
       max-width: 850px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .international .section-title,
@@ -491,18 +970,85 @@
       margin-right: auto;
     }
 
-    /* TRUST */
+    .world-line {
+      position: relative;
+      height: 130px;
+      max-width: 760px;
+      margin: 40px auto 0;
+      overflow: hidden;
+      opacity: .72;
+    }
+
+    .world-line::before {
+      content: "";
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      top: 64px;
+      height: 1px;
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(53,214,221,.55),
+          rgba(53,214,221,.18),
+          rgba(53,214,221,.55),
+          transparent
+        );
+    }
+
+    .world-node {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      top: 61px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 15px rgba(53,214,221,.8);
+    }
+
+    .wn1 { left: 14%; }
+    .wn2 { left: 32%; }
+    .wn3 { left: 51%; }
+    .wn4 { left: 70%; }
+    .wn5 { left: 86%; }
+
+    .world-pulse {
+      position: absolute;
+      width: 90px;
+      height: 1px;
+      top: 64px;
+      left: -100px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        #fff,
+        var(--accent),
+        transparent
+      );
+      filter: drop-shadow(0 0 5px var(--accent));
+      animation: travel 6s linear infinite;
+    }
+
+    @keyframes travel {
+      from { left: -100px; }
+      to { left: calc(100% + 100px); }
+    }
+
+    /* =========================
+       TRUST
+       ========================= */
 
     .trust {
-      padding: 85px 0;
+      padding: 86px 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       text-align: center;
     }
 
     .trust h2 {
-      margin: 0 auto 20px;
       max-width: 850px;
+      margin: 0 auto 20px;
       font-size: clamp(2.3rem, 5vw, 4.8rem);
       line-height: 1;
       letter-spacing: -.055em;
@@ -513,39 +1059,39 @@
     }
 
     .trust p {
-      max-width: 740px;
+      max-width: 730px;
       margin: 0 auto;
       color: var(--muted);
     }
 
-    /* FINAL CTA */
+    /* =========================
+       FINAL
+       ========================= */
 
     .final {
+      padding: 125px 0;
       text-align: center;
-      padding: 130px 0;
     }
 
     .final h2 {
       max-width: 900px;
-      margin: 0 auto 25px;
-      font-size: clamp(2.4rem, 5vw, 5rem);
+      margin: 0 auto 24px;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
       line-height: 1;
       letter-spacing: -.055em;
     }
 
     .final p {
       max-width: 680px;
-      margin: 0 auto 36px;
+      margin: 0 auto 35px;
       color: var(--muted);
     }
 
-    /* FOOTER */
-
     footer {
-      padding: 35px 0;
+      padding: 34px 0;
       border-top: 1px solid var(--border);
-      color: #78889a;
-      font-size: .82rem;
+      color: #778799;
+      font-size: .8rem;
     }
 
     .footer-inner {
@@ -554,16 +1100,18 @@
       gap: 20px;
     }
 
-    /* RESPONSIVE */
+    /* =========================
+       RESPONSIVE
+       ========================= */
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .hero {
         grid-template-columns: 1fr;
-        min-height: auto;
+        padding-top: 75px;
       }
 
-      .visual {
-        min-height: 380px;
+      .globe-area {
+        min-height: 500px;
       }
 
       .grid {
@@ -578,7 +1126,8 @@
         display: none;
       }
 
-      .three {
+      .three,
+      .value-principles {
         grid-template-columns: 1fr;
       }
     }
@@ -593,16 +1142,32 @@
       }
 
       .hero {
-        padding: 80px 0 50px;
+        min-height: auto;
+        padding: 65px 0 35px;
       }
 
       h1 {
         font-size: 3.3rem;
       }
 
-      .visual {
-        transform: scale(.8);
-        margin: -40px 0;
+      h1 small {
+        font-size: 1.65rem;
+      }
+
+      .hero-trust {
+        gap: 15px;
+      }
+
+      .trust-item {
+        width: calc(50% - 8px);
+        padding: 0;
+        border: 0;
+      }
+
+      .globe-area {
+        min-height: 390px;
+        transform: scale(.76);
+        margin: -30px -80px;
       }
 
       section {
@@ -615,7 +1180,7 @@
       }
 
       .value-box {
-        padding: 38px 26px;
+        padding: 38px 25px;
       }
 
       .footer-inner {
@@ -628,7 +1193,11 @@
         scroll-behavior: auto;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
         transition: none !important;
       }
     }
@@ -649,6 +1218,7 @@
         <a href="#approche">Approche</a>
         <a href="#usages">Usages</a>
         <a href="#confiance">Principes</a>
+        <a class="nav-cta" href="#capacites">Découvrir FIRNATIS →</a>
       </div>
     </nav>
   </div>
@@ -656,67 +1226,140 @@
 
 <main id="top">
 
-  <!-- HERO -->
+  <!-- ======================
+       HERO
+       ====================== -->
 
   <div class="container">
     <div class="hero">
 
-      <div>
+      <div class="hero-content">
+
         <div class="eyebrow">
-          Intelligence économique · Analyse entreprise
+          Intelligence économique · Analyse stratégique
         </div>
 
         <h1>
           FIRNATIS
           <small>
-            L'intelligence économique augmentée par la donnée
+            Comprendre aujourd'hui.<br>
+            Éclairer vos
+            <span class="accent-text">décisions</span>
+            de demain.
           </small>
         </h1>
 
         <p class="hero-copy">
-          Transformez des informations dispersées en signaux
-          stratégiques exploitables. FIRNATIS organise et met en
-          perspective les informations utiles à la compréhension
-          des entreprises et de leur environnement pour éclairer
-          la veille, l'analyse concurrentielle et la décision
-          stratégique.
+          FIRNATIS organise et met en perspective les informations
+          essentielles sur les entreprises et leur environnement
+          pour transformer la complexité informationnelle en
+          compréhension et en avantage stratégique.
         </p>
 
         <div class="actions">
           <a class="button button-primary" href="#capacites">
-            Découvrir FIRNATIS
+            Découvrir FIRNATIS →
           </a>
 
           <a class="button button-secondary" href="#approche">
             Explorer les capacités
           </a>
         </div>
+
+        <div class="hero-trust">
+          <div class="trust-item">
+            <span class="trust-icon">◇</span>
+            Information traçable
+          </div>
+
+          <div class="trust-item">
+            <span class="trust-icon">◎</span>
+            Analyse explicable
+          </div>
+
+          <div class="trust-item">
+            <span class="trust-icon">□</span>
+            Lecture structurée
+          </div>
+
+          <div class="trust-item">
+            <span class="trust-icon">≋</span>
+            Vision multidimensionnelle
+          </div>
+        </div>
+
       </div>
 
-      <div class="visual" aria-hidden="true">
-        <div class="orbit orbit-1"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
+      <!-- GLOBE 100% HTML/CSS, ANIMÉ -->
 
-        <div class="node n1"></div>
-        <div class="node n2"></div>
-        <div class="node n3"></div>
-        <div class="node n4"></div>
-        <div class="node n5"></div>
+      <div class="globe-area" aria-hidden="true">
 
-        <div class="core">F</div>
+        <div class="globe-glow"></div>
+
+        <div class="floating-particle p1"></div>
+        <div class="floating-particle p2"></div>
+        <div class="floating-particle p3"></div>
+        <div class="floating-particle p4"></div>
+        <div class="floating-particle p5"></div>
+        <div class="floating-particle p6"></div>
+
+        <div class="orbit one">
+          <span class="orbital-point"></span>
+        </div>
+
+        <div class="orbit two">
+          <span class="orbital-point"></span>
+        </div>
+
+        <div class="orbit three">
+          <span class="orbital-point"></span>
+        </div>
+
+        <div class="globe">
+
+          <div class="longitude l1"></div>
+          <div class="longitude l2"></div>
+          <div class="longitude l3"></div>
+
+          <div class="latitude a"></div>
+          <div class="latitude b"></div>
+          <div class="latitude c"></div>
+
+          <div class="continent europe"></div>
+          <div class="continent africa"></div>
+          <div class="continent asia"></div>
+
+          <div class="globe-dots">
+            <span class="data-dot d1"></span>
+            <span class="data-dot d2"></span>
+            <span class="data-dot d3"></span>
+            <span class="data-dot d4"></span>
+            <span class="data-dot d5"></span>
+            <span class="data-dot d6"></span>
+            <span class="data-dot d7"></span>
+            <span class="data-dot d8"></span>
+            <span class="data-dot d9"></span>
+          </div>
+
+        </div>
+
+        <div class="beam"></div>
+        <div class="globe-base"></div>
+
       </div>
 
     </div>
   </div>
 
-  <!-- CAPABILITIES -->
+  <!-- ======================
+       CAPACITÉS
+       ====================== -->
 
   <section id="capacites">
     <div class="container">
 
       <div class="section-label">
-        Vision multidimensionnelle
+        Une vision multidimensionnelle de l'entreprise
       </div>
 
       <h2 class="section-title">
@@ -762,9 +1405,9 @@
           <span class="card-number">04</span>
           <h3>Dynamique RH</h3>
           <p>
-            Observer les signaux liés aux implantations, aux offres
-            d'emploi observables, aux métiers recherchés et aux
-            évolutions territoriales, selon les données disponibles.
+            Observer les signaux liés aux implantations,
+            aux offres d'emploi observables, aux métiers recherchés
+            et aux évolutions territoriales, selon les données disponibles.
           </p>
         </article>
 
@@ -772,8 +1415,8 @@
           <span class="card-number">05</span>
           <h3>Risques & conformité</h3>
           <p>
-            Mettre en perspective les informations utiles à
-            l'identification des facteurs de vigilance.
+            Mettre en perspective les informations utiles
+            à l'identification des facteurs de vigilance.
           </p>
         </article>
 
@@ -790,7 +1433,9 @@
     </div>
   </section>
 
-  <!-- APPROACH -->
+  <!-- ======================
+       APPROCHE
+       ====================== -->
 
   <section class="process" id="approche">
     <div class="container">
@@ -837,7 +1482,7 @@
           <h3>DÉTECTER</h3>
           <p>
             Faire émerger les changements et signaux
-            qui méritent l'attention.
+            qui méritent l'attention de l'analyste.
           </p>
         </div>
 
@@ -854,13 +1499,15 @@
     </div>
   </section>
 
-  <!-- ANALYSIS -->
+  <!-- ======================
+       PENSÉ POUR L'ANALYSE
+       ====================== -->
 
   <section>
     <div class="container">
 
       <div class="section-label">
-        Pensé pour l'analyse
+        Pensé pour l'analyse stratégique
       </div>
 
       <h2 class="section-title">
@@ -869,8 +1516,8 @@
 
       <p class="section-intro">
         L'enjeu n'est plus seulement d'accéder à davantage
-        d'informations. Il est de pouvoir identifier celles
-        qui contribuent réellement à la compréhension d'une situation.
+        d'informations. Il est de pouvoir identifier celles qui
+        contribuent réellement à la compréhension d'une situation.
       </p>
 
       <div class="three">
@@ -903,14 +1550,17 @@
     </div>
   </section>
 
-  <!-- DATA TO SIGNAL -->
+  <!-- ======================
+       DE LA DONNÉE AU SIGNAL
+       ====================== -->
 
   <section>
     <div class="container">
+
       <div class="value-box">
 
         <div class="section-label">
-          De la donnée au signal
+          De l'information au signal
         </div>
 
         <h2>
@@ -924,17 +1574,47 @@
           l'attention.
         </p>
 
+        <div class="value-principles">
+
+          <div class="value-principle">
+            <strong>Traçabilité</strong>
+            <span>
+              Préserver l'origine et le contexte des informations mobilisées.
+            </span>
+          </div>
+
+          <div class="value-principle">
+            <strong>Explicabilité</strong>
+            <span>
+              Permettre de comprendre pourquoi un élément est présenté
+              à l'analyste.
+            </span>
+          </div>
+
+          <div class="value-principle">
+            <strong>Prudence analytique</strong>
+            <span>
+              Distinguer les faits observés des rapprochements
+              et interprétations.
+            </span>
+          </div>
+
+        </div>
+
       </div>
+
     </div>
   </section>
 
-  <!-- USE CASES -->
+  <!-- ======================
+       CAS D'USAGE
+       ====================== -->
 
   <section id="usages">
     <div class="container">
 
       <div class="section-label">
-        Cas d'usage
+        Des cas d'usage concrets
       </div>
 
       <h2 class="section-title">
@@ -946,16 +1626,14 @@
         <article class="use-case">
           <h3>Veille entreprise</h3>
           <p>
-            Suivre les évolutions significatives autour
-            d'une entreprise.
+            Suivre les évolutions significatives autour d'une entreprise.
           </p>
         </article>
 
         <article class="use-case">
           <h3>Analyse concurrentielle</h3>
           <p>
-            Comparer des acteurs et identifier leurs dynamiques
-            respectives.
+            Comparer des acteurs et identifier leurs dynamiques respectives.
           </p>
         </article>
 
@@ -970,8 +1648,8 @@
         <article class="use-case">
           <h3>Anticipation stratégique</h3>
           <p>
-            Identifier des signaux susceptibles d'éclairer
-            une évolution, une opportunité ou un facteur de vigilance.
+            Identifier des signaux susceptibles d'éclairer une évolution,
+            une opportunité ou un facteur de vigilance.
           </p>
         </article>
 
@@ -979,17 +1657,19 @@
     </div>
   </section>
 
-  <!-- INTERNATIONAL -->
+  <!-- ======================
+       INTERNATIONAL
+       ====================== -->
 
   <section>
     <div class="container international">
 
       <div class="section-label">
-        Perspective internationale
+        Une lecture qui dépasse les frontières
       </div>
 
       <h2 class="section-title">
-        Une lecture qui dépasse les frontières.
+        Comprendre l'entreprise dans son environnement international.
       </h2>
 
       <p class="section-intro">
@@ -999,16 +1679,27 @@
         tout en conservant leur contexte et leur niveau de comparabilité.
       </p>
 
+      <div class="world-line" aria-hidden="true">
+        <div class="world-node wn1"></div>
+        <div class="world-node wn2"></div>
+        <div class="world-node wn3"></div>
+        <div class="world-node wn4"></div>
+        <div class="world-node wn5"></div>
+        <div class="world-pulse"></div>
+      </div>
+
     </div>
   </section>
 
-  <!-- TRUST -->
+  <!-- ======================
+       CONFIANCE
+       ====================== -->
 
   <section class="trust" id="confiance">
     <div class="container">
 
       <h2>
-        Une information traçable.<br />
+        Une information traçable.<br>
         <span>Une analyse explicable.</span>
       </h2>
 
@@ -1016,14 +1707,16 @@
         FIRNATIS privilégie la traçabilité des informations,
         l'explicabilité des résultats et la distinction entre faits
         observés et éléments d'analyse. L'objectif : permettre à
-        l'utilisateur de comprendre la portée de l'information
-        présentée.
+        l'utilisateur de comprendre non seulement ce qu'il voit,
+        mais aussi la portée de l'information présentée.
       </p>
 
     </div>
   </section>
 
-  <!-- FINAL -->
+  <!-- ======================
+       FINAL CTA
+       ====================== -->
 
   <section class="final">
     <div class="container">
@@ -1037,12 +1730,13 @@
       </h2>
 
       <p>
-        Une lecture structurée de l'entreprise et de son environnement
-        pour soutenir la veille, l'analyse et la décision stratégique.
+        FIRNATIS transforme des informations dispersées en une lecture
+        structurée de l'entreprise et de son environnement pour soutenir
+        la veille, l'analyse et la décision stratégique.
       </p>
 
       <a class="button button-primary" href="#top">
-        Découvrir la plateforme
+        Découvrir FIRNATIS →
       </a>
 
     </div>
