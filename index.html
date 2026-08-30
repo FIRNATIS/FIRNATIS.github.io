@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="description"
-        content="Firnatis est une solution d'intelligence économique en développement destinée à éclairer l'analyse stratégique des entreprises et de leur environnement.">
+  <title>FIRNATIS — Intelligence économique et analyse stratégique</title>
 
-  <title>Firnatis — Intelligence économique</title>
+  <meta
+    name="description"
+    content="FIRNATIS transforme des informations économiques dispersées en signaux structurés pour la veille, l'analyse concurrentielle et la décision stratégique."
+  />
+
+  <meta name="theme-color" content="#071426" />
+
+  <meta property="og:title"
+        content="FIRNATIS — Intelligence économique et analyse stratégique" />
+
+  <meta property="og:description"
+        content="De l'information dispersée à une lecture structurée de l'entreprise et de son environnement." />
+
+  <meta property="og:type" content="website" />
 
   <style>
     :root {
-      --navy: #07182d;
-      --navy-2: #0c2748;
-      --blue: #3b82f6;
-      --cyan: #7dd3fc;
-      --green: #5ee0b5;
-      --text: #172033;
-      --muted: #64748b;
-      --light: #f6f8fc;
-      --white: #ffffff;
-      --border: #e3e8f0;
+      --bg: #06111f;
+      --bg-soft: #0a192b;
+      --panel: rgba(255,255,255,.045);
+      --panel-hover: rgba(255,255,255,.07);
+      --border: rgba(255,255,255,.10);
+      --text: #f4f7fb;
+      --muted: #9eacbc;
+      --accent: #3cc7d6;
+      --accent-soft: rgba(60,199,214,.13);
+      --accent-2: #72e0c2;
+      --max: 1180px;
     }
 
     * {
@@ -33,728 +46,1015 @@
 
     body {
       margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 80% 0%, rgba(36,119,152,.16), transparent 32%),
+        radial-gradient(circle at 10% 30%, rgba(43,111,125,.08), transparent 28%),
+        var(--bg);
       color: var(--text);
-      background: var(--white);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
-      width: min(1120px, calc(100% - 48px));
+      width: min(calc(100% - 48px), var(--max));
       margin: 0 auto;
     }
 
     /* NAVIGATION */
 
-    nav {
-      position: absolute;
+    header {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 10;
-      padding: 28px 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(6,17,31,.84);
+      backdrop-filter: blur(18px);
     }
 
-    .nav-inner {
+    nav {
+      min-height: 76px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 32px;
     }
 
-    .logo {
-      color: white;
-      font-size: 24px;
+    .brand {
       font-weight: 800;
-      letter-spacing: 4px;
+      letter-spacing: .18em;
+      font-size: 1rem;
     }
 
-    .nav-label {
-      color: #cbd5e1;
-      font-size: 13px;
-      letter-spacing: .5px;
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: white;
     }
 
     /* HERO */
 
     .hero {
-      position: relative;
-      overflow: hidden;
       min-height: 720px;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 70px;
       align-items: center;
-      color: white;
-      background:
-        radial-gradient(circle at 78% 25%, rgba(59,130,246,.34), transparent 26%),
-        radial-gradient(circle at 66% 72%, rgba(125,211,252,.12), transparent 28%),
-        linear-gradient(135deg, #051222 0%, #09213e 52%, #0d315b 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .17;
-      background-image:
-        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
-      background-size: 58px 58px;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      right: -180px;
-      bottom: -260px;
-      border: 1px solid rgba(125,211,252,.16);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 80px rgba(125,211,252,.025),
-        0 0 0 160px rgba(125,211,252,.018);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 880px;
-      padding-top: 70px;
+      padding: 110px 0 90px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 26px;
-      color: #bae6fd;
-      font-size: 13px;
+      color: var(--accent);
+      font-size: .76rem;
       font-weight: 700;
-      letter-spacing: 1.6px;
+      letter-spacing: .18em;
       text-transform: uppercase;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 15px rgba(94,224,181,.75);
+      margin-bottom: 22px;
     }
 
     h1 {
+      font-size: clamp(3.4rem, 7vw, 6.7rem);
+      line-height: .92;
+      letter-spacing: -.06em;
       margin: 0;
-      max-width: 900px;
-      font-size: clamp(49px, 7vw, 80px);
-      line-height: 1.02;
-      letter-spacing: -3px;
     }
 
-    .highlight {
-      color: var(--cyan);
+    h1 small {
+      display: block;
+      max-width: 750px;
+      margin-top: 28px;
+      font-size: clamp(1.45rem, 2.6vw, 2.35rem);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+      font-weight: 500;
+      color: #dfe8f1;
     }
 
-    .hero-text {
-      max-width: 700px;
-      margin-top: 30px;
-      color: #cbd5e1;
-      font-size: 20px;
-      line-height: 1.75;
+    .hero-copy {
+      max-width: 680px;
+      margin: 30px 0 36px;
+      color: var(--muted);
+      font-size: 1.08rem;
     }
 
-    .hero-tags {
+    .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 11px;
-      margin-top: 38px;
+      gap: 14px;
     }
 
-    .tag {
-      padding: 9px 15px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 999px;
-      background: rgba(255,255,255,.055);
-      color: #e2e8f0;
-      font-size: 13px;
-      backdrop-filter: blur(7px);
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: .92rem;
+      font-weight: 650;
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        border .2s ease;
     }
 
-    /* GENERAL */
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #031217;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,.035);
+    }
+
+    /* ABSTRACT VISUAL */
+
+    .visual {
+      min-height: 480px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid rgba(60,199,214,.16);
+      border-radius: 50%;
+    }
+
+    .orbit-1 {
+      width: 390px;
+      height: 390px;
+    }
+
+    .orbit-2 {
+      width: 290px;
+      height: 290px;
+    }
+
+    .orbit-3 {
+      width: 190px;
+      height: 190px;
+    }
+
+    .core {
+      width: 116px;
+      height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(60,199,214,.4);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(60,199,214,.18), rgba(60,199,214,.04));
+      box-shadow: 0 0 70px rgba(60,199,214,.12);
+      font-weight: 800;
+      letter-spacing: .13em;
+      z-index: 2;
+    }
+
+    .node {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(60,199,214,.8);
+    }
+
+    .n1 { top: 13%; left: 48%; }
+    .n2 { top: 36%; right: 8%; }
+    .n3 { bottom: 15%; right: 27%; }
+    .n4 { bottom: 20%; left: 18%; }
+    .n5 { top: 31%; left: 10%; }
+
+    /* COMMON SECTIONS */
 
     section {
-      padding: 100px 0;
+      padding: 110px 0;
     }
 
-    .light {
-      background: var(--light);
+    .section-label {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      margin-bottom: 16px;
     }
 
-    .dark {
-      background: var(--navy);
-      color: white;
+    .section-title {
+      max-width: 800px;
+      margin: 0 0 24px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
     }
 
-    .label {
-      margin-bottom: 12px;
-      color: #2563eb;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 1.8px;
+    .section-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 54px;
+    }
+
+    /* CAPABILITIES */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 220px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel);
+      transition:
+        transform .25s ease,
+        border .25s ease,
+        background .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background: var(--panel-hover);
+      border-color: rgba(60,199,214,.27);
+    }
+
+    .card-number {
+      display: block;
+      margin-bottom: 38px;
+      color: var(--accent);
+      font-size: .72rem;
+      letter-spacing: .12em;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      letter-spacing: .04em;
       text-transform: uppercase;
     }
 
-    .dark .label {
-      color: var(--cyan);
-    }
-
-    h2 {
-      max-width: 820px;
-      margin: 0 0 25px;
-      color: var(--navy);
-      font-size: clamp(32px, 4vw, 47px);
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-    }
-
-    .dark h2 {
-      color: white;
-    }
-
-    .lead {
-      max-width: 830px;
+    .card p {
       margin: 0;
       color: var(--muted);
-      font-size: 19px;
-      line-height: 1.8;
+      font-size: .94rem;
     }
 
-    .dark .lead {
-      color: #cbd5e1;
+    /* PROCESS */
+
+    .process {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.018);
     }
 
-    /* VALUE */
-
-    .value-grid {
+    .steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 55px;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 60px;
     }
 
-    .value-card {
-      min-height: 260px;
-      padding: 34px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: white;
-      transition: transform .25s ease, box-shadow .25s ease;
+    .step {
+      position: relative;
+      padding: 30px 25px 30px 0;
     }
 
-    .value-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 45px rgba(15,23,42,.08);
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 41px;
+      right: 18px;
+      width: 34px;
+      height: 1px;
+      background: rgba(60,199,214,.35);
     }
 
-    .number {
-      margin-bottom: 38px;
-      color: #2563eb;
-      font-size: 13px;
-      font-weight: 800;
+    .step-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 23px;
+      height: 23px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(60,199,214,.5);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: .65rem;
     }
 
-    .value-card h3 {
-      margin: 0 0 13px;
-      color: var(--navy);
-      font-size: 22px;
+    .step h3 {
+      margin: 0 0 10px;
+      font-size: .95rem;
+      letter-spacing: .06em;
     }
 
-    .value-card p {
+    .step p {
       margin: 0;
       color: var(--muted);
-      font-size: 16px;
+      font-size: .88rem;
     }
 
-    /* PRINCIPLES */
+    /* THREE COLUMNS */
 
-    .principles {
+    .three {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 55px;
+      gap: 30px;
     }
 
     .principle {
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,.11);
-      border-radius: 16px;
-      background: rgba(255,255,255,.045);
-    }
-
-    .principle-mark {
-      width: 42px;
-      height: 4px;
-      margin-bottom: 24px;
-      border-radius: 5px;
-      background: var(--cyan);
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
     }
 
     .principle h3 {
-      margin: 0 0 11px;
-      font-size: 18px;
+      margin: 0 0 13px;
+      font-size: 1rem;
     }
 
     .principle p {
       margin: 0;
-      color: #94a3b8;
-      font-size: 15px;
-    }
-
-    /* EMPLOYMENT */
-
-    .employment-box {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 55px;
-      align-items: center;
-      margin-top: 52px;
-      padding: 46px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: white;
-      box-shadow: 0 15px 45px rgba(15,23,42,.045);
-    }
-
-    .employment-box h3 {
-      margin: 0 0 17px;
-      color: var(--navy);
-      font-size: 25px;
-    }
-
-    .employment-box p {
-      margin: 0 0 15px;
       color: var(--muted);
     }
 
-    .employment-note {
-      padding: 26px;
-      border-radius: 14px;
-      background: #eff6ff;
-    }
+    /* VALUE */
 
-    .employment-note strong {
-      display: block;
-      margin-bottom: 9px;
-      color: #1d4ed8;
-      font-size: 13px;
-      letter-spacing: .7px;
-      text-transform: uppercase;
-    }
-
-    .employment-note p {
-      margin: 0;
-      color: #334155;
-      font-size: 14px;
-    }
-
-    /* DEVELOPMENT */
-
-    .development {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 40px;
-      padding: 45px;
-      border: 1px solid rgba(255,255,255,.11);
+    .value-box {
+      position: relative;
+      overflow: hidden;
+      padding: 70px;
+      border: 1px solid rgba(60,199,214,.2);
       border-radius: 20px;
-      background: rgba(255,255,255,.045);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(60,199,214,.08),
+          rgba(255,255,255,.025)
+        );
     }
 
-    .development h3 {
-      margin: 0 0 9px;
-      font-size: 24px;
+    .value-box::after {
+      content: "";
+      width: 350px;
+      height: 350px;
+      position: absolute;
+      right: -150px;
+      top: -180px;
+      border: 1px solid rgba(60,199,214,.15);
+      border-radius: 50%;
     }
 
-    .development p {
-      max-width: 680px;
+    .value-box h2 {
+      max-width: 780px;
+      margin: 0 0 20px;
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -.05em;
+    }
+
+    .value-box > p {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    /* USE CASES */
+
+    .use-cases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .use-case {
+      padding: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .use-case h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .use-case p {
+      color: var(--muted);
       margin: 0;
-      color: #94a3b8;
     }
 
-    .badge {
-      flex-shrink: 0;
-      padding: 11px 17px;
-      border: 1px solid rgba(94,224,181,.3);
-      border-radius: 999px;
-      background: rgba(94,224,181,.09);
-      color: #6ee7b7;
-      font-size: 13px;
-      font-weight: 700;
+    /* INTERNATIONAL */
+
+    .international {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .international .section-title,
+    .international .section-intro {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* TRUST */
+
+    .trust {
+      padding: 85px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .trust h2 {
+      margin: 0 auto 20px;
+      max-width: 850px;
+      font-size: clamp(2.3rem, 5vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .trust h2 span {
+      color: var(--accent);
+    }
+
+    .trust p {
+      max-width: 740px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    /* FINAL CTA */
+
+    .final {
+      text-align: center;
+      padding: 130px 0;
+    }
+
+    .final h2 {
+      max-width: 900px;
+      margin: 0 auto 25px;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .final p {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      color: var(--muted);
     }
 
     /* FOOTER */
 
     footer {
-      padding: 36px 0;
+      padding: 35px 0;
       border-top: 1px solid var(--border);
-      background: white;
+      color: #78889a;
+      font-size: .82rem;
     }
 
-    .footer {
+    .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 30px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-logo {
-      color: var(--navy);
-      font-weight: 800;
-      letter-spacing: 3px;
+      gap: 20px;
     }
 
     /* RESPONSIVE */
 
-    @media (max-width: 850px) {
-      .value-grid,
-      .principles {
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .visual {
+        min-height: 380px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
         grid-template-columns: 1fr;
       }
 
-      .employment-box {
-        grid-template-columns: 1fr;
+      .step:not(:last-child)::after {
+        display: none;
       }
 
-      .development {
-        align-items: flex-start;
-        flex-direction: column;
+      .three {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 550px) {
+    @media (max-width: 650px) {
       .container {
-        width: calc(100% - 32px);
+        width: min(calc(100% - 30px), var(--max));
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 0 50px;
+      }
+
+      h1 {
+        font-size: 3.3rem;
+      }
+
+      .visual {
+        transform: scale(.8);
+        margin: -40px 0;
       }
 
       section {
         padding: 75px 0;
       }
 
-      .hero {
-        min-height: 650px;
+      .grid,
+      .use-cases {
+        grid-template-columns: 1fr;
       }
 
-      h1 {
-        letter-spacing: -2px;
+      .value-box {
+        padding: 38px 26px;
       }
 
-      .nav-label {
-        display: none;
-      }
-
-      .value-card,
-      .employment-box,
-      .development {
-        padding: 27px;
-      }
-
-      .footer {
+      .footer-inner {
         flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
       }
     }
   </style>
 </head>
 
-
 <body>
 
-<nav>
-  <div class="container nav-inner">
-    <div class="logo">FIRNATIS</div>
-    <div class="nav-label">Intelligence économique</div>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#top">
+        FIRNATIS<span>.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#capacites">Capacités</a>
+        <a href="#approche">Approche</a>
+        <a href="#usages">Usages</a>
+        <a href="#confiance">Principes</a>
+      </div>
+    </nav>
   </div>
-</nav>
-
-
-<header class="hero">
-
-  <div class="container hero-content">
-
-    <div class="eyebrow">
-      <span class="dot"></span>
-      Intelligence économique
-    </div>
-
-    <h1>
-      Voir plus loin dans
-      <span class="highlight">l'environnement des entreprises.</span>
-    </h1>
-
-    <p class="hero-text">
-      Firnatis est une solution d'intelligence économique en développement
-      conçue pour transformer des informations dispersées en une lecture
-      plus structurée de l'environnement stratégique des entreprises.
-    </p>
-
-    <div class="hero-tags">
-      <span class="tag">Analyse stratégique</span>
-      <span class="tag">Information économique</span>
-      <span class="tag">Données ouvertes</span>
-      <span class="tag">Aide à la décision</span>
-    </div>
-
-  </div>
-
 </header>
 
+<main id="top">
 
-<main>
+  <!-- HERO -->
+
+  <div class="container">
+    <div class="hero">
+
+      <div>
+        <div class="eyebrow">
+          Intelligence économique · Analyse entreprise
+        </div>
+
+        <h1>
+          FIRNATIS
+          <small>
+            L'intelligence économique augmentée par la donnée
+          </small>
+        </h1>
+
+        <p class="hero-copy">
+          Transformez des informations dispersées en signaux
+          stratégiques exploitables. FIRNATIS organise et met en
+          perspective les informations utiles à la compréhension
+          des entreprises et de leur environnement pour éclairer
+          la veille, l'analyse concurrentielle et la décision
+          stratégique.
+        </p>
+
+        <div class="actions">
+          <a class="button button-primary" href="#capacites">
+            Découvrir FIRNATIS
+          </a>
+
+          <a class="button button-secondary" href="#approche">
+            Explorer les capacités
+          </a>
+        </div>
+      </div>
+
+      <div class="visual" aria-hidden="true">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+
+        <div class="node n1"></div>
+        <div class="node n2"></div>
+        <div class="node n3"></div>
+        <div class="node n4"></div>
+        <div class="node n5"></div>
+
+        <div class="core">F</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CAPABILITIES -->
+
+  <section id="capacites">
+    <div class="container">
+
+      <div class="section-label">
+        Vision multidimensionnelle
+      </div>
+
+      <h2 class="section-title">
+        Comprendre l'entreprise au-delà des informations isolées.
+      </h2>
+
+      <p class="section-intro">
+        FIRNATIS met en perspective différentes dimensions
+        d'analyse afin de restituer une lecture structurée
+        de l'entreprise, de son environnement et de ses évolutions.
+      </p>
+
+      <div class="grid">
+
+        <article class="card">
+          <span class="card-number">01</span>
+          <h3>Capital & écosystème</h3>
+          <p>
+            Comprendre les structures d'entreprise et les relations
+            qui façonnent leur environnement économique.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="card-number">02</span>
+          <h3>Innovation & propriété intellectuelle</h3>
+          <p>
+            Observer les dynamiques d'innovation et les actifs
+            technologiques visibles.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="card-number">03</span>
+          <h3>Projets & financements</h3>
+          <p>
+            Identifier les projets, collaborations et dynamiques
+            de financement pertinentes.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="card-number">04</span>
+          <h3>Dynamique RH</h3>
+          <p>
+            Observer les signaux liés aux implantations, aux offres
+            d'emploi observables, aux métiers recherchés et aux
+            évolutions territoriales, selon les données disponibles.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="card-number">05</span>
+          <h3>Risques & conformité</h3>
+          <p>
+            Mettre en perspective les informations utiles à
+            l'identification des facteurs de vigilance.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="card-number">06</span>
+          <h3>Signaux stratégiques</h3>
+          <p>
+            Faire émerger les changements qui méritent
+            l'attention de l'analyste.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+
+  <section class="process" id="approche">
+    <div class="container">
+
+      <div class="section-label">
+        De l'information à la décision
+      </div>
+
+      <h2 class="section-title">
+        Une lecture structurée pour faire ressortir l'essentiel.
+      </h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <span class="step-index">1</span>
+          <h3>OBSERVER</h3>
+          <p>
+            Rassembler les informations pertinentes autour
+            d'une entreprise et de son environnement.
+          </p>
+        </div>
+
+        <div class="step">
+          <span class="step-index">2</span>
+          <h3>RELIER</h3>
+          <p>
+            Mettre en perspective des informations dispersées
+            pour restituer une vision cohérente.
+          </p>
+        </div>
+
+        <div class="step">
+          <span class="step-index">3</span>
+          <h3>COMPRENDRE</h3>
+          <p>
+            Identifier les évolutions technologiques,
+            économiques, capitalistiques et humaines.
+          </p>
+        </div>
+
+        <div class="step">
+          <span class="step-index">4</span>
+          <h3>DÉTECTER</h3>
+          <p>
+            Faire émerger les changements et signaux
+            qui méritent l'attention.
+          </p>
+        </div>
+
+        <div class="step">
+          <span class="step-index">5</span>
+          <h3>DÉCIDER</h3>
+          <p>
+            Transformer l'information disponible en éléments
+            directement mobilisables pour l'analyse stratégique.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ANALYSIS -->
 
   <section>
-
     <div class="container">
 
-      <div class="label">Notre vision</div>
-
-      <h2>
-        De l'information disponible à l'information utile.
-      </h2>
-
-      <p class="lead">
-        Les organisations disposent aujourd'hui d'une quantité croissante
-        d'informations, mais leur dispersion rend leur exploitation complexe.
-        Firnatis vise à faciliter leur lecture pour mieux comprendre
-        l'environnement d'une entreprise et éclairer l'analyse stratégique.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <section class="light">
-
-    <div class="container">
-
-      <div class="label">Firnatis</div>
-
-      <h2>
-        Une lecture structurée de l'environnement économique.
-      </h2>
-
-      <div class="value-grid">
-
-        <article class="value-card">
-
-          <div class="number">01</div>
-
-          <h3>Comprendre</h3>
-
-          <p>
-            Rassembler des informations pertinentes afin de disposer
-            d'une vision plus structurée de l'entreprise et de son
-            environnement.
-          </p>
-
-        </article>
-
-
-        <article class="value-card">
-
-          <div class="number">02</div>
-
-          <h3>Observer</h3>
-
-          <p>
-            Suivre différentes dimensions de l'activité économique afin
-            de faire émerger des évolutions et des dynamiques utiles
-            à l'analyse.
-          </p>
-
-        </article>
-
-
-        <article class="value-card">
-
-          <div class="number">03</div>
-
-          <h3>Éclairer</h3>
-
-          <p>
-            Mettre l'information en perspective pour contribuer à
-            l'analyse, à l'anticipation et à la prise de décision.
-          </p>
-
-        </article>
-
+      <div class="section-label">
+        Pensé pour l'analyse
       </div>
 
-    </div>
-
-  </section>
-
-
-  <section class="dark">
-
-    <div class="container">
-
-      <div class="label">Principes</div>
-
-      <h2>
-        Une intelligence économique fondée sur des informations documentées.
+      <h2 class="section-title">
+        Une plateforme conçue pour éclairer, pas pour ajouter du bruit.
       </h2>
 
-      <p class="lead">
-        Firnatis privilégie une approche dans laquelle les informations
-        mobilisées conservent leur contexte et sont interprétées au regard
-        de leur portée et de leurs limites.
+      <p class="section-intro">
+        L'enjeu n'est plus seulement d'accéder à davantage
+        d'informations. Il est de pouvoir identifier celles
+        qui contribuent réellement à la compréhension d'une situation.
       </p>
 
-
-      <div class="principles">
+      <div class="three">
 
         <div class="principle">
-
-          <div class="principle-mark"></div>
-
-          <h3>Traçabilité</h3>
-
+          <h3>Vision consolidée</h3>
           <p>
-            Préserver l'origine des informations utilisées dans l'analyse.
+            Réunir dans un même environnement différentes dimensions
+            utiles à la compréhension d'une entreprise.
           </p>
-
         </div>
 
-
         <div class="principle">
-
-          <div class="principle-mark"></div>
-
-          <h3>Prudence</h3>
-
+          <h3>Lecture dynamique</h3>
           <p>
-            Distinguer les faits observables des interprétations qui peuvent
-            en être tirées.
+            Ne pas seulement observer une situation : suivre les
+            évolutions et changements significatifs dans le temps.
           </p>
-
         </div>
 
-
         <div class="principle">
-
-          <div class="principle-mark"></div>
-
-          <h3>Complémentarité</h3>
-
+          <h3>Analyse explicable</h3>
           <p>
-            Mobiliser différentes catégories d'informations pour enrichir
-            la compréhension d'une situation.
+            Conserver la distinction entre les informations observées,
+            leur contexte et les éléments d'analyse qui en découlent.
           </p>
-
         </div>
 
       </div>
-
     </div>
-
   </section>
 
+  <!-- DATA TO SIGNAL -->
 
   <section>
-
     <div class="container">
+      <div class="value-box">
 
-      <div class="label">Emploi & compétences</div>
-
-      <h2>
-        Enrichir l'analyse des dynamiques RH.
-      </h2>
-
-      <p class="lead">
-        Parmi les dimensions étudiées par Firnatis figurent les dynamiques
-        RH, les métiers et les compétences recherchées.
-      </p>
-
-
-      <div class="employment-box">
-
-        <div>
-
-          <h3>Données RH</h3>
-
-          <p>
-            Firnatis mobilise des données relatives à l'emploi, aux métiers et aux compétences afin d'enrichir l'analyse des dynamiques RH observables.
-          </p>
-
-          <p>
-            Ces informations sont exploitées à des fins d'observation et d'analyse économique, dans le respect de leur contexte, de leur portée et des conditions associées à leur utilisation.
-          </p>
-
+        <div class="section-label">
+          De la donnée au signal
         </div>
 
+        <h2>
+          Accéder à l'information ne suffit plus.
+        </h2>
 
-        <div class="employment-note">
-
-          <strong>Cadre d'utilisation</strong>
-
-          <p>
-            Les informations relatives aux offres d'emploi sont considérées
-            comme des observations de besoins exprimés et sont interprétées
-            dans les limites des données disponibles.
-          </p>
-
-        </div>
+        <p>
+          FIRNATIS est conçu pour réduire la dispersion informationnelle,
+          contextualiser les informations disponibles et faciliter
+          l'identification des évolutions qui méritent réellement
+          l'attention.
+        </p>
 
       </div>
-
     </div>
-
   </section>
 
+  <!-- USE CASES -->
 
-  <section class="dark">
-
+  <section id="usages">
     <div class="container">
 
-      <div class="development">
-
-        <div>
-
-          <h3>Firnatis est en développement.</h3>
-
-          <p>
-            Le projet fait actuellement l'objet de travaux de développement,
-            de validation et de consolidation. Cette page présente uniquement
-            son positionnement général.
-          </p>
-
-        </div>
-
-        <div class="badge">
-          Projet en développement
-        </div>
-
+      <div class="section-label">
+        Cas d'usage
       </div>
 
-    </div>
+      <h2 class="section-title">
+        Aller plus vite de l'information à la décision.
+      </h2>
 
+      <div class="use-cases">
+
+        <article class="use-case">
+          <h3>Veille entreprise</h3>
+          <p>
+            Suivre les évolutions significatives autour
+            d'une entreprise.
+          </p>
+        </article>
+
+        <article class="use-case">
+          <h3>Analyse concurrentielle</h3>
+          <p>
+            Comparer des acteurs et identifier leurs dynamiques
+            respectives.
+          </p>
+        </article>
+
+        <article class="use-case">
+          <h3>Cartographie d'écosystème</h3>
+          <p>
+            Comprendre les relations et interdépendances utiles
+            à l'analyse d'un environnement économique.
+          </p>
+        </article>
+
+        <article class="use-case">
+          <h3>Anticipation stratégique</h3>
+          <p>
+            Identifier des signaux susceptibles d'éclairer
+            une évolution, une opportunité ou un facteur de vigilance.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+
+  <section>
+    <div class="container international">
+
+      <div class="section-label">
+        Perspective internationale
+      </div>
+
+      <h2 class="section-title">
+        Une lecture qui dépasse les frontières.
+      </h2>
+
+      <p class="section-intro">
+        Les entreprises évoluent dans des écosystèmes internationaux.
+        FIRNATIS est conçu pour intégrer progressivement des informations
+        issues de différents environnements économiques et territoriaux,
+        tout en conservant leur contexte et leur niveau de comparabilité.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- TRUST -->
+
+  <section class="trust" id="confiance">
+    <div class="container">
+
+      <h2>
+        Une information traçable.<br />
+        <span>Une analyse explicable.</span>
+      </h2>
+
+      <p>
+        FIRNATIS privilégie la traçabilité des informations,
+        l'explicabilité des résultats et la distinction entre faits
+        observés et éléments d'analyse. L'objectif : permettre à
+        l'utilisateur de comprendre la portée de l'information
+        présentée.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FINAL -->
+
+  <section class="final">
+    <div class="container">
+
+      <div class="section-label">
+        FIRNATIS
+      </div>
+
+      <h2>
+        Voir plus clair dans un environnement informationnel complexe.
+      </h2>
+
+      <p>
+        Une lecture structurée de l'entreprise et de son environnement
+        pour soutenir la veille, l'analyse et la décision stratégique.
+      </p>
+
+      <a class="button button-primary" href="#top">
+        Découvrir la plateforme
+      </a>
+
+    </div>
   </section>
 
 </main>
 
-
 <footer>
-
-  <div class="container footer">
-
-    <div class="footer-logo">FIRNATIS</div>
-
-    <div>
-      Intelligence économique · 2026
-    </div>
-
+  <div class="container footer-inner">
+    <div>© 2026 FIRNATIS</div>
+    <div>Intelligence économique · Analyse stratégique</div>
   </div>
-
 </footer>
 
 </body>
