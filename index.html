@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Firnatis est une solution d'intelligence économique en développement destinée à éclairer l'analyse stratégique des entreprises et de leur environnement.">
+
+  <title>Firnatis — Intelligence économique</title>
+
+  <style>
+    :root {
+      --navy: #07182d;
+      --navy-2: #0c2748;
+      --blue: #3b82f6;
+      --cyan: #7dd3fc;
+      --green: #5ee0b5;
+      --text: #172033;
+      --muted: #64748b;
+      --light: #f6f8fc;
+      --white: #ffffff;
+      --border: #e3e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 28px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    .nav-label {
+      color: #cbd5e1;
+      font-size: 13px;
+      letter-spacing: .5px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        radial-gradient(circle at 78% 25%, rgba(59,130,246,.34), transparent 26%),
+        radial-gradient(circle at 66% 72%, rgba(125,211,252,.12), transparent 28%),
+        linear-gradient(135deg, #051222 0%, #09213e 52%, #0d315b 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .17;
+      background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 58px 58px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -180px;
+      bottom: -260px;
+      border: 1px solid rgba(125,211,252,.16);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 80px rgba(125,211,252,.025),
+        0 0 0 160px rgba(125,211,252,.018);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+      padding-top: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 26px;
+      color: #bae6fd;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 15px rgba(94,224,181,.75);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(49px, 7vw, 80px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+    }
+
+    .highlight {
+      color: var(--cyan);
+    }
+
+    .hero-text {
+      max-width: 700px;
+      margin-top: 30px;
+      color: #cbd5e1;
+      font-size: 20px;
+      line-height: 1.75;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 38px;
+    }
+
+    .tag {
+      padding: 9px 15px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+      color: #e2e8f0;
+      font-size: 13px;
+      backdrop-filter: blur(7px);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .light {
+      background: var(--light);
+    }
+
+    .dark {
+      background: var(--navy);
+      color: white;
+    }
+
+    .label {
+      margin-bottom: 12px;
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .dark .label {
+      color: var(--cyan);
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 25px;
+      color: var(--navy);
+      font-size: clamp(32px, 4vw, 47px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    .dark h2 {
+      color: white;
+    }
+
+    .lead {
+      max-width: 830px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    .dark .lead {
+      color: #cbd5e1;
+    }
+
+    /* VALUE */
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 55px;
+    }
+
+    .value-card {
+      min-height: 260px;
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: white;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(15,23,42,.08);
+    }
+
+    .number {
+      margin-bottom: 38px;
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .value-card h3 {
+      margin: 0 0 13px;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    .value-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* PRINCIPLES */
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 55px;
+    }
+
+    .principle {
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 16px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .principle-mark {
+      width: 42px;
+      height: 4px;
+      margin-bottom: 24px;
+      border-radius: 5px;
+      background: var(--cyan);
+    }
+
+    .principle h3 {
+      margin: 0 0 11px;
+      font-size: 18px;
+    }
+
+    .principle p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 15px;
+    }
+
+    /* EMPLOYMENT */
+
+    .employment-box {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 55px;
+      align-items: center;
+      margin-top: 52px;
+      padding: 46px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 15px 45px rgba(15,23,42,.045);
+    }
+
+    .employment-box h3 {
+      margin: 0 0 17px;
+      color: var(--navy);
+      font-size: 25px;
+    }
+
+    .employment-box p {
+      margin: 0 0 15px;
+      color: var(--muted);
+    }
+
+    .employment-note {
+      padding: 26px;
+      border-radius: 14px;
+      background: #eff6ff;
+    }
+
+    .employment-note strong {
+      display: block;
+      margin-bottom: 9px;
+      color: #1d4ed8;
+      font-size: 13px;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+    }
+
+    .employment-note p {
+      margin: 0;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    /* DEVELOPMENT */
+
+    .development {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      padding: 45px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .development h3 {
+      margin: 0 0 9px;
+      font-size: 24px;
+    }
+
+    .development p {
+      max-width: 680px;
+      margin: 0;
+      color: #94a3b8;
+    }
+
+    .badge {
+      flex-shrink: 0;
+      padding: 11px 17px;
+      border: 1px solid rgba(94,224,181,.3);
+      border-radius: 999px;
+      background: rgba(94,224,181,.09);
+      color: #6ee7b7;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-logo {
+      color: var(--navy);
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .value-grid,
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .employment-box {
+        grid-template-columns: 1fr;
+      }
+
+      .development {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .nav-label {
+        display: none;
+      }
+
+      .value-card,
+      .employment-box,
+      .development {
+        padding: 27px;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">FIRNATIS</div>
+    <div class="nav-label">Intelligence économique</div>
+  </div>
+</nav>
+
+
+<header class="hero">
+
+  <div class="container hero-content">
+
+    <div class="eyebrow">
+      <span class="dot"></span>
+      Intelligence économique
+    </div>
+
+    <h1>
+      Voir plus loin dans
+      <span class="highlight">l'environnement des entreprises.</span>
+    </h1>
+
+    <p class="hero-text">
+      Firnatis est une solution d'intelligence économique en développement
+      conçue pour transformer des informations dispersées en une lecture
+      plus structurée de l'environnement stratégique des entreprises.
+    </p>
+
+    <div class="hero-tags">
+      <span class="tag">Analyse stratégique</span>
+      <span class="tag">Information économique</span>
+      <span class="tag">Données ouvertes</span>
+      <span class="tag">Aide à la décision</span>
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section>
+
+    <div class="container">
+
+      <div class="label">Notre vision</div>
+
+      <h2>
+        De l'information disponible à l'information utile.
+      </h2>
+
+      <p class="lead">
+        Les organisations disposent aujourd'hui d'une quantité croissante
+        d'informations, mais leur dispersion rend leur exploitation complexe.
+        Firnatis vise à faciliter leur lecture pour mieux comprendre
+        l'environnement d'une entreprise et éclairer l'analyse stratégique.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="light">
+
+    <div class="container">
+
+      <div class="label">Firnatis</div>
+
+      <h2>
+        Une lecture structurée de l'environnement économique.
+      </h2>
+
+      <div class="value-grid">
+
+        <article class="value-card">
+
+          <div class="number">01</div>
+
+          <h3>Comprendre</h3>
+
+          <p>
+            Rassembler des informations pertinentes afin de disposer
+            d'une vision plus structurée de l'entreprise et de son
+            environnement.
+          </p>
+
+        </article>
+
+
+        <article class="value-card">
+
+          <div class="number">02</div>
+
+          <h3>Observer</h3>
+
+          <p>
+            Suivre différentes dimensions de l'activité économique afin
+            de faire émerger des évolutions et des dynamiques utiles
+            à l'analyse.
+          </p>
+
+        </article>
+
+
+        <article class="value-card">
+
+          <div class="number">03</div>
+
+          <h3>Éclairer</h3>
+
+          <p>
+            Mettre l'information en perspective pour contribuer à
+            l'analyse, à l'anticipation et à la prise de décision.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="dark">
+
+    <div class="container">
+
+      <div class="label">Principes</div>
+
+      <h2>
+        Une intelligence économique fondée sur des informations documentées.
+      </h2>
+
+      <p class="lead">
+        Firnatis privilégie une approche dans laquelle les informations
+        mobilisées conservent leur contexte et sont interprétées au regard
+        de leur portée et de leurs limites.
+      </p>
+
+
+      <div class="principles">
+
+        <div class="principle">
+
+          <div class="principle-mark"></div>
+
+          <h3>Traçabilité</h3>
+
+          <p>
+            Préserver l'origine des informations utilisées dans l'analyse.
+          </p>
+
+        </div>
+
+
+        <div class="principle">
+
+          <div class="principle-mark"></div>
+
+          <h3>Prudence</h3>
+
+          <p>
+            Distinguer les faits observables des interprétations qui peuvent
+            en être tirées.
+          </p>
+
+        </div>
+
+
+        <div class="principle">
+
+          <div class="principle-mark"></div>
+
+          <h3>Complémentarité</h3>
+
+          <p>
+            Mobiliser différentes catégories d'informations pour enrichir
+            la compréhension d'une situation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="container">
+
+      <div class="label">Emploi & compétences</div>
+
+      <h2>
+        Enrichir l'analyse des dynamiques d'emploi.
+      </h2>
+
+      <p class="lead">
+        Parmi les dimensions étudiées par Firnatis figurent les dynamiques
+        d'emploi, les métiers et les compétences recherchées.
+      </p>
+
+
+      <div class="employment-box">
+
+        <div>
+
+          <h3>Données France Travail</h3>
+
+          <p>
+            Dans le cadre de son développement, Firnatis prévoit d'utiliser
+            les données accessibles via les API de France Travail afin
+            d'enrichir l'analyse des offres d'emploi, des métiers et
+            des compétences.
+          </p>
+
+          <p>
+            Ces données ont vocation à être utilisées à des fins
+            d'observation et d'analyse économique, dans le respect
+            des conditions associées à leur utilisation.
+          </p>
+
+        </div>
+
+
+        <div class="employment-note">
+
+          <strong>Cadre d'utilisation</strong>
+
+          <p>
+            Les informations relatives aux offres d'emploi sont considérées
+            comme des observations de besoins exprimés et sont interprétées
+            dans les limites des données disponibles.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="dark">
+
+    <div class="container">
+
+      <div class="development">
+
+        <div>
+
+          <h3>Firnatis est en développement.</h3>
+
+          <p>
+            Le projet fait actuellement l'objet de travaux de développement,
+            de validation et de consolidation. Cette page présente uniquement
+            son positionnement général.
+          </p>
+
+        </div>
+
+        <div class="badge">
+          Projet en développement
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer">
+
+    <div class="footer-logo">FIRNATIS</div>
+
+    <div>
+      Intelligence économique · 2026
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
